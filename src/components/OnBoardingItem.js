@@ -1,20 +1,30 @@
-import React from "react";
-import { StyleSheet, Text, Image, TouchableOpacity, Dimensions, View, SafeAreaView } from "react-native";
+import React, { useState,useEffect } from "react";
+import { StyleSheet, Text, Image, TouchableOpacity, Dimensions, View, SafeAreaView,useWindowDimensions } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { navigate } from "../helpers/navigation";
 
+//const { width, height } = Dimensions.get("window");
 
+//let styles = onBoardingStyles(initWidth,initHeight);
 //taking the dimensions of a window
-const { width, height } = Dimensions.get("screen");
+ 
+function OnBoardingItem({ item }) {
 
-const OnBoardingItem = ({ item }) => {
+    let  dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
+    let dimenHeight = useWindowDimensions().height; 
+    let [width, setWidth] = useState(dimenWidth);
+    let [height, setHeight] = useState(dimenHeight);
+    let styles = onBoardingStyles(width,height);
+    useEffect(() => {
+
+    }, []);
 
     //method that will render an object with its proper style
     const renderHelper = (object) => {
 
         if (object.id == "1")
             return (
-                <View style={[styles.container, { width }]}>
+                <View style={[styles.container]}>
                     <Image source={object.image2} style={styles.cloud}></Image>
                     <Text style={styles.description1}>{object.description}</Text>
                     <Image source={object.image1} style={styles.image1} />
@@ -22,21 +32,21 @@ const OnBoardingItem = ({ item }) => {
             );
         else if (object.id == "2")
             return (
-                <View style={[styles.container, { width }]}>
+                <View style={[styles.container]}>
                     <Image source={object.image2} style={styles.image2} />
                     <Text style={styles.description2}>{object.description}</Text>
                 </View>
             );
         else if (object.id == '3')
             return (
-                <View style={[styles.container, { width }]}>
+                <View style={[styles.container]}>
                     <Text style={styles.description3}>{object.description}</Text>
                     <Image source={object.image3} style={styles.image3} />
                 </View>
             );
         else if (object.id == '4')
             return (
-                <View style={[styles.container, { width }]}>
+                <View style={[styles.container]}>
                     <Image source={object.image4} style={styles.image4} />
                     <Text style={styles.description4}>{object.description}</Text>
                     <TouchableOpacity style={styles.button} onPress={() => navigate("Menu")}>
@@ -54,39 +64,36 @@ const OnBoardingItem = ({ item }) => {
 };
 
 
-
-
-
-
-const styles = StyleSheet.create({
+const onBoardingStyles = (w,h) => StyleSheet.create({
     container: {
         flex: 1,
         padding: 5,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        maxWidth:w
     },
-
 
     //ITEM 1 STYLES
     cloud: {
-        width: width * 0.95,
-        height: height * 0.38,
+        width: w * 0.95,
+        height: h * 0.38,
         alignSelf: "flex-end",
         resizeMode: "stretch",
-        marginTop: 10
+        marginTop: 35
     },
     image1: {
-        width: width * 0.7,
-        height: height * 0.45,
+        width: w * 0.6,
+        height: h * 0.45,
         alignSelf: "flex-start",
         resizeMode: "contain",
         marginLeft: 20,
-        marginBottom: 10
+        marginTop:-30,
+        marginBottom: 30
     },
     description1: {
         position: "absolute",
-        top: height * 0.05,
-        left: width * 0.03,
+        marginTop: 15,
+        top: 0,
         marginHorizontal: 50,
         textAlign: "center",
         fontFamily: "TrendaRegular",
@@ -99,7 +106,7 @@ const styles = StyleSheet.create({
 
     //ITEM 2 STYLES
     image2: {
-        width: width,
+        width: w,
         resizeMode: "contain"
     },
     description2: {
@@ -116,8 +123,8 @@ const styles = StyleSheet.create({
     //ITEM 3 STYLES
     image3: {
         alignSelf: "flex-start",
-        width: width * 0.9,
-        height: height * 0.4
+        width: w * 0.9,
+        height: h * 0.4
     },
 
     description3: {
@@ -126,7 +133,7 @@ const styles = StyleSheet.create({
         fontFamily: "TrendaRegular",
         fontSize: 20,
         color: "#14284D",
-        marginTop: height * 0.05
+        marginTop: h * 0.05
     },
 
 
@@ -134,8 +141,8 @@ const styles = StyleSheet.create({
 
     //ITEM 4 STYLES
     image4: {
-        width: width * 0.9,
-        height: height * 0.4,
+        width: w * 0.9,
+        height: h * 0.4,
         resizeMode: "contain"
     },
 
@@ -150,13 +157,13 @@ const styles = StyleSheet.create({
 
 
     button: {
-        width: width * 0.4,
-        height: height * 0.07,
+        width: w * 0.4,
+        height: h * 0.07,
         backgroundColor: "#EC206A",
         borderRadius: 20,
         position: "absolute",
         bottom: 0,
-        right: width / 3.5,
+        right: w / 3.5,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",

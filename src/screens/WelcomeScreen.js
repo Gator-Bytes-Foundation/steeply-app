@@ -21,9 +21,7 @@ const WelcomeScreen = ({ navigation }) => {
             <View style={styles.imageContainer}>
                 <Image style={styles.image} source={require("../images/welcome.png")} />
             </View>
-
             <View style={styles.form}>
-
                 <Text style={styles.header1}>WELCOME</Text>
                 <Text style={styles.header2}>to the Steeply App</Text>
 
@@ -31,13 +29,12 @@ const WelcomeScreen = ({ navigation }) => {
                     <ButtonText>Steep In</ButtonText>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.authButton2} onPress={() => navigation.navigate("Signup")}>
+                <TouchableOpacity style={styles.authButton2} onPress={() => navigation.navigate("OnBoard")}>
                     <ButtonText white>About Steeply</ButtonText>
                 </TouchableOpacity>
             </View>
         </View>
     );
-
 };
 
 

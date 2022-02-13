@@ -12,14 +12,19 @@ import TeamSection from "../components/TeamSection";
 const { width, height } = Dimensions.get("screen");
 
 
-const HomeScreen = ({ navigation }) => {
+function HomeScreen(props) {
 
+    const testPhobia = {
+        name:"scary",
+        imageURL:"https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png",
+        infoTitle:"scary title",
+        info:"info"
+    };
 
+    const message = props.navigation.state?.params.message;
 
-    const message = navigation.state.params.message;
-
-
-    const phobia = navigation.state.params.phobia;
+    
+    const phobia = props.navigation?.state?.params?.phobia || testPhobia;
 
     const [user, setUser] = useState();
 
@@ -40,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
         //first time screen gets rendered we get the user's data
         getUserData();
         //any other time screen got focus we call this didFocus listener to catch the newest user data
-        const listener = navigation.addListener("didFocus", () => {
+        const listener = props.navigation.addListener("didFocus", () => {
             getUserData();
         });
 
@@ -60,7 +65,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.header}>
                 {user ? <Text style={styles.headerText}>Hello {user.userData.fullName}</Text> : null}
                 <TouchableOpacity style={styles.touchable}>
-                    {user ? <Image style={styles.image} source={!user.userData.profileImageURL ? require("../images/noProfile.png") : { uri: String(user.userData.profileImageURL) }} /> : null}
+                    {user ? <Image style={styles.image} source={!user.userData.profileImageURL ? require("../images/noProfile.png") : require("../images/noProfile.png")} /> : null}
                 </TouchableOpacity>
             </View>
 
@@ -82,7 +87,7 @@ const HomeScreen = ({ navigation }) => {
                             description={item.description}
                             imageURL={phobia.url}
                             type={item.type}
-                            nav={navigation}
+                            navigation={props.navigation}
                             infoTitle={phobia.infoTitle}
                             info={phobia.info}
                         />

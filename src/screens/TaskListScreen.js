@@ -10,8 +10,8 @@ const { width, height } = Dimensions.get("screen");
 const TaskListScreen = ({ navigation }) => {
 
     //catching the params for this type of phobia
-    const infoTitle = navigation.state.params.infoTitle;
-    const info = navigation.state.params.info;
+    const infoTitle = navigation.state?.params.infoTitle;
+    const info = navigation.state?.params.info;
 
     return (
         <View style={styles.container}>

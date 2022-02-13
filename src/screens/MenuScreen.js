@@ -14,8 +14,8 @@ import { navigate } from "../helpers/navigation";
 //import "firebase/firestore";
 import { Ionicons } from '@expo/vector-icons';
 import TeamSection from "../components/TeamSection";
-import { Box, Center, Container, Flex, HStack, Column } from "native-base";
-
+import { Box, Center, Container, Flex, HStack, Column, ScrollView } from "native-base";
+//import brain from "../images/brain.png"; 
 
 const { width, height } = Dimensions.get("screen");
 
@@ -24,25 +24,17 @@ const { width, height } = Dimensions.get("screen");
 const PHOBIA_IMAGE_HEIGHT = 105;
 const ITEM_SIZE = height * 0.25 + 50;
 
-
-
-
-
-
-
 const testPhobia = {
-    name:"scary",
-    imageURL:"https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png",
+    name:"lesson",
+    description:"brain stuff",
+    url: "../images/brain.png",
     infoTitle:"scary title",
     info:"info"
 };
 
 
 
-
-
-
-const MenuScreen = () => {
+const MenuScreen = (props) => {
 
     //animation managing
     const scrollY = useRef(new Animated.Value(0)).current;
@@ -80,7 +72,6 @@ const MenuScreen = () => {
                 setUser({ id: userID, userData: userData });
             });*/
         }
-
         getUserInfo();
     }, []);
 
@@ -88,8 +79,8 @@ const MenuScreen = () => {
 
 
     //method for fetching a phobia and navigating to home 
-    const getPhobia = (phobiaID) => {
-        navigate("Home", { phobia: testPhobia, user: user });
+    const getLesson = (phobiaID) => {
+        props.navigation.navigate("Home", { phobia: testPhobia, user: user });
         /*firebase.firestore().collection("phobias").doc(phobiaID).get().then((doc) => {
             navigate("Home", { phobia: doc.data(), user: user });
         });*/
@@ -98,15 +89,12 @@ const MenuScreen = () => {
 
     return (
         <LinearGradient start={[-0.6, -0.3]} end={[0.8, 0.5]} colors={["#408BC0", "#0F2F6A"]} style={styles.container1} >
-        <Center>
+        <ScrollView>
             {/*HEADER CONTAINER*/}
             <View style={styles.headerContainer}>
-                <Text style={styles.header}>Choose your phobia</Text>
+                <Text style={styles.header}>Steeply</Text>
                 <Text style={styles.subHeader}>
-                    By choosing a phobia from the list,
-                    all the tasks you will solve
-                    during this process,
-                    will be addressing that topic.
+                    Please fill out quiz below
                 </Text>
             </View>
 
@@ -145,21 +133,18 @@ const MenuScreen = () => {
                             outputRange: [1, 1, 1, 0]
                         })
                         /*  FlatList Animation Reference code */
-
-                        /* Phobia card */
-                        return (
+                        return (    
                             <Animated.View style={{ width: width * 0.85, height: height * 0.25, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
                                 <LinearGradient start={[0.5, 0.3]} end={[0.5, 1.1]} colors={[String(item.data.startGradient), "#FAFAFA"]} style={styles.gradient} >
                                     <Text style={styles.title}>{item.data.name}</Text>
                                     <Text style={styles.description}>{item.data.description}</Text>
-
-                                    <Image style={styles.image} source={{ uri: item.data.url }} />
-
+                                    <Image source={require('../images/welcome.png')} style={styles.lessonImg} />
+                            
                                     <TouchableOpacity
                                         style={styles.button}
-                                        onPress={() => getPhobia(item.id)}
+                                        onPress={() => getLesson(item.id)}
                                     >
-                                        <Text style={styles.buttonText}>Enroll</Text>
+                                        <Text style={styles.buttonText}>Start</Text>
                                         <Ionicons name="ios-play" style={styles.icon} />
                                     </TouchableOpacity>
                                 </LinearGradient>
@@ -168,9 +153,8 @@ const MenuScreen = () => {
                     }}
                 />
             </View>
-            
                 <TeamSection/>
-             </Center>   
+          </ScrollView>   
 
         </LinearGradient>
     );
@@ -200,9 +184,9 @@ const styles = StyleSheet.create({
 
     },
     container2: {
-        backgroundColor: "#FFFF",
+        backgroundColor: "white",
         width: width,
-        height: height * 0.65,
+        //height: height * 0.65,
         borderTopRightRadius: 45,
         borderTopLeftRadius: 45,
         paddingHorizontal: 20,
@@ -227,10 +211,6 @@ const styles = StyleSheet.create({
     },
 
 
-
-
-
-
     /*MENU CARDS STYLES */
     gradient: {
         width: "100%",
@@ -250,12 +230,12 @@ const styles = StyleSheet.create({
         fontFamily: "TrendaRegular",
         color: "#0E0E0E"
     },
-    image: {
-        width: 75,
+    lessonImg: {
+        width: 100,
         height: PHOBIA_IMAGE_HEIGHT,
         position: "absolute",
-        right: width * 0.035,
-        bottom: height * 0.05,
+        right: "35%",
+        marginTop:"10%",
         resizeMode: "stretch",
     },
     button: {

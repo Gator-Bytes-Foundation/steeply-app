@@ -2,13 +2,25 @@ import React, { useState, useRef } from "react";
 import { StyleSheet, FlatList, Animated, SafeAreaView, ScrollView, View, Dimensions, Text } from "react-native";
 import slides from "../components/Slides";
 import OnBoardingItem from "../components/OnBoardingItem";
+import {
+    NativeBaseProvider,
+    Button,
+    Box,
+    HamburgerIcon,
+    Pressable,
+    Heading,
+    VStack,
+    Center,
+    HStack,
+    Divider,
+    Icon,
+  } from "native-base";
+
+const { width, height } = Dimensions.get("window");
 
 
-const { width, height } = Dimensions.get("screen");
 
-
-
-const OnBoardScreen = () => {
+function OnBoardScreen(props) {
 
     const scrollX = new Animated.Value(0);
 
@@ -102,7 +114,6 @@ const OnBoardScreen = () => {
 
     );
 };
-
 
 const styles = StyleSheet.create({
 

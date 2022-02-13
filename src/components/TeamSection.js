@@ -1,4 +1,4 @@
-import Title from './Title';
+//import Title from './Title';
 import TeamCard from './TeamCard';
 import Image1 from '../images/bex.jpg';
 import Image2 from '../images/cramer.png';
@@ -7,10 +7,12 @@ import Image4 from '../images/cramer.png';
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components/native'
 
-import { Box, Center, Container, Flex, HStack, Column } from "native-base";
+import { Box, Center, Container, Flex, HStack, Column, Text } from "native-base";
 
 //import { Alert } from 'react-native-bootstrap';
 const TeamContainer=styled.View`
+    display:flex;
+    background-color:white;
     padding-top:20px; 
     padding-bottom:20px; 
     text-align:center;
@@ -24,9 +26,9 @@ export default function TeamSection() {
     return (
         <TeamContainer>
             <Center >
-                <Title heading="Here are our heroes">
+                <Text >
                     According to the National Oceanic.
-                </Title>
+                </Text>
                 <Flex maxW="100%" justifyContent="center" alignItems="center" flexDirection={{
                     base: 'column',
                     md: 'row'

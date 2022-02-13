@@ -78,7 +78,7 @@ const AccountScreen = ({ navigation }) => {
         <View style={styles.container}>
             <LinearGradient start={[-0.6, -0.3]} end={[0.8, 0.5]} colors={["#408BC0", "#0F2F6A"]} style={styles.gradient} >
 
-                {user ? <Image style={styles.image} source={!user.userData.profileImageURL ? require("../images/noProfile.png") : { uri: user.userData.profileImageURL }} /> : null}
+                {user ? <Image style={styles.image} source={!user.userData.profileImageURL ? require("../images/noProfile.png") : require("../images/noProfile.png")} /> : null}
                 <TouchableOpacity style={styles.editButton} onPress={pickImage}>
                     <Ionicons name="ios-pencil" style={styles.icon} />
                 </TouchableOpacity>

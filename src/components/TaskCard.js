@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get("screen");
 
-const TaskCard = ({ phobiaName, description, imageURL, type, nav, infoTitle, info }) => {
+const TaskCard = ({ phobiaName, description, imageURL, type, navigation, infoTitle, info }) => {
 
 
     const renderIcon = () => {
@@ -49,11 +49,10 @@ const TaskCard = ({ phobiaName, description, imageURL, type, nav, infoTitle, inf
                     {renderIcon()}
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={() => nav.navigate("TaskList", { infoTitle: infoTitle, info: info })}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("TaskList", { infoTitle: infoTitle, info: info })}>
                     <AntDesign name="arrowright" size={24} color="white" />
                 </TouchableOpacity>
             </View>
-            <Image style={styles.phobiaImage} source={{ uri: String(imageURL) }} />
         </View>
 
     );
