@@ -39,11 +39,14 @@ import ExploreScreen from "./src/screens/ExploreScreen";
 import PurchaseScreen from "./src/screens/PurchaseScreen";
 import AccountScreen from "./src/screens/AccountScreen";
 import ExpertScreen from "./src/screens/ExpertScreen";
+import LessonScreen from "./src/components/Lesson";
 import ReviewScreen from "./src/screens/ReviewScreen";
 import ChangePasswordScreen from "./src/screens/ChangePasswordScreen";
 import OnBoardScreen from "./src/screens/OnBoardScreen";
 import ConfirmPurchaseScreen from "./src/screens/ConfirmPurchasingScreen";
 import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
+import AboutScreen from "./src/screens/AboutScreen";
+import ReferencesScreen from "./src/screens/ReferencesScreen";
 
 
 //Importing navigator helper which will allow us to navigate between different flows
@@ -175,6 +178,7 @@ const getIcon = (screenName) => {
   }
 };
 
+const sidebarRoutes = ["Home","About","References"];
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props} safeArea>
@@ -189,7 +193,7 @@ function CustomDrawerContent(props) {
         </Box>
         <VStack divider={<Divider />} space="4">
           <VStack space="3">
-            {props.state.routeNames.map((name, index) => (
+            {sidebarRoutes.map((name, index) => ( //props.state.routeNames
               <Pressable key={index}
                 px="5"
                 py="3"
@@ -262,8 +266,12 @@ function SidebarRoutes(props) {
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Menu" component={MenuScreen} />
         <Drawer.Screen name="TaskList" component={TaskListScreen} />
+        <Drawer.Screen name="About" component={AboutScreen} />
+        <Drawer.Screen name="References" component={ReferencesScreen} />
         <Drawer.Screen name="TaskDetail" component={TaskListScreen} />
         <Drawer.Screen name="OnBoard" component={OnBoardScreen} />
+        <Drawer.Screen name="Lesson" component={LessonScreen} />
+
     </Drawer.Navigator>
   </Box>
   )
@@ -274,8 +282,8 @@ function App() {
     <NavigationContainer>
       <NativeBaseProvider>
       <Tab.Navigator>
-        <Tab.Screen name="SidebarRoutes" component={SidebarRoutes} />
-        <Tab.Screen name="Welcome" component={WelcomeScreen} />
+        <Tab.Screen options={{ headerShown: false }} name="SidebarRoutes" component={SidebarRoutes} />
+        <Tab.Screen options={{ headerShown: false }} name="Lesson" component={LessonScreen} />
       </Tab.Navigator>
       </NativeBaseProvider>
     </NavigationContainer>

@@ -29,7 +29,8 @@ const testPhobia = {
     description:"brain stuff",
     url: "../images/brain.png",
     infoTitle:"scary title",
-    info:"info"
+    info:"info",
+    startGradient:"pink"
 };
 
 
@@ -46,10 +47,9 @@ const MenuScreen = (props) => {
     //calls once on first component render
     useEffect(() => {
         var newArray = [];
-        setPhobias([{ id: "testdoc", data: testPhobia}]);
+        setPhobias([{ id: "testdoc", data: testPhobia},{ id: "test2", data: testPhobia}]);
         /*var db = firebase.firestore();
-        //var storage = firebase.storage();
-
+        var storage = firebase.storage();
         db.collection("phobias").get().then((querySnapshot) => {
             querySnapshot.forEach((document) => {
 
@@ -80,7 +80,8 @@ const MenuScreen = (props) => {
 
     //method for fetching a phobia and navigating to home 
     const getLesson = (phobiaID) => {
-        props.navigation.navigate("Home", { phobia: testPhobia, user: user });
+        //props.navigation.navigate("Home", { phobia: testPhobia, user: user });
+        props.navigation.navigate("Lesson");
         /*firebase.firestore().collection("phobias").doc(phobiaID).get().then((doc) => {
             navigate("Home", { phobia: doc.data(), user: user });
         });*/
@@ -138,7 +139,7 @@ const MenuScreen = (props) => {
                                 <LinearGradient start={[0.5, 0.3]} end={[0.5, 1.1]} colors={[String(item.data.startGradient), "#FAFAFA"]} style={styles.gradient} >
                                     <Text style={styles.title}>{item.data.name}</Text>
                                     <Text style={styles.description}>{item.data.description}</Text>
-                                    <Image source={require('../images/welcome.png')} style={styles.lessonImg} />
+                                    <Image source={require('../images/Aux_medical.png')} style={styles.lessonImg} />
                             
                                     <TouchableOpacity
                                         style={styles.button}
@@ -153,7 +154,6 @@ const MenuScreen = (props) => {
                     }}
                 />
             </View>
-                <TeamSection/>
           </ScrollView>   
 
         </LinearGradient>
@@ -169,14 +169,14 @@ const styles = StyleSheet.create({
 
     /*Containers */
     container1: {
-        backgroundColor: "black",
+        backgroundColor: "white",
         width: width,
         height: height,
         alignItems: "flex-end"
     },
     headerContainer: {
         width: width,
-        height: height * 0.35,
+        height: height * 0.25,
         padding: 20,
         flexDirection: "column",
         justifyContent: "center",
@@ -186,6 +186,7 @@ const styles = StyleSheet.create({
     container2: {
         backgroundColor: "white",
         width: width,
+        position:"relative",
         //height: height * 0.65,
         borderTopRightRadius: 45,
         borderTopLeftRadius: 45,
@@ -210,13 +211,14 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
 
-
     /*MENU CARDS STYLES */
     gradient: {
         width: "100%",
         height: "100%",
         borderRadius: 25,
         paddingLeft: 15,
+        position:"relative",
+        backgroundColor:"white"
     },
     title: {
         alignSelf: "flex-start",
@@ -231,12 +233,10 @@ const styles = StyleSheet.create({
         color: "#0E0E0E"
     },
     lessonImg: {
-        width: 100,
+        alignSelf: "flex-start",
+        marginTop:-40,
         height: PHOBIA_IMAGE_HEIGHT,
-        position: "absolute",
-        right: "35%",
-        marginTop:"10%",
-        resizeMode: "stretch",
+        resizeMode: "contain",
     },
     button: {
         width: 100,

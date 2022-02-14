@@ -7,10 +7,10 @@ import Image4 from '../images/cramer.png';
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components/native'
 
-import { Box, Center, Container, Flex, HStack, Column, Text } from "native-base";
+import { Box, Center, Container, ScrollView, Flex, HStack, Column, Text } from "native-base";
 
 //import { Alert } from 'react-native-bootstrap';
-const TeamContainer=styled.View`
+const TeamContainer=styled.ScrollView`
     display:flex;
     background-color:white;
     padding-top:20px; 
@@ -26,17 +26,14 @@ export default function TeamSection() {
     return (
         <TeamContainer>
             <Center >
-                <Text >
-                    According to the National Oceanic.
-                </Text>
-                <Flex maxW="100%" justifyContent="center" alignItems="center" flexDirection={{
+                <Flex maxW="100%" justifyContent="center" alignItems="center" mb={250} flexDirection={{
                     base: 'column',
                     md: 'row'
                 }}>
                     <TeamCard
                         img={Image1}
-                        name="Ryan Tompson"
-                        position="Web Developer"
+                        name="Rebecca Soodeen"
+                        position="OT Student"
                     />
                     <TeamCard
                         img={Image2}
@@ -45,8 +42,8 @@ export default function TeamSection() {
                     />
                     <TeamCard
                         img={Image3}
-                        name="Alexa Smith"
-                        position="UI/UX Designer"
+                        name="Galloway"
+                        position="OT"
                     />
                     <TeamCard
                         img={Image4}
