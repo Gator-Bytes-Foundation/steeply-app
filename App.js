@@ -1,5 +1,5 @@
 import React from "react";
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { NavigationContainer } from "@react-navigation/native";
 //import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -39,7 +39,7 @@ import ExploreScreen from "./src/screens/ExploreScreen";
 import PurchaseScreen from "./src/screens/PurchaseScreen";
 import AccountScreen from "./src/screens/AccountScreen";
 import ExpertScreen from "./src/screens/ExpertScreen";
-import LessonScreen from "./src/components/Lesson";
+import ExerciseScreen from "./src/screens/lessons/lesson.exercise";
 import ReviewScreen from "./src/screens/ReviewScreen";
 import ChangePasswordScreen from "./src/screens/ChangePasswordScreen";
 import OnBoardScreen from "./src/screens/OnBoardScreen";
@@ -253,11 +253,10 @@ function CustomDrawerContent(props) {
     </DrawerContentScrollView>
   );
 }
-const Tab = createBottomTabNavigator();
 
 const Drawer = createDrawerNavigator();
 
-function SidebarRoutes(props) {
+function AppFlow(props) {
   return (
     <Box safeArea flex={1}>
     <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} />}
@@ -270,20 +269,30 @@ function SidebarRoutes(props) {
         <Drawer.Screen name="References" component={ReferencesScreen} />
         <Drawer.Screen name="TaskDetail" component={TaskListScreen} />
         <Drawer.Screen name="OnBoard" component={OnBoardScreen} />
-        <Drawer.Screen name="Lesson" component={LessonScreen} />
-
+        <Drawer.Screen name="Exercise" component={ExerciseScreen} />
     </Drawer.Navigator>
   </Box>
   )
 } 
 
+const Tab = createBottomTabNavigator();
+
 function App() {
   return (
     <NavigationContainer>
       <NativeBaseProvider>
-      <Tab.Navigator>
-        <Tab.Screen options={{ headerShown: false }} name="SidebarRoutes" component={SidebarRoutes} />
-        <Tab.Screen options={{ headerShown: false }} name="Lesson" component={LessonScreen} />
+      <Tab.Navigator screenOptions={{
+        tabBarActiveTintColor: '#e91e63',
+
+      }}>
+        <Tab.Screen name="App" component={AppFlow} options={{ 
+            headerShown: false,
+            tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name="account" size={24} color={tintColor}/>
+        }}/>
+        <Tab.Screen name="Home" component={HomeScreen} options={{
+          headerShown: false,
+          tabBarIcon: ({ tintColor }) => <AntDesign name="home" size={30} color={tintColor} />
+        }}/>
       </Tab.Navigator>
       </NativeBaseProvider>
     </NavigationContainer>

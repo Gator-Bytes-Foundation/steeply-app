@@ -21,18 +21,17 @@ const { width, height } = Dimensions.get("screen");
 
 
 
-const PHOBIA_IMAGE_HEIGHT = 105;
+const PHOBIA_IMAGE_HEIGHT = 135;
 const ITEM_SIZE = height * 0.25 + 50;
 
-const testPhobia = {
-    name:"lesson",
+const exerciseLesson = {
+    name:"Exercise",
     description:"brain stuff",
     url: "../images/brain.png",
     infoTitle:"scary title",
     info:"info",
     startGradient:"pink"
 };
-
 
 
 const MenuScreen = (props) => {
@@ -47,7 +46,7 @@ const MenuScreen = (props) => {
     //calls once on first component render
     useEffect(() => {
         var newArray = [];
-        setPhobias([{ id: "testdoc", data: testPhobia},{ id: "test2", data: testPhobia}]);
+        setPhobias([{ id: "Exercise", data: exerciseLesson},{ id: "MentalHealth", data: exerciseLesson},{ id: "Therapy", data: exerciseLesson}]);
         /*var db = firebase.firestore();
         var storage = firebase.storage();
         db.collection("phobias").get().then((querySnapshot) => {
@@ -60,8 +59,7 @@ const MenuScreen = (props) => {
                 //     })
                 newArray.push({ id: document.id, data: document.data() });
             });
-            setPhobias(newArray);
-        });*/
+            });*/
 
         async function getUserInfo() {
             setUser({ id: "testId", userData: "testData" });
@@ -79,9 +77,8 @@ const MenuScreen = (props) => {
 
 
     //method for fetching a phobia and navigating to home 
-    const getLesson = (phobiaID) => {
-        //props.navigation.navigate("Home", { phobia: testPhobia, user: user });
-        props.navigation.navigate("Lesson");
+    const getLesson = (lesson) => {
+        props.navigation.navigate(lesson.name,lesson);
         /*firebase.firestore().collection("phobias").doc(phobiaID).get().then((doc) => {
             navigate("Home", { phobia: doc.data(), user: user });
         });*/
@@ -101,10 +98,11 @@ const MenuScreen = (props) => {
 
             {/*LIST CONTAINER*/}
             <View style={styles.container2}>
-
                 <Animated.FlatList
                     onScroll={Animated.event(
-                        [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+                        [{ nativeEvent: { 
+                            contentOffset: { y: scrollY } } 
+                        }],
                         { useNativeDriver: true }
                     )}
                     data={phobias}
@@ -135,19 +133,25 @@ const MenuScreen = (props) => {
                         })
                         /*  FlatList Animation Reference code */
                         return (    
-                            <Animated.View style={{ width: width * 0.85, height: height * 0.25, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
+                            <Animated.View style={{ width: width * 0.85, height: height * 0.20, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
                                 <LinearGradient start={[0.5, 0.3]} end={[0.5, 1.1]} colors={[String(item.data.startGradient), "#FAFAFA"]} style={styles.gradient} >
-                                    <Text style={styles.title}>{item.data.name}</Text>
-                                    <Text style={styles.description}>{item.data.description}</Text>
-                                    <Image source={require('../images/Aux_medical.png')} style={styles.lessonImg} />
-                            
-                                    <TouchableOpacity
-                                        style={styles.button}
-                                        onPress={() => getLesson(item.id)}
-                                    >
-                                        <Text style={styles.buttonText}>Start</Text>
-                                        <Ionicons name="ios-play" style={styles.icon} />
-                                    </TouchableOpacity>
+                                    <Column w="75%" h="100%" justifyContent="flex-start">
+                                        <Text style={styles.title}>{item.data.name}</Text>
+                                        <Text style={styles.description}>{item.data.description}</Text>
+                                
+                                        <TouchableOpacity
+                                            style={styles.button}
+                                            onPress={() => getLesson(item.data)}
+                                        >
+                                            <Text style={styles.buttonText}>Start</Text>
+                                            <Ionicons name="ios-play" style={styles.icon} />
+                                        </TouchableOpacity>    
+                                    </Column>
+                                    <Column w="25%" h="100%">
+                                        <Image source={require('../images/Aux_medical.png')} style={styles.lessonImg} />
+                                    </Column>
+
+
                                 </LinearGradient>
                             </Animated.View>
                         );
@@ -214,39 +218,44 @@ const styles = StyleSheet.create({
     /*MENU CARDS STYLES */
     gradient: {
         width: "100%",
-        height: "100%",
+        height:"100%",
         borderRadius: 25,
-        paddingLeft: 15,
         position:"relative",
-        backgroundColor:"white"
+        backgroundColor:"white",
+        flexDirection:"row",
+        alignItems:"flex-start",
+        justifyContent:"flex-start"
     },
     title: {
-        alignSelf: "flex-start",
         marginTop: 35,
         fontSize: 30,
         fontFamily: "TrendaSemibold",
+        paddingLeft: 15,
         color: "#0E0E0E"
     },
     description: {
         fontSize: 20,
         fontFamily: "TrendaRegular",
-        color: "#0E0E0E"
+        color: "#0E0E0E",
+        paddingLeft: 15
     },
     lessonImg: {
-        alignSelf: "flex-start",
-        marginTop:-40,
-        height: PHOBIA_IMAGE_HEIGHT,
+        alignSelf: "flex-end",
+        width:"100%",
+        marginTop:0,
+        minHeight: PHOBIA_IMAGE_HEIGHT,
+        height:"100%",
         resizeMode: "contain",
+        margin:20,
     },
     button: {
         width: 100,
         height: 40,
+        marginTop:"auto",
         backgroundColor: "#14284D",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        position: "absolute",
-        bottom: 0,
         borderTopRightRadius: 25,
         borderBottomLeftRadius: 25
     },
