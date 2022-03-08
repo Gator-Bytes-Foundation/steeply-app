@@ -27,7 +27,7 @@ const ITEM_SIZE = height * 0.20 + 50;
 const exerciseLesson = {
     name:"Exercise",
     description:"exercise stuff",
-    img: require('../images/Aux_medical.png'),
+    img: require('../images/exercise.png'),
     infoTitle:"exercise title",
     info:"info",
     startGradient:"pink"
@@ -35,7 +35,7 @@ const exerciseLesson = {
 const socialLesson = {
     name:"Exercise",
     description:"social stuff",
-    img: require('../images/brain.png'),
+    img: require('../images/social.png'),
     infoTitle:"social title",
     info:"info",
     startGradient:"green"
@@ -146,7 +146,6 @@ const MenuScreen = (props) => {
                                     <Column w="75%" h="100%" justifyContent="flex-start">
                                         <Text style={styles.title}>{item.data.name}</Text>
                                         <Text style={styles.description}>{item.data.description}</Text>
-                                
                                         <TouchableOpacity
                                             style={styles.button}
                                             onPress={() => getLesson(item.data)}
