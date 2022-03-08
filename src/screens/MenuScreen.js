@@ -22,34 +22,41 @@ const { width, height } = Dimensions.get("screen");
 
 
 const PHOBIA_IMAGE_HEIGHT = 135;
-const ITEM_SIZE = height * 0.25 + 50;
+const ITEM_SIZE = height * 0.20 + 50;
 
 const exerciseLesson = {
     name:"Exercise",
-    description:"brain stuff",
-    url: "../images/brain.png",
-    infoTitle:"scary title",
+    description:"exercise stuff",
+    img: require('../images/Aux_medical.png'),
+    infoTitle:"exercise title",
     info:"info",
     startGradient:"pink"
 };
-
+const socialLesson = {
+    name:"Exercise",
+    description:"social stuff",
+    img: require('../images/brain.png'),
+    infoTitle:"social title",
+    info:"info",
+    startGradient:"green"
+};
 
 const MenuScreen = (props) => {
 
     //animation managing
     const scrollY = useRef(new Animated.Value(0)).current;
 
-    //all data from phobias collection is stored here on first component render
-    const [phobias, setPhobias] = useState([]);
+    //all data from lessons collection is stored here on first component render
+    const [lessons, setLessons] = useState([]);
     const [user, setUser] = useState(null);
 
     //calls once on first component render
     useEffect(() => {
         var newArray = [];
-        setPhobias([{ id: "Exercise", data: exerciseLesson},{ id: "MentalHealth", data: exerciseLesson},{ id: "Therapy", data: exerciseLesson}]);
+        setLessons([{ id: "Exercise", data: exerciseLesson},{ id: "Social", data: socialLesson},{ id: "Therapy", data: exerciseLesson}]);
         /*var db = firebase.firestore();
         var storage = firebase.storage();
-        db.collection("phobias").get().then((querySnapshot) => {
+        db.collection("lessons").get().then((querySnapshot) => {
             querySnapshot.forEach((document) => {
 
                 //helper
@@ -79,7 +86,7 @@ const MenuScreen = (props) => {
     //method for fetching a phobia and navigating to home 
     const getLesson = (lesson) => {
         props.navigation.navigate(lesson.name,lesson);
-        /*firebase.firestore().collection("phobias").doc(phobiaID).get().then((doc) => {
+        /*firebase.firestore().collection("lessons").doc(phobiaID).get().then((doc) => {
             navigate("Home", { phobia: doc.data(), user: user });
         });*/
     }
@@ -99,14 +106,15 @@ const MenuScreen = (props) => {
             {/*LIST CONTAINER*/}
             <View style={styles.container2}>
                 <Animated.FlatList
+                    data={lessons}
                     onScroll={Animated.event(
                         [{ nativeEvent: { 
                             contentOffset: { y: scrollY } } 
                         }],
                         { useNativeDriver: true }
                     )}
-                    data={phobias}
-                    showsVerticalScrollIndicator={false}
+                    
+                    showsVerticalScrollIndicator={true}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item, index }) => {
 
@@ -133,7 +141,7 @@ const MenuScreen = (props) => {
                         })
                         /*  FlatList Animation Reference code */
                         return (    
-                            <Animated.View style={{ width: width * 0.85, height: height * 0.20, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
+                            <Animated.View style={{ width: width * 0.85, height: height * 0.20, flexDirection:'row', marginBottom:20, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
                                 <LinearGradient start={[0.5, 0.3]} end={[0.5, 1.1]} colors={[String(item.data.startGradient), "#FAFAFA"]} style={styles.gradient} >
                                     <Column w="75%" h="100%" justifyContent="flex-start">
                                         <Text style={styles.title}>{item.data.name}</Text>
@@ -148,10 +156,8 @@ const MenuScreen = (props) => {
                                         </TouchableOpacity>    
                                     </Column>
                                     <Column w="25%" h="100%">
-                                        <Image source={require('../images/Aux_medical.png')} style={styles.lessonImg} />
+                                        <Image source={item.img} style={styles.lessonImg} />
                                     </Column>
-
-
                                 </LinearGradient>
                             </Animated.View>
                         );
@@ -180,7 +186,7 @@ const styles = StyleSheet.create({
     },
     headerContainer: {
         width: width,
-        height: height * 0.25,
+        height: height * 0.20,
         padding: 20,
         flexDirection: "column",
         justifyContent: "center",
@@ -190,14 +196,15 @@ const styles = StyleSheet.create({
     container2: {
         backgroundColor: "white",
         width: width,
+        flex:1,
         position:"relative",
-        //height: height * 0.65,
+        height: height * 0.55,
         borderTopRightRadius: 45,
         borderTopLeftRadius: 45,
         paddingHorizontal: 20,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 5
+        paddingBottom: 10
     },
 
 
