@@ -14,13 +14,11 @@ import { NativeBaseProvider, Button, Flex, Link, Box, Container, Circle,
   } from "native-base";
 //import * as Story from "zuck.js"
 import InstaStory from 'react-native-insta-story';
-import SmallTaskCard from "../components/SmallTaskCard";
+//import SmallTaskCard from "../components/SmallTaskCard";
+import { StoryContainer } from 'react-native-stories-view';
+import Story from 'react-native-story';
 
-const BeigeView=styled(VStack)`
-    background-color: rgb(228, 220, 212);
-    color: rgb(49, 69, 85); 
-    height:100%;
-`
+
 const HeadTitle=styled(Center)`
     padding-top:10px; 
     margin-top:30px;
@@ -30,40 +28,90 @@ const HeadTitle=styled(Center)`
 const BigOleCircle=styled(Circle)`
     margin:30px; 
     display:flex;
-    background-color: rgb(72,96,115);
+    background-color: white;
     color:white;
     max-width:500px; 
     max-height:500px; 
     flex-direction:column;
 ` 
+const StoryList=styled(FlatList)`
+    position:absolute;
+    bottom:0;
+`
 function Lesson(props) {
     let dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
     let dimenHeight = useWindowDimensions().height; 
     const circleHeight = dimenHeight * 0.4;
     const circleWidth = dimenWidth * 0.7; 
-    //let storyElement = useRef()
-    //var currentSkin = Story.currentSkin;
+    let lessons = []
+    for (let i=0; i < props.lessonSections.length-1; i++) {
+        let exerciseStories = []
+        let sectionIndex = props.lessonIndices[i].index
+        let sectionTitle = props.lessonIndices[i].title
+        for (let j=props.lessonIndices[i]; j <= props.lessonIndices[i+1]; j++) {
+            //console.log(j)
+            let oldExerciseStory = {
+                story_id: j,
+                story_image: props.storyImgs[j],
+                swipeText:'Custom swipe text for this story',
+                onPress: () => console.log('story 1 swiped'),
+            }
+            exerciseStories.push(oldExerciseStory)
+        }
+        
+        let exericseSection = {
+            user_id: i,
+            user_image: props.storyImgs[sectionIndex],
+            user_name: sectionTitle,
+            stories: exerciseStories
+        }
+        lessons.push(exericseSection)
+    }
+
     return (<>
-        <BeigeView w="100%" h="100%">
             <Center>
                 <HeadTitle>
-                    <Text fontSize="xl" fontWeight="bold">{props.title}</Text>
+                    {props.circleInfo.img? <Image source={props.circleInfo.headerIcon}/> : ''}
+                    <Text fontSize="xl" fontWeight="bold">{props.circleInfo.header}</Text>          
                 </HeadTitle>
                 <Flex>
-                    <BigOleCircle w={circleWidth} h={circleWidth} >
+
+                    <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleInfo.bg} >
                         <Text color="white">{props.info}</Text>
                     </BigOleCircle>
                 </Flex>
-            </Center>
-            <FlatList
-                    bounces={true}
-                    scrollEventThrottle={16}
+            </Center> 
+            <StoryList
+                    bounces={true}  
+                    scrollEventThrottle={18}
                     horizontal={true}
                     showsHorizontalScrollIndicator={true}
-                    data={props.stories}
+                    data={lessons}
                     keyExtractor={(item) => `${item.user_id}`}
                     renderItem={({item}) => {
-                        return <InstaStory data={[item]}
+                        //console.log(item)
+                        return <>
+                            <InstaStory data={[item]}
+                                duration={10}
+                                unPressedBorderColor={"blue"}
+                                pressedBorderColor={"green"}
+                                avatarSize={80}
+                                onStart={item => console.log(item)}
+                                onClose={item => console.log('close: ', item)}
+                                customSwipeUpComponent={
+                                <View>
+                                    <Text>Swipe</Text>
+                                </View>
+                                }
+                                style={{marginTop: 150, bottom:0, height:110}}
+                            />
+                        </>}}
+            />                               
+    </>);
+}
+
+/*
+<InstaStory data={[item]}
                         duration={10}
                         unPressedBorderColor={"blue"}
                         pressedBorderColor={"green"}
@@ -76,10 +124,17 @@ function Lesson(props) {
                         </View>
                         }
                         style={{marginTop: 150, bottom:0, height:110}}/>
-                    }}
-                />                
-        </BeigeView>
-    </>);
-}
-
+                                                
+                        <Story
+                        unPressedBorderColor="#e95950"
+                        pressedBorderColor="#ebebeb"
+                        stories={item.stories}
+                        footerComponent={
+                            <TextInput
+                                placeholder="Send message"
+                                placeholderTextColor="white"
+                            />
+                        }
+                    />
+                    */
 export default Lesson

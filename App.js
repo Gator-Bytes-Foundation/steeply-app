@@ -39,7 +39,8 @@ import ExploreScreen from "./src/screens/ExploreScreen";
 import PurchaseScreen from "./src/screens/PurchaseScreen";
 import AccountScreen from "./src/screens/AccountScreen";
 import ExpertScreen from "./src/screens/ExpertScreen";
-import ExerciseScreen from "./src/screens/lessons/lesson.exercise";
+import ExerciseScreen from "./src/screens/lessons/exercise.screen";
+import SocialScreen from "./src/screens/lessons/social.screen";
 import ReviewScreen from "./src/screens/ReviewScreen";
 import ChangePasswordScreen from "./src/screens/ChangePasswordScreen";
 import OnBoardScreen from "./src/screens/OnBoardScreen";
@@ -270,6 +271,7 @@ function AppFlow(props) {
         <Drawer.Screen name="TaskDetail" component={TaskListScreen} />
         <Drawer.Screen name="OnBoard" component={OnBoardScreen} />
         <Drawer.Screen name="Exercise" component={ExerciseScreen} />
+        <Drawer.Screen name="Social" component={SocialScreen} />
     </Drawer.Navigator>
   </Box>
   )
