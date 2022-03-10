@@ -1,6 +1,6 @@
 import {Asset} from 'expo-asset';
 
-export let exerciseSections = [
+export const sections = [
     {
         index: 1,
         title: "Exercise Importance"
@@ -30,15 +30,19 @@ export let exerciseSections = [
         title: "Exercise Apps"
     },
     {
-        index: 79,
+        index: 75,
+        title: "Too much Exercise?"
+    },
+    {
+        index: 78,
         title: "Milestone Guideline"
     },
     {
-        index: 85,
+        index: 84,
         title: "Last story"
     }
 ];
-export let banners = [
+export const slides = [
     {
         info: "Being  active every day helps you stay strong throughout treatment and in the future!",
         img:null,
@@ -136,13 +140,11 @@ let exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/77.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/78.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/79.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/79.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/80.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/81.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/82.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/83.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/84.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/85.jpg')).uri
+    Asset.fromModule(require('../../../images/stories/exercises/84.jpg')).uri
 ]
 
 export default exerciseImgs;

@@ -272,6 +272,7 @@ function AppFlow(props) {
         <Drawer.Screen name="OnBoard" component={OnBoardScreen} />
         <Drawer.Screen name="Exercise" component={ExerciseScreen} />
         <Drawer.Screen name="Social" component={SocialScreen} />
+        <Drawer.Screen name="Education" component={SocialScreen} />
     </Drawer.Navigator>
   </Box>
   )

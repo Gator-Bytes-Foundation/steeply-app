@@ -24,36 +24,48 @@ const { width, height } = Dimensions.get("screen");
 const PHOBIA_IMAGE_HEIGHT = 135;
 const ITEM_SIZE = height * 0.20 + 50;
 
-const exerciseLesson = {
-    name:"Exercise",
-    description:"exercise stuff",
-    img: require('../images/exercise.png'),
-    infoTitle:"exercise title",
-    info:"info",
-    startGradient:"pink"
-};
-const socialLesson = {
-    name:"Exercise",
-    description:"social stuff",
-    img: require('../images/social.png'),
-    infoTitle:"social title",
-    info:"info",
-    startGradient:"green"
-};
+
+
 
 const MenuScreen = (props) => {
-
+    const educationLesson = {
+        name:"Education",
+        description:"Keeping up with your academics.",
+        img: require('../images/education.png'),
+        infoTitle:"social title",
+        info:"info",
+        startGradient:"#ff7f6f",
+        endGradient:"#f9b10c"
+    };
+    const exerciseLesson = {
+        name:"Exercise",
+        description:"Stretches, tips, and fun facts about staying fit!",
+        img: require('../images/exercise.png'),
+        infoTitle:"exercise title",
+        info:"info",
+        startGradient:"#1f628e",
+        endGradient:"#00a8a8"
+    };
+    const socialLesson = {
+        name:"Stay Connected",
+        description:"Connecting with friends, family, and others along your journey.",
+        img: require('../images/social.png'),
+        infoTitle:"social title",
+        info:"info",
+        startGradient:"#045580",
+        endGradient:"#9cb4ff"
+    };
     //animation managing
     const scrollY = useRef(new Animated.Value(0)).current;
-
+    let initLessons = [educationLesson,exerciseLesson,socialLesson]
     //all data from lessons collection is stored here on first component render
-    const [lessons, setLessons] = useState([]);
+    const [lessons, setLessons] = useState(initLessons);
     const [user, setUser] = useState(null);
 
     //calls once on first component render
     useEffect(() => {
         var newArray = [];
-        setLessons([{ id: "Exercise", data: exerciseLesson},{ id: "Social", data: socialLesson},{ id: "Therapy", data: exerciseLesson}]);
+        //setLessons([]);
         /*var db = firebase.firestore();
         var storage = firebase.storage();
         db.collection("lessons").get().then((querySnapshot) => {
@@ -115,7 +127,7 @@ const MenuScreen = (props) => {
                     )}
                     
                     showsVerticalScrollIndicator={true}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.name}
                     renderItem={({ item, index }) => {
 
                         /*  FlatList Animation Reference code */
@@ -142,13 +154,13 @@ const MenuScreen = (props) => {
                         /*  FlatList Animation Reference code */
                         return (    
                             <Animated.View style={{ width: width * 0.85, height: height * 0.20, flexDirection:'row', marginBottom:20, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
-                                <LinearGradient start={[0.5, 0.3]} end={[0.5, 1.1]} colors={[String(item.data.startGradient), "#FAFAFA"]} style={styles.gradient} >
+                                <LinearGradient start={[0.4, 0.5]} end={[0.6, 0.5]} colors={[String(item.startGradient), String(item.endGradient)]} style={styles.gradient} >
                                     <Column w="75%" h="100%" justifyContent="flex-start">
-                                        <Text style={styles.title}>{item.data.name}</Text>
-                                        <Text style={styles.description}>{item.data.description}</Text>
+                                        <Text style={styles.title}>{item.name}</Text>
+                                        <Text style={styles.description}>{item.description}</Text>
                                         <TouchableOpacity
                                             style={styles.button}
-                                            onPress={() => getLesson(item.data)}
+                                            onPress={() => getLesson(item)}
                                         >
                                             <Text style={styles.buttonText}>Start</Text>
                                             <Ionicons name="ios-play" style={styles.icon} />
@@ -237,12 +249,12 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontFamily: "TrendaSemibold",
         paddingLeft: 15,
-        color: "#0E0E0E"
+        color: "#eeeeee"
     },
     description: {
         fontSize: 20,
         fontFamily: "TrendaRegular",
-        color: "#0E0E0E",
+        color: "#eeeeee",
         paddingLeft: 15
     },
     lessonImg: {

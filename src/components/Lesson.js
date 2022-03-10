@@ -46,9 +46,9 @@ function Lesson(props) {
     let lessons = []
     for (let i=0; i < props.lessonSections.length-1; i++) {
         let exerciseStories = []
-        let sectionIndex = props.lessonIndices[i].index
-        let sectionTitle = props.lessonIndices[i].title
-        for (let j=props.lessonIndices[i]; j <= props.lessonIndices[i+1]; j++) {
+        let sectionIndex = props.lessonSections[i].index
+        let sectionTitle = props.lessonSections[i].title
+        for (let j=props.lessonSections[i].index; j <= props.lessonSections[i+1].index; j++) {
             //console.log(j)
             let oldExerciseStory = {
                 story_id: j,
@@ -69,18 +69,6 @@ function Lesson(props) {
     }
 
     return (<>
-            <Center>
-                <HeadTitle>
-                    {props.circleInfo.img? <Image source={props.circleInfo.headerIcon}/> : ''}
-                    <Text fontSize="xl" fontWeight="bold">{props.circleInfo.header}</Text>          
-                </HeadTitle>
-                <Flex>
-
-                    <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleInfo.bg} >
-                        <Text color="white">{props.info}</Text>
-                    </BigOleCircle>
-                </Flex>
-            </Center> 
             <StoryList
                     bounces={true}  
                     scrollEventThrottle={18}

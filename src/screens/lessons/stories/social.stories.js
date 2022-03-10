@@ -1,6 +1,6 @@
 import {Asset} from 'expo-asset';
 
-export let sections = [
+export const sections = [
     {
         index: 1,
         title: "Support Groups"
@@ -34,7 +34,7 @@ export let sections = [
         title: "Last story"
     }
 ];
-export let banners = [
+export const slides = [
     {
         info: "Being  active every day helps you stay strong throughout treatment and in the future!",
         img:null,

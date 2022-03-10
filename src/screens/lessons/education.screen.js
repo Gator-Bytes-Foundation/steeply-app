@@ -11,11 +11,11 @@ const BlueView=styled(VStack)`
     height:100%;
 `
 
-const SocialScreen = (props) => {
+const EducationScreen = (props) => {
 
     let  dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
     let dimenHeight = useWindowDimensions().height; 
-    let styles = socialStyles(dimenWidth,dimenHeight);
+    let styles = educationStyles(dimenWidth,dimenHeight);
 
     let circleInfo = {
         bg:"white",
@@ -30,7 +30,7 @@ const SocialScreen = (props) => {
     return (
         <BlueView w="100%" h="100%">
           <Banner banners={slides} header="Exercise" fontColor="black" circleBg="white"/>
-          <Lesson title="Social" lessonSections={sections} storyImgs={storyImgs}>
+          <Lesson title="Education" lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </BlueView>
     );
@@ -38,7 +38,7 @@ const SocialScreen = (props) => {
 };
 
 
-const socialStyles = (width, height) => StyleSheet.create({
+const educationStyles = (width, height) => StyleSheet.create({
 
     /*Containers */
     container1: {
@@ -49,4 +49,4 @@ const socialStyles = (width, height) => StyleSheet.create({
     }
 });
 
-export default SocialScreen;
+export default EducationScreen;

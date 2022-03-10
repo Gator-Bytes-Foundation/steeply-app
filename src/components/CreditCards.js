@@ -2,21 +2,21 @@ export default [
     {
         id: "1",
         title: "Mastercard",
-        image: require("../images/mastercard.png"),
+        image: require("../images/welcome.png"),
         background: "#868583"
     },
 
     {
         id: "2",
         title: "Raiffeisen",
-        image: require("../images/raiffeisen.jpg"),
+        image: require("../images/welcome.png"),
         background: "#ffe202"
     },
 
     {
         id: "3",
         title: "Visa",
-        image: require("../images/visa.png"),
+        image: require("../images/welcome.png"),
         background: "white"
     },
 ]

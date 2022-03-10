@@ -8,17 +8,17 @@ const PaymentMethod = ({ image }) => {
     const renderContent = () => {
         if (image == "card")
             return <View style={styles.card}>
-                <Image style={{ width: 65, height: 55, resizeMode: "contain" }} source={require("../images/card.png")} />
+                <Image style={{ width: 65, height: 55, resizeMode: "contain" }} source={require("../images/welcome.png")} />
                 <Text style={styles.description}>Credit/debit card</Text>
             </View>
         else if (image == "amazonPay")
             return <View style={styles.card}>
-                <Image style={{ width: 65, height: 55, resizeMode: "contain" }} source={require("../images/amazonPay.png")} />
+                <Image style={{ width: 65, height: 55, resizeMode: "contain" }} source={require("../images/welcome.png")} />
                 <Text style={styles.description}>amazonPay</Text>
             </View>
         else if (image == "paypal")
             return <View style={styles.card}>
-                <Image style={{ width: 65, height: 55, resizeMode: "contain" }} source={require("../images/paypal.png")} />
+                <Image style={{ width: 65, height: 55, resizeMode: "contain" }} source={require("../images/welcome.png")} />
                 <Text style={styles.description}>amazonPay</Text>
             </View>
     };
