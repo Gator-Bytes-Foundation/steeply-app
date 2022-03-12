@@ -51,7 +51,7 @@ function Banner(props) {
             <Center>
                 <HeadTitle>
                     {props.headerIcon? <Image style={{ width: 50, height: 50 }} source={props.headerIcon}/> : ''}
-                    <Text fontSize="inherit" fontFamily="Poppins" fontWeight="bold">{props.header}</Text>          
+                    <Text color={props.fontColor} fontSize={23} fontFamily="Poppins" textShadow="5px 5px 5px" fontWeight="bold">{props.header}</Text>          
                 </HeadTitle>
                 <Flex>
 
