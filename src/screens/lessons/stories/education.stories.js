@@ -1,6 +1,6 @@
 import {Asset} from 'expo-asset';
 
-export let sections = [
+export const sections = [
     {
         index: 1,
         title: "What to Expect"

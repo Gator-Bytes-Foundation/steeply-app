@@ -24,12 +24,10 @@ const { width, height } = Dimensions.get("screen");
 const PHOBIA_IMAGE_HEIGHT = 135;
 const ITEM_SIZE = height * 0.20 + 50;
 
-
-
-
 const MenuScreen = (props) => {
+    console.log(props.route.params)
     const educationLesson = {
-        name:"Education",
+        name:"Navigating School",
         description:"Keeping up with your academics.",
         img: require('../images/education.png'),
         infoTitle:"social title",
@@ -44,7 +42,8 @@ const MenuScreen = (props) => {
         infoTitle:"exercise title",
         info:"info",
         startGradient:"#1f628e",
-        endGradient:"#00a8a8"
+        endGradient:"#00a8a8",
+        key: props.route.params//.state.key
     };
     const socialLesson = {
         name:"Stay Connected",
@@ -55,9 +54,27 @@ const MenuScreen = (props) => {
         startGradient:"#045580",
         endGradient:"#9cb4ff"
     };
+    const symptomLesson = {
+        name:"Side Effect Management",
+        description:"Managing your symptoms.",
+        img: require('../images/symptom.png'),
+        infoTitle:"social title",
+        info:"info",
+        startGradient:"#045580",
+        endGradient:"#9cb4ff"
+    };
+    const medLesson = {
+        name:"Med Management",
+        description:"Managing your medications.",
+        img: require('../images/symptom.png'),
+        infoTitle:"social title",
+        info:"info",
+        startGradient:"#045580",
+        endGradient:"#9cb4ff"
+    };
     //animation managing
     const scrollY = useRef(new Animated.Value(0)).current;
-    let initLessons = [educationLesson,exerciseLesson,socialLesson]
+    let initLessons = [educationLesson,exerciseLesson,socialLesson,symptomLesson,medLesson]
     //all data from lessons collection is stored here on first component render
     const [lessons, setLessons] = useState(initLessons);
     const [user, setUser] = useState(null);
@@ -105,7 +122,7 @@ const MenuScreen = (props) => {
 
 
     return (
-        <LinearGradient start={[-0.6, -0.3]} end={[0.8, 0.5]} colors={["#408BC0", "#0F2F6A"]} style={styles.container1} >
+        <LinearGradient start={[0.2, 0.5]} end={[1.6, 0.5]} colors={["#408BC0", "#0F2F6A"]} style={styles.container1} >
         <ScrollView>
             {/*HEADER CONTAINER*/}
             <View style={styles.headerContainer}>
@@ -154,7 +171,7 @@ const MenuScreen = (props) => {
                         /*  FlatList Animation Reference code */
                         return (    
                             <Animated.View style={{ width: width * 0.85, height: height * 0.20, flexDirection:'row', marginBottom:20, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
-                                <LinearGradient start={[0.4, 0.5]} end={[0.6, 0.5]} colors={[String(item.startGradient), String(item.endGradient)]} style={styles.gradient} >
+                                <LinearGradient start={[0.2, 0.5]} end={[1.4, 0.5]} colors={[String(item.startGradient), String(item.endGradient)]} style={styles.gradient} >
                                     <Column w="75%" h="100%" justifyContent="flex-start">
                                         <Text style={styles.title}>{item.name}</Text>
                                         <Text style={styles.description}>{item.description}</Text>

@@ -64,6 +64,10 @@ import apiKeys from "./src/config/keys";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import EducationScreen from "./src/screens/lessons/education.screen";
+import MedScreen from "./src/screens/lessons/med.screen";
+import DietScreen from "./src/screens/lessons/diet.screen";
+import SymptomScreen from "./src/screens/lessons/symptom.screen";
 
 
 
@@ -186,10 +190,10 @@ function CustomDrawerContent(props) {
       <VStack space="6" my="2" mx="1">
         <Box px="4">
           <Text bold color="gray.700">
-            Mail
+            Steeply
           </Text>
           <Text fontSize="14" mt="1" color="gray.500" fontWeight="500">
-            john_doe@gmail.com
+           Pages
           </Text>
         </Box>
         <VStack divider={<Divider />} space="4">
@@ -221,34 +225,6 @@ function CustomDrawerContent(props) {
               </Pressable>
             ))}
           </VStack>
-          <VStack space="5">
-            <Text fontWeight="500" fontSize="14" px="5" color="gray.500">
-              Labels
-            </Text>
-            <VStack space="3">
-              <Pressable px="5" py="3">
-                <HStack space="7" alignItems="center">
-                  <Text color="gray.700" fontWeight="500">
-                    Family
-                  </Text>
-                </HStack>
-              </Pressable>
-              <Pressable px="5" py="2">
-                <HStack space="7" alignItems="center">
-                  <Text color="gray.700" fontWeight="500">
-                    Friends
-                  </Text>
-                </HStack>
-              </Pressable>
-              <Pressable px="5" py="3">
-                <HStack space="7" alignItems="center">
-                  <Text fontWeight="500" color="gray.700">
-                    Work
-                  </Text>
-                </HStack>
-              </Pressable>
-            </VStack>
-          </VStack>
         </VStack>
       </VStack>
     </DrawerContentScrollView>
@@ -260,22 +236,22 @@ const Drawer = createDrawerNavigator();
 function AppFlow(props) {
   return (
     <Box safeArea flex={1}>
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} />}
+    <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props}/>}
     > 
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Menu" component={MenuScreen} />
+        <Drawer.Screen name="Menu" key="menu" component={MenuScreen} />
         <Drawer.Screen name="TaskList" component={TaskListScreen} />
         <Drawer.Screen name="About" component={AboutScreen} />
         <Drawer.Screen name="References" component={ReferencesScreen} />
         <Drawer.Screen name="TaskDetail" component={TaskListScreen} />
         <Drawer.Screen name="OnBoard" component={OnBoardScreen} />
         <Drawer.Screen name="Exercise" component={ExerciseScreen} />
-        <Drawer.Screen name="Education" component={SocialScreen} />
+        <Drawer.Screen name="Navigating School" component={EducationScreen} />
         <Drawer.Screen name="Stay Connected" component={SocialScreen} />
-        <Drawer.Screen name="Symptom" component={SocialScreen} />
-        <Drawer.Screen name="Symptom Management" component={SocialScreen} />
-        <Drawer.Screen name="Medication Management" component={SocialScreen} />
+        <Drawer.Screen name="Diet" component={DietScreen} />
+        <Drawer.Screen name="Side Effect Management" component={SymptomScreen} />
+        <Drawer.Screen name="Med Management" component={MedScreen} />
 
     </Drawer.Navigator>
   </Box>
@@ -290,7 +266,7 @@ function App() {
       <NativeBaseProvider>
       <Tab.Navigator screenOptions={{
         tabBarActiveTintColor: '#e91e63',
-
+        
       }}>
         <Tab.Screen name="App" component={AppFlow} options={{ 
             headerShown: false,

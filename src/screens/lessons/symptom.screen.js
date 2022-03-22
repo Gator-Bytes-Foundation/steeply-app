@@ -1,41 +1,39 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useWindowDimensions, StyleSheet,Text,View,Animated,TouchableOpacity,Image } from "react-native";
 import { Box, Center, Container, Flex, HStack, Column, VStack } from "native-base";
-import styled from 'styled-components/native'
-import storyImgs, { sections, slides } from "./stories/social.stories";
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
+import styled from 'styled-components/native'
+import storyImgs, { sections, slides } from "./stories/symtom.stories";
 
-const coral = "#ff7f6f"
+const teal = "#045580"
 
-const WhiteView=styled(VStack)`
-    background-color: #fff;
-    color: ${coral}; 
+const RedishView=styled(VStack)`
+    background-color: #fb6d4d;
+    color: ${teal}; 
     height:100%;
+    display:flex;
 `
 
-const SocialScreen = (props) => {
+const SymptomScreen = (props) => {
 
     let  dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
     let dimenHeight = useWindowDimensions().height; 
-    let styles = socialStyles(dimenWidth,dimenHeight);
+    let styles = symptomStyles(dimenWidth,dimenHeight);
 
-    //calls once on first component render
-    useEffect(() => {
 
-    }, []);
-
-    return (    
-        <WhiteView w="100%" h="100%">
-          <Banner banners={slides} header="Stay Connected" fontColor={coral} circleBg="#f1f0f0" titleOffset="20" {...props}/>
+    return (
+        <RedishView w="100%" h="100%">
+          <Banner banners={slides} header="Side Effect Management" fontColor={teal} circleBg="#f1f0f0" titleOffset="20"/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
-        </WhiteView>
+        </RedishView>
     );
+
 };
 
 
-const socialStyles = (width, height) => StyleSheet.create({
+const symptomStyles = (width, height) => StyleSheet.create({
 
     /*Containers */
     container1: {
@@ -46,4 +44,4 @@ const socialStyles = (width, height) => StyleSheet.create({
     }
 });
 
-export default SocialScreen;
+export default SymptomScreen;
