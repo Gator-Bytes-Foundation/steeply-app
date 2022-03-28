@@ -123,7 +123,6 @@ const MenuScreen = (props) => {
 
     return (
         <LinearGradient start={[0.2, 0.5]} end={[1.6, 0.5]} colors={["#408BC0", "#0F2F6A"]} style={styles.container1} >
-        <ScrollView>
             {/*HEADER CONTAINER*/}
             <View style={styles.headerContainer}>
                 <Text style={styles.header}>Steeply</Text>
@@ -192,7 +191,6 @@ const MenuScreen = (props) => {
                     }}
                 />
             </View>
-          </ScrollView>   
 
         </LinearGradient>
     );
@@ -219,14 +217,13 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-
     },
     container2: {
-        backgroundColor: "white",
+        backgroundColor: "#FFF0f3",
         width: width,
         flex:1,
         position:"relative",
-        height: height * 0.55,
+        maxHeight: height * 0.60,
         borderTopRightRadius: 45,
         borderTopLeftRadius: 45,
         paddingHorizontal: 20,
@@ -235,7 +232,12 @@ const styles = StyleSheet.create({
         paddingBottom: 10
     },
 
-
+    contentContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height:"1000px",
+        paddingBottom: 50
+    },
     /*Header */
     header: {
         fontFamily: "MoonBold",

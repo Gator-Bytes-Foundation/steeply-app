@@ -34,6 +34,7 @@
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-bootstrap": "^0.1.0",
+    "react-native-collapsible": "^1.6.0",
     "react-native-cropping": "0.0.4",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-gradient-buttons": "^2.0.2",

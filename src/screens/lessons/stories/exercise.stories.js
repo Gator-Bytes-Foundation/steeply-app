@@ -3,15 +3,18 @@ import {Asset} from 'expo-asset';
 export const sections = [
     {
         index: 1,
-        title: "Exercise Importance"
+        title: "Exercise Importance",
+        swipe: "Exercises"
     },
     {
         index: 22,
-        title: "Stretching"
+        title: "Stretching",
+        swipe: "Stretching"
     },
     {
         index: 27,
-        title: "Strength Exercises"
+        title: "Strength Exercises",
+        swipe: "Exercises"
     },
     {
         index: 39,

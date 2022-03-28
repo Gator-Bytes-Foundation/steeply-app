@@ -17,6 +17,7 @@ import InstaStory from 'react-native-insta-story';
 //import SmallTaskCard from "../components/SmallTaskCard";
 import { StoryContainer } from 'react-native-stories-view';
 import Story from 'react-native-story';
+import { useNavigation } from "@react-navigation/native";
 
 
 const HeadTitle=styled(Center)`
@@ -39,6 +40,7 @@ const StoryList=styled(FlatList)`
     bottom:0;
 `
 function Lesson(props) {
+    const navigation = useNavigation(); 
     let dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
     let dimenHeight = useWindowDimensions().height; 
     const circleHeight = dimenHeight * 0.4;
@@ -49,23 +51,26 @@ function Lesson(props) {
         let sectionIndex = props.lessonSections[i].index
         let sectionTitle = props.lessonSections[i].title
         for (let j=props.lessonSections[i].index; j <= props.lessonSections[i+1].index; j++) {
-            //console.log(j)
-            let oldExerciseStory = {
+            let story = {
                 story_id: j,
                 story_image: props.storyImgs[j],
                 swipeText:'Custom swipe text for this story',
-                onPress: () => console.log('story 1 swiped'),
+                onPress: (tst) => {
+                    if(props.lessonSections[i].swipe) {
+                        navigation.navigate(props.lessonSections[i].swipe);
+                    }
+                },
             }
-            exerciseStories.push(oldExerciseStory)
+            exerciseStories.push(story)
         }
         
-        let exericseSection = {
+        let storySection = {
             user_id: i,
             user_image: props.storyImgs[sectionIndex],
             user_name: sectionTitle,
             stories: exerciseStories
         }
-        lessons.push(exericseSection)
+        lessons.push(storySection)
     }
 
     return (<>
@@ -77,21 +82,20 @@ function Lesson(props) {
                     data={lessons}
                     keyExtractor={(item) => `${item.user_id}`}
                     renderItem={({item}) => {
-                        //console.log(item)
                         return <>
                             <InstaStory data={[item]}
                                 duration={10}
                                 unPressedBorderColor={"blue"}
                                 pressedBorderColor={"green"}
                                 avatarSize={80}
-                                onStart={item => console.log(item)}
-                                onClose={item => console.log('close: ', item)}
+                                onStart={item => console.log('start')}
+                                onClose={item => console.log('close: ')}
                                 customSwipeUpComponent={
                                 <View>
-                                    <Text>Swipe</Text>
+                                    <Text>TEsting</Text>
                                 </View>
                                 }
-                                style={{marginTop: 150, bottom:0, height:110}}
+                                style={{marginTop: 100, bottom:0, height:110}}
                             />
                         </>}}
             />                               

@@ -30,7 +30,6 @@ const CircleText=styled(Text)`
 const BigOleCircle=styled(Circle)`
     margin:0px; 
     display:flex;
-    color:white;
     max-width:500px; 
     max-height:500px; 
     flex-direction:column;
@@ -48,7 +47,7 @@ function Banner(props) {
         margin-bottom:0px;
         top:15px;
         font-size:30px !important;
-        color: ${props.fontColor} !important;
+        color:  ${props.fontColor} !important;
         padding-top:0px; 
         width:100%;
     `
@@ -64,7 +63,7 @@ function Banner(props) {
             </HeadTitle>
             <Flex>
             <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleBg} >
-                    <CircleText color={props.fontColor}>{props.banners[0].info}</CircleText>
+                    <CircleText color={"black"}>{props.banners[0].info}</CircleText>
                 </BigOleCircle>
             </Flex>
         </Center>                          

@@ -48,6 +48,7 @@ import ConfirmPurchaseScreen from "./src/screens/ConfirmPurchasingScreen";
 import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import ReferencesScreen from "./src/screens/ReferencesScreen";
+import ExerciseListScreen from "./src/screens/ExerciseList.screen";
 
 
 //Importing navigator helper which will allow us to navigate between different flows
@@ -183,7 +184,7 @@ const getIcon = (screenName) => {
   }
 };
 
-const sidebarRoutes = ["Home","About","References"];
+const sidebarRoutes = ["Home","About","References","Exercises"];
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props} safeArea>
@@ -252,7 +253,7 @@ function AppFlow(props) {
         <Drawer.Screen name="Diet" component={DietScreen} />
         <Drawer.Screen name="Side Effect Management" component={SymptomScreen} />
         <Drawer.Screen name="Med Management" component={MedScreen} />
-
+        <Drawer.Screen name="Exercises" component={ExerciseListScreen}/>
     </Drawer.Navigator>
   </Box>
   )

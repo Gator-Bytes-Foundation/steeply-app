@@ -6,22 +6,22 @@ import styled from 'styled-components/native'
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
 
+const blue = "#1f628e"; 
 
 const BlueView=styled(VStack)`
-    background-color: #1f628e;
-    color: #f9b10c; 
+    background-color: ${blue};
+    color: #050511; 
     height:100%;
 `
 
 const ExerciseScreen = (props) => {
-    console.log(props.navigation)
     let  dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
     let dimenHeight = useWindowDimensions().height; 
     let styles = exerciseStyles(dimenWidth,dimenHeight);
 
     return (
         <BlueView w="100%" h="100%">
-          <Banner header="Exercise" banners={slides} headerIcon={require("../../images/exercise.png")} fontColor="black" circleBg="white" titleOffset="20" {...props}/>
+          <Banner header="Exercise" banners={slides} headerIcon={require("../../images/exercise.png")} fontColor="white" circleBg="white" titleOffset="140" {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}/>
         </BlueView>
     );
