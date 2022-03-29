@@ -15,6 +15,7 @@ import { navigate } from "../helpers/navigation";
 import { Ionicons } from '@expo/vector-icons';
 import TeamSection from "../components/TeamSection";
 import { Box, Center, Container, Flex, HStack, Column, ScrollView } from "native-base";
+import { blue, navy, agua, teal, yellow, purple, lightPurple, orange, darkOrange, coral, lightBlue, green } from "../helpers/colors"
 //import brain from "../images/brain.png"; 
 
 const { width, height } = Dimensions.get("screen");
@@ -32,8 +33,17 @@ const MenuScreen = (props) => {
         img: require('../images/education.png'),
         infoTitle:"social title",
         info:"info",
-        startGradient:"#ff7f6f",
-        endGradient:"#f9b10c"
+        startGradient: purple,
+        endGradient:lightPurple
+    };
+    const dietLesson = {
+        name:"Diet & Nutrition",
+        description:"Get strong through the food you eat!",
+        img: require('../images/diet.png'),
+        infoTitle:"diet title",
+        info:"info",
+        startGradient:green,
+        endGradient:agua
     };
     const exerciseLesson = {
         name:"Exercise",
@@ -41,18 +51,9 @@ const MenuScreen = (props) => {
         img: require('../images/exercise.png'),
         infoTitle:"exercise title",
         info:"info",
-        startGradient:"#1f628e",
-        endGradient:"#00a8a8",
+        startGradient:blue,
+        endGradient:teal,
         key: props.route.params//.state.key
-    };
-    const socialLesson = {
-        name:"Stay Connected",
-        description:"Connecting with friends, family, and others along your journey.",
-        img: require('../images/social.png'),
-        infoTitle:"social title",
-        info:"info",
-        startGradient:"#045580",
-        endGradient:"#9cb4ff"
     };
     const symptomLesson = {
         name:"Side Effect Management",
@@ -60,8 +61,17 @@ const MenuScreen = (props) => {
         img: require('../images/symptom.png'),
         infoTitle:"social title",
         info:"info",
-        startGradient:"#045580",
-        endGradient:"#9cb4ff"
+        startGradient:navy,
+        endGradient:lightBlue
+    };
+    const socialLesson = {
+        name:"Stay Connected",
+        description:"Connecting with friends, family, and others along your journey.",
+        img: require('../images/social.png'),
+        infoTitle:"social title",
+        info:"info",
+        startGradient:coral,
+        endGradient:darkOrange
     };
     const medLesson = {
         name:"Med Management",
@@ -69,12 +79,12 @@ const MenuScreen = (props) => {
         img: require('../images/med.png'),
         infoTitle:"social title",
         info:"info",
-        startGradient:"#045580",
-        endGradient:"#9cb4ff"
+        startGradient:darkOrange,
+        endGradient:yellow
     };
     //animation managing
     const scrollY = useRef(new Animated.Value(0)).current;
-    let initLessons = [educationLesson,exerciseLesson,socialLesson,symptomLesson,medLesson]
+    let initLessons = [exerciseLesson,dietLesson,educationLesson,socialLesson,symptomLesson,medLesson]
     //all data from lessons collection is stored here on first component render
     const [lessons, setLessons] = useState(initLessons);
     const [user, setUser] = useState(null);
