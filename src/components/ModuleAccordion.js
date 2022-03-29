@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useWindowDimensions, StyleSheet,View,Animated,TouchableOpacity,Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from '@expo/vector-icons';
-import { Box, Center, Container, Flex, HStack, Text, ScrollView } from "native-base";
+import { Text, ScrollView } from "native-base";
 import Accordion from 'react-native-collapsible/Accordion';
 import styled from 'styled-components/native'
 import { blue, orange } from '../helpers/colors';
@@ -14,14 +14,14 @@ const ModuleAccordion = (props) => {
     let styles = accordionStyles(dimenWidth,dimenHeight);
     let [activeSections, setActiveSections] = useState([]);
     let dataArray = [
-      {title:'Play Based Exercises ',content: props.sections[0],color:blue},
-      {title:'Upper Body exercises',content: props.sections[1],color:orange},
-      {title:'Lower Body Exercises',content: props.sections[2],color:blue},
-      {title:'Core Exercises',content: props.sections[3],color:orange}
+      {title:props.sections[0]?.title,content: props.sections[0]?.imgs,color:blue},
+      {title:props.sections[1]?.title,content: props.sections[1]?.imgs,color:orange},
+      {title:props.sections[2]?.title,content: props.sections[2]?.imgs,color:blue},
+      {title:props.sections[3]?.title,content: props.sections[3]?.imgs,color:orange}
     ];
 
     const FixedAccordion=styled(View)`
-      minHeight:100px;
+      minHeight:80px;
       flexDirection: row;
       padding: 10px;
       justifyContent: space-between;
@@ -38,7 +38,7 @@ const ModuleAccordion = (props) => {
     const renderAccordion = (item) => {
       return(<>
       <View >
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView style={styles.innerAccordion} contentContainerStyle={{ flexGrow: 1 }}>
           {item.content.map((img,i) => {
             return <Image key={i} source={img} style={styles.image}/>
           })}
@@ -65,12 +65,14 @@ const ModuleAccordion = (props) => {
 
 const accordionStyles = (width, height) => StyleSheet.create({
 
-    /*Containers */
     image: {
       resizeMode:'contain',
       width:"100%",
       height:height,
       minWidth:100,
+  },
+  innerAccordion: {
+    height:height-150
   }
 });
 

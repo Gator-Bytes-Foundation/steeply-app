@@ -48,7 +48,7 @@ import ConfirmPurchaseScreen from "./src/screens/ConfirmPurchasingScreen";
 import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import ReferencesScreen from "./src/screens/ReferencesScreen";
-import ExerciseListScreen from "./src/screens/ExerciseList.screen";
+import StretchTutorialsScreen from "./src/screens/lessons/StretchTutorial.screen";
 
 
 //Importing navigator helper which will allow us to navigate between different flows
@@ -253,7 +253,7 @@ function AppFlow(props) {
         <Drawer.Screen name="Diet" component={DietScreen} />
         <Drawer.Screen name="Side Effect Management" component={SymptomScreen} />
         <Drawer.Screen name="Med Management" component={MedScreen} />
-        <Drawer.Screen name="Exercises" component={ExerciseListScreen}/>
+        <Drawer.Screen name="Exercises" component={StretchTutorialsScreen}/>
     </Drawer.Navigator>
   </Box>
   )
@@ -304,7 +304,11 @@ export default () => {
     </NativeBaseProvider>
   );*/
   return (
-      <App/>
+    <NavigationContainer>
+    <NativeBaseProvider>
+      <AppFlow/>
+    </NativeBaseProvider>
+    </NavigationContainer>
   );
 }
 

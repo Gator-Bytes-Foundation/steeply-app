@@ -66,7 +66,7 @@ const MenuScreen = (props) => {
     const medLesson = {
         name:"Med Management",
         description:"Managing your medications.",
-        img: require('../images/symptom.png'),
+        img: require('../images/med.png'),
         infoTitle:"social title",
         info:"info",
         startGradient:"#045580",
@@ -127,7 +127,7 @@ const MenuScreen = (props) => {
             <View style={styles.headerContainer}>
                 <Text style={styles.header}>Steeply</Text>
                 <Text style={styles.subHeader}>
-                    Please fill out quiz below
+                    Choose a category to start learning!
                 </Text>
             </View>
 

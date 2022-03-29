@@ -2,10 +2,10 @@ import React, { useRef, useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import {  } from "native-base";
-import sections from "./lessons/tutorials/stretch.tutorials";
-import ModuleAccordion from "../components/ModuleAccordion";
+import sections from "./tutorials/stretch.tutorials";
+import ModuleAccordion from "../../components/ModuleAccordion";
 
-const ExerciseList = (props) => {
+const StretchTutorials = (props) => {
 
     return(<>
       <ModuleAccordion sections={sections}/>
@@ -24,4 +24,4 @@ const exerciseListStyles = (width, height) => StyleSheet.create({
   }
 });
 
-export default ExerciseList;
+export default StretchTutorials;

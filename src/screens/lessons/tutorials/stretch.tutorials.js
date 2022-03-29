@@ -47,6 +47,6 @@ export const section4 = [
     require('../../../images/tutorials/stretches/37.png')
 ];
 
-const sections = [section1, section2, section3, section4]
+const sections = [{title: 'Leg Nerve Stretches', imgs: section1}, {title: 'Arm Nerve Stretches', imgs: section2}, {title:'Lower Body Stretches', imgs:section3}, {title:'Upper Body Stretches', imgs:section4}]
 
 export default sections;
