@@ -33,7 +33,7 @@ const BigOleCircle=styled(Circle)`
     max-width:500px; 
     max-height:500px; 
     flex-direction:column;
-    margin-top:-50px;
+    margin-top:-80px;
 ` 
 function Banner(props) {
     const navigation = useNavigation();
@@ -45,20 +45,20 @@ function Banner(props) {
     const HeadTitle=styled(Center)`
         position:relative;
         margin-bottom:0px;
-        top:15px;
-        font-size:30px !important;
-        color:  ${props.fontColor} !important;
+        font-size:80px !important;
+        color: ${props.fontColor} !important;
         padding-top:0px; 
         width:100%;
     `
 //                    <Text color={props.fontColor} fontSize={23} fontFamily="Poppins" textShadow="5px 5px 5px" fontWeight="bold">{props.header}</Text>          
 
 
+
     return (<>
         <Center>
             <BackButton onPress={() => navigation.navigate("Menu")}>Back</BackButton>
             <HeadTitle>
-                {props.headerIcon? <Image style={{ width: 50, height: 50 }} source={props.headerIcon}/> : ''}
+                {props.headerIcon ? <Image style={{ width: 50, minHeight: 50, resizeMode:'contain', marginTop:-25, marginBottom:30 }} source={props.headerIcon}/> : ''}
                 <CurvedText title={props.header} color={props.fontColor} offset={props.titleOffset}/>
             </HeadTitle>
             <Flex>

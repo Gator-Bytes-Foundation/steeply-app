@@ -5,8 +5,7 @@ import storyImgs, { sections, slides } from "./stories/exercise.stories";
 import styled from 'styled-components/native'
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
-
-const blue = "#1f628e"; 
+import { blue } from '../../helpers/colors'
 
 const BlueView=styled(VStack)`
     background-color: ${blue};

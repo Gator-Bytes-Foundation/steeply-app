@@ -13,11 +13,8 @@ import {
 import Svg, { G, Text, TextPath, TSpan, Circle, Path,Defs } from 'react-native-svg';
 
 
-const CircleText=styled(View)`
-    font-size: 20px;
-    margin-top:10px;
-    text-align:center !important;
-    width:75%;
+const BigText=styled(Text)`
+    font-size: 30px;
     fontWeight:bold;
 `
 
@@ -28,17 +25,17 @@ function CurvedText(props) {
     const circleWidth = dimenWidth * 0.7; 
 
     return (<>
-<Svg position="absolute" height="200" width="600">
+<Svg position="absolute" height="150" width="600">
   <Defs>
     <Path id="path" d={"M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"} />
   </Defs>
-  <G x="50" y="50">
-    <Text fill={props.color}>
-      <TextPath href="#path"  startOffset={props.offset}>
+  <G x="60" y="50">
+    <Text fill={props.color} style={{fontSize:30}}>
+      <TextPath href="#path"  startOffset={props.offset} >
         {props.title}
       </TextPath>
     </Text>
-    <Path d={"M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"} fill="none" stroke="none" strokeWidth="1">
+    <Path d={"M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"} fill="none" stroke="none" strokeWidth="4">
     <Text fill={props.color}>
     {props.title}
     </Text>

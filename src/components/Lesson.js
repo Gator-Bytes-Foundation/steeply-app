@@ -38,6 +38,7 @@ const BigOleCircle=styled(Circle)`
 const StoryList=styled(FlatList)`
     position:absolute;
     bottom:0;
+    color:white !important;
 `
 function Lesson(props) {
     const navigation = useNavigation(); 
@@ -50,7 +51,7 @@ function Lesson(props) {
         let exerciseStories = []
         let sectionIndex = props.lessonSections[i].index
         let sectionTitle = props.lessonSections[i].title
-        for (let j=props.lessonSections[i].index; j <= props.lessonSections[i+1].index; j++) {
+        for (let j=props.lessonSections[i].index; j < props.lessonSections[i+1].index; j++) {
             let story = {
                 story_id: j,
                 story_image: props.storyImgs[j],
@@ -85,17 +86,18 @@ function Lesson(props) {
                         return <>
                             <InstaStory data={[item]}
                                 duration={10}
-                                unPressedBorderColor={"blue"}
-                                pressedBorderColor={"green"}
+                                unPressedBorderColor={"red"}
+                                pressedBorderColor={"grey"}
                                 avatarSize={80}
                                 onStart={item => console.log('start')}
                                 onClose={item => console.log('close: ')}
+                                textStyle={{color:"white"}}
                                 customSwipeUpComponent={
                                 <View>
-                                    <Text>TEsting</Text>
+                                    <Text>Swipe Up</Text>
                                 </View>
                                 }
-                                style={{marginTop: 100, bottom:0, height:110}}
+                                style={{marginTop: 100, bottom:0, height:110,color:"white !important"}}
                             />
                         </>}}
             />                               

@@ -37,19 +37,17 @@ const ModuleAccordion = (props) => {
     }
     const renderAccordion = (item) => {
       return(<>
-      <View >
-      <ScrollView style={styles.innerAccordion} contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView style={styles.innerAccordion} contentContainerStyle={{ flexGrow: 1 }} nestedScrollEnabled={true}>
           {item.content.map((img,i) => {
             return <Image key={i} source={img} style={styles.image}/>
           })}
         </ScrollView>
-      </View>
 
       </>)
     }
 
     return (<>
-    <ScrollView>
+    <ScrollView h={dimenHeight} contentContainerStyle={{flexGrow: 1}}>
     <Accordion activeSections={activeSections}
         sections={dataArray}
         renderHeader={renderAccordionHeader}
@@ -72,7 +70,8 @@ const accordionStyles = (width, height) => StyleSheet.create({
       minWidth:100,
   },
   innerAccordion: {
-    height:height-150
+    height:height-150,
+    flexGrow:1
   }
 });
 
