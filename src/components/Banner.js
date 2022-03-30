@@ -50,6 +50,13 @@ function Banner(props) {
         padding-top:0px; 
         width:100%;
     `
+    const BannerIcon=styled(Image)`
+    position:absolute;
+    bottom:0px; 
+    minHeight:75px;
+    width:75px;
+    resizeMode:contain;
+`
 //                    <Text color={props.fontColor} fontSize={23} fontFamily="Poppins" textShadow="5px 5px 5px" fontWeight="bold">{props.header}</Text>          
 
 
@@ -58,13 +65,13 @@ function Banner(props) {
         <Center>
             <BackButton onPress={() => navigation.navigate("Menu")}>Back</BackButton>
             <HeadTitle>
-                {props.headerIcon ? <Image style={{ width: 50, minHeight: 50, resizeMode:'contain', marginTop:-25, marginBottom:30 }} source={props.headerIcon}/> : ''}
                 <CurvedText title={props.header} color={props.fontColor} offset={props.titleOffset}/>
             </HeadTitle>
             <Flex>
             <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleBg} >
                     <CircleText color={"black"}>{props.banners[0].info}</CircleText>
-                </BigOleCircle>
+                    {props.headerIcon ? <BannerIcon style={{marginBottom:-20 }} source={props.headerIcon}/> : ''}
+            </BigOleCircle>
             </Flex>
         </Center>                          
     </>);

@@ -32,7 +32,7 @@ const DietScreen = (props) => {
 
     return (
         <OrangeView w="100%" h="100%">
-          <Banner banners={slides} header="Nutrition & Diet" fontColor={purple} circleBg="#fff" titleOffset="20"/>
+          <Banner banners={slides} header="Nutrition & Diet" headerIcon={require("../../images/diet.png")} fontColor={purple} circleBg="#fff" titleOffset="80"/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </OrangeView>

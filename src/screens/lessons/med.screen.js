@@ -22,7 +22,7 @@ const MedScreen = (props) => {
 
     return (
         <YellowView w="100%" h="100%">
-          <Banner banners={slides} header="Exercise" fontColor={darkBlue} circleBg="white" titleOffset="20"/>
+          <Banner banners={slides} header="Exercise" headerIcon={require("../../images/med.png")} fontColor={darkBlue} circleBg="white" titleOffset="20"/>
           <Lesson title="Medication Mangement" lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </YellowView>

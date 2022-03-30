@@ -27,7 +27,7 @@ const SocialScreen = (props) => {
 
     return (    
         <WhiteView w="100%" h="100%">
-          <Banner banners={slides} header="Stay Connected" fontColor={coral} circleBg="#f1f0f0" titleOffset="20" {...props}/>
+          <Banner banners={slides} header="Stay Connected" headerIcon={require("../../images/social.png")} fontColor={coral} circleBg="#f1f0f0" titleOffset="20" {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </WhiteView>

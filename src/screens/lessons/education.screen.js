@@ -32,7 +32,7 @@ const EducationScreen = (props) => {
 
     return (
         <PurpleView w="100%" h="100%">
-          <Banner banners={slides} header="Navigating School" fontColor={darkBlue} circleBg="#f1f0f0" titleOffset="50" {...props}/>
+          <Banner banners={slides} header="Navigating School" headerIcon={require("../../images/education.png")} fontColor={darkBlue} circleBg="#f1f0f0" titleOffset="50" {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </PurpleView>

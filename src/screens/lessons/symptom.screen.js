@@ -24,7 +24,7 @@ const SymptomScreen = (props) => {
 
     return (
         <RedishView w="100%" h="100%">
-          <Banner banners={slides} header="Side Effect Management" fontColor={teal} circleBg="#f1f0f0" titleOffset="20"/>
+          <Banner banners={slides} header="Side Effect Management" headerIcon={require("../../images/symptom.png")} fontColor={teal} circleBg="#f1f0f0" titleOffset="20"/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </RedishView>
