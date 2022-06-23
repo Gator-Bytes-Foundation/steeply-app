@@ -9,7 +9,6 @@ import styled from 'styled-components/native'
 
 import { Box, Center, Container, ScrollView, Flex, HStack, Column, Text } from "native-base";
 
-//import { Alert } from 'react-native-bootstrap';
 const TeamContainer=styled.ScrollView`
     display:flex;
     background-color:white;

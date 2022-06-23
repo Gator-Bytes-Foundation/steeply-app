@@ -16,7 +16,6 @@ import { Ionicons } from '@expo/vector-icons';
 import TeamSection from "../components/TeamSection";
 import { Box, Center, Container, Flex, HStack, Column, ScrollView } from "native-base";
 import { blue, navy, agua, teal, yellow, purple, lightPurple, orange, darkOrange, coral, lightBlue, green } from "../helpers/colors"
-//import brain from "../images/brain.png"; 
 
 const { width, height } = Dimensions.get("screen");
 
@@ -91,21 +90,6 @@ const MenuScreen = (props) => {
 
     //calls once on first component render
     useEffect(() => {
-        var newArray = [];
-        //setLessons([]);
-        /*var db = firebase.firestore();
-        var storage = firebase.storage();
-        db.collection("lessons").get().then((querySnapshot) => {
-            querySnapshot.forEach((document) => {
-
-                //helper
-                // storage.ref('FearSpaces.png').getDownloadURL()
-                //     .then((url) => {
-                //         console.log(url);
-                //     })
-                newArray.push({ id: document.id, data: document.data() });
-            });
-            });*/
 
         async function getUserInfo() {
             setUser({ id: "testId", userData: "testData" });
@@ -119,17 +103,9 @@ const MenuScreen = (props) => {
         getUserInfo();
     }, []);
 
-
-
-
-    //method for fetching a phobia and navigating to home 
     const getLesson = (lesson) => {
         props.navigation.navigate(lesson.name,lesson);
-        /*firebase.firestore().collection("lessons").doc(phobiaID).get().then((doc) => {
-            navigate("Home", { phobia: doc.data(), user: user });
-        });*/
     }
-
 
     return (
         <LinearGradient start={[0.2, 0.5]} end={[1.6, 0.5]} colors={["#408BC0", "#0F2F6A"]} style={styles.container1} >
@@ -318,14 +294,9 @@ const styles = StyleSheet.create({
     }
 });
 
-
-
-//navigationOptions of screen used to modify header style
 MenuScreen.navigationOptions = {
     headerShown: false,
     cardStyle: { backgroundColor: "white" }
 }
-
-
 
 export default MenuScreen;

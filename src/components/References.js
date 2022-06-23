@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components/native'
 import { Box, Center, Container, ScrollView, Flex, HStack, Column, Text } from "native-base";
 
-//import { Alert } from 'react-native-bootstrap';
 const ReferenceView=styled.View`
     display:flex;
     background-color:white;
