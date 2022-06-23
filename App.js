@@ -3,6 +3,7 @@ import { createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { NavigationContainer } from "@react-navigation/native";
 //import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
@@ -23,7 +24,6 @@ import {
   Stack,
 } from "native-base";
 
-import { createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer";
 
 //Importing all screens
 import WelcomeScreen from "./src/screens/WelcomeScreen";
@@ -237,8 +237,7 @@ const Drawer = createDrawerNavigator();
 function AppFlow(props) {
   return (
     <Box safeArea flex={1}>
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props}/>}
-    > 
+    <Drawer.Navigator initialRouteName="Welcome" useLegacyImplementation={true} drawerContent={(props) => <CustomDrawerContent {...props}/>}> 
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Menu" key="menu" component={MenuScreen} />

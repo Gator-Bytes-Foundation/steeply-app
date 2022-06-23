@@ -83,17 +83,11 @@ const SignupScreen = ({ navigation }) => {
 
     return (
         < LinearGradient start={[0.25, 0.35]} end={[0.8, 1.15]} colors={["#4D5C75", "#0E0E0E"]} style={styles.container} >
-            {/*background container */}
-
-
             {/*header container */}
             <TouchableOpacity style={styles.touchableIcon} onPress={() => navigation.goBack()} >
                 <Ionicons name="arrow-back-sharp" style={styles.icon} />
             </TouchableOpacity>
-            <Text style={styles.headerText}>Sign up to Auxilium</Text>
-
-
-
+            <Text style={styles.headerText}>Sign up to Steeply</Text>
             {/*form container */}
             <LinearGradient style={styles.gradientInput} colors={["#E3E9F2", "#8A94A5"]} start={{ x: 0.6, y: 0.5 }} end={{ x: 1.0, y: 0.5 }} >
                 <TextInput
