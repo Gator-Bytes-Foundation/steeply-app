@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "Auxilium",
-    "slug": "Auxilium",
+    "name": "Steeply",
+    "slug": "steeply-app",
+    "sdkVersion": "44.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,23 +11,19 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.lcundiff.steeply"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lcundiff.steeply"
     }
   }
 }
