@@ -9,32 +9,26 @@ import {
     Image,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { navigate } from "../helpers/navigation";
-//import * as firebase from "firebase";
-//import "firebase/firestore";
 import { Ionicons } from '@expo/vector-icons';
-import TeamSection from "../components/TeamSection";
-import { Box, Center, Container, Flex, HStack, Column, ScrollView } from "native-base";
-import { blue, navy, agua, teal, yellow, purple, lightPurple, orange, darkOrange, coral, lightBlue, green } from "../helpers/colors"
-//import brain from "../images/brain.png"; 
+import { Column } from "native-base";
+import { blue, navy, agua, teal, yellow, purple, lilac, pink, darkOrange, coral, cyan, green } from "../helpers/colors"
+//import "firebase/firestore";
+//import * as firebase from "firebase";
 
 const { width, height } = Dimensions.get("screen");
 
-
-
-const PHOBIA_IMAGE_HEIGHT = 135;
+const LESSON_HEIGHT = 135;
 const ITEM_SIZE = height * 0.20 + 50;
 
 const MenuScreen = (props) => {
-    console.log(props.route.params)
     const educationLesson = {
         name:"Navigating School",
         description:"Keeping up with your academics.",
         img: require('../images/education.png'),
         infoTitle:"social title",
         info:"info",
-        startGradient: purple,
-        endGradient:lightPurple
+        startGradient:purple,
+        endGradient:lilac
     };
     const dietLesson = {
         name:"Diet & Nutrition",
@@ -42,8 +36,8 @@ const MenuScreen = (props) => {
         img: require('../images/diet.png'),
         infoTitle:"diet title",
         info:"info",
-        startGradient:green,
-        endGradient:agua
+        startGradient:teal,
+        endGradient:green
     };
     const exerciseLesson = {
         name:"Exercise",
@@ -52,8 +46,8 @@ const MenuScreen = (props) => {
         infoTitle:"exercise title",
         info:"info",
         startGradient:blue,
-        endGradient:teal,
-        key: props.route.params//.state.key
+        endGradient:agua,
+        key: props.route.params
     };
     const symptomLesson = {
         name:"Side Effect Management",
@@ -62,16 +56,16 @@ const MenuScreen = (props) => {
         infoTitle:"social title",
         info:"info",
         startGradient:navy,
-        endGradient:lightBlue
+        endGradient:cyan
     };
     const socialLesson = {
         name:"Stay Connected",
-        description:"Connecting with friends, family, and others along your journey.",
+        description:"Connecting with others along your journey.",
         img: require('../images/social.png'),
         infoTitle:"social title",
         info:"info",
         startGradient:coral,
-        endGradient:darkOrange
+        endGradient:pink
     };
     const medLesson = {
         name:"Med Management",
@@ -85,11 +79,8 @@ const MenuScreen = (props) => {
     //animation managing
     const scrollY = useRef(new Animated.Value(0)).current;
     let initLessons = [exerciseLesson,dietLesson,educationLesson,socialLesson,symptomLesson,medLesson]
-    //all data from lessons collection is stored here on first component render
     const [lessons, setLessons] = useState(initLessons);
-    const [user, setUser] = useState(null);
 
-    //calls once on first component render
     useEffect(() => {
         var newArray = [];
         //setLessons([]);
@@ -108,7 +99,7 @@ const MenuScreen = (props) => {
             });*/
 
         async function getUserInfo() {
-            setUser({ id: "testId", userData: "testData" });
+            //setUser({ id: "testId", userData: "testData" });
             /*
             var userID = firebase.auth().currentUser.uid;
             await firebase.firestore().collection("users").doc(userID).get().then((doc) => {
@@ -116,20 +107,15 @@ const MenuScreen = (props) => {
                 setUser({ id: userID, userData: userData });
             });*/
         }
-        getUserInfo();
+        //getUserInfo();
     }, []);
 
-
-
-
-    //method for fetching a phobia and navigating to home 
     const getLesson = (lesson) => {
         props.navigation.navigate(lesson.name,lesson);
         /*firebase.firestore().collection("lessons").doc(phobiaID).get().then((doc) => {
             navigate("Home", { phobia: doc.data(), user: user });
         });*/
     }
-
 
     return (
         <LinearGradient start={[0.2, 0.5]} end={[1.6, 0.5]} colors={["#408BC0", "#0F2F6A"]} style={styles.container1} >
@@ -140,10 +126,10 @@ const MenuScreen = (props) => {
                     Choose a category to start learning!
                 </Text>
             </View>
-
             {/*LIST CONTAINER*/}
-            <View style={styles.container2}>
+            <View style={styles.lessonsContainer}>
                 <Animated.FlatList
+                    minW={'100%'}
                     data={lessons}
                     onScroll={Animated.event(
                         [{ nativeEvent: { 
@@ -156,7 +142,7 @@ const MenuScreen = (props) => {
                     keyExtractor={(item) => item.name}
                     renderItem={({ item, index }) => {
 
-                        /*  FlatList Animation Reference code */
+                        /*  FlatList Animation Reference */
                         const inputRange = [
                             -1,
                             0,
@@ -177,10 +163,10 @@ const MenuScreen = (props) => {
                             inputRange: opacityInputRange,
                             outputRange: [1, 1, 1, 0]
                         })
-                        /*  FlatList Animation Reference code */
+                        /*  FlatList Animation */
                         return (    
-                            <Animated.View style={{ width: width * 0.85, height: height * 0.20, flexDirection:'row', marginBottom:20, marginTop: 25, borderRadius: 25, transform: [{ scale }], opacity }}>
-                                <LinearGradient start={[0.2, 0.5]} end={[1.4, 0.5]} colors={[String(item.startGradient), String(item.endGradient)]} style={styles.gradient} >
+                            <Animated.View style={{ width: '100%', paddingHorizontal: 20, flexDirection:'row', borderRadius: 25, transform: [{ scale }], opacity }}>
+                                <LinearGradient start={[0.2, 0.5]} end={[1.4, 0.5]} colors={[String(item.startGradient), String(item.endGradient)]} style={styles.lessonGradient} >
                                     <Column w="75%" h="100%" justifyContent="flex-start">
                                         <Text style={styles.title}>{item.name}</Text>
                                         <Text style={styles.description}>{item.description}</Text>
@@ -201,24 +187,31 @@ const MenuScreen = (props) => {
                     }}
                 />
             </View>
-
         </LinearGradient>
     );
 
 };
 
 
-
-
-
 const styles = StyleSheet.create({
 
     /*Containers */
     container1: {
-        backgroundColor: "white",
         width: width,
-        height: height,
+        height: height - 64,
         alignItems: "flex-end"
+    },
+    lessonsContainer: {
+        width: width,
+        height: '100%',
+        flex:1,
+        backgroundColor: "#FFF0f3",
+        position:"relative",
+        borderTopRightRadius: 45,
+        borderTopLeftRadius: 45,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingBottom: 10
     },
     headerContainer: {
         width: width,
@@ -228,27 +221,13 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    container2: {
-        backgroundColor: "#FFF0f3",
-        width: width,
-        flex:1,
-        position:"relative",
-        maxHeight: height * 0.60,
-        borderTopRightRadius: 45,
-        borderTopLeftRadius: 45,
-        paddingHorizontal: 20,
-        justifyContent: "center",
-        alignItems: "center",
-        paddingBottom: 10
-    },
-
     contentContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         height:"1000px",
         paddingBottom: 50
     },
-    /*Header */
+    /* Header */
     header: {
         fontFamily: "MoonBold",
         fontSize: 28,
@@ -261,27 +240,28 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginTop: 20
     },
-
-    /*MENU CARDS STYLES */
-    gradient: {
+    /* MENU CARDS STYLES */
+    lessonGradient: {
         width: "100%",
-        height:"100%",
+        height: 0.20 * height,
         borderRadius: 25,
         position:"relative",
         backgroundColor:"white",
         flexDirection:"row",
         alignItems:"flex-start",
-        justifyContent:"flex-start"
+        justifyContent:"flex-start",
+        marginTop:25,
+        marginBottom:10
     },
     title: {
-        marginTop: 35,
-        fontSize: 30,
+        marginTop: 15,
+        fontSize: 28,
         fontFamily: "TrendaSemibold",
         paddingLeft: 15,
         color: "#eeeeee"
     },
     description: {
-        fontSize: 20,
+        fontSize: 18,
         fontFamily: "TrendaRegular",
         color: "#eeeeee",
         paddingLeft: 15
@@ -290,7 +270,7 @@ const styles = StyleSheet.create({
         alignSelf: "flex-end",
         width:"100%",
         marginTop:0,
-        minHeight: PHOBIA_IMAGE_HEIGHT,
+        minHeight: LESSON_HEIGHT,
         height:"100%",
         resizeMode: "contain",
         margin:20,
@@ -318,9 +298,6 @@ const styles = StyleSheet.create({
     }
 });
 
-
-
-//navigationOptions of screen used to modify header style
 MenuScreen.navigationOptions = {
     headerShown: false,
     cardStyle: { backgroundColor: "white" }

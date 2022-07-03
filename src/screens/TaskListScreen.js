@@ -32,10 +32,6 @@ const TaskListScreen = ({ navigation }) => {
             <SmallTaskCard type="right1" callback={() => navigation.navigate("TaskDetail")} />
             <SmallTaskCard type="left2" callback={() => navigation.navigate("TaskDetail")} />
             <SmallTaskCard type="right2" callback={() => navigation.navigate("TaskDetail")} />
-
-
-            {/* Main tasks container */}
-
         </View>
     );
 
@@ -76,7 +72,7 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: "TrendaSemibold",
         fontSize: 35,
-        marginTop: 35,
+    marginTop: 25,
         marginBottom: 10,
         color: "white",
     },
@@ -95,8 +91,6 @@ const styles = StyleSheet.create({
         marginLeft: 30,
         marginHorizontal: 50
     }
-
-
 });
 
 

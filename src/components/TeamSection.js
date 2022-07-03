@@ -1,15 +1,11 @@
 //import Title from './Title';
 import TeamCard from './TeamCard';
-import Image1 from '../images/bex.jpg';
-import Image2 from '../images/cramer.png';
-import Image3 from '../images/galloway.png';
-import Image4 from '../images/cramer.png';
+import bex from '../images/bex.jpg';
+import logan from '../images/logan.png';
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components/native'
-
 import { Box, Center, Container, ScrollView, Flex, HStack, Column, Text } from "native-base";
 
-//import { Alert } from 'react-native-bootstrap';
 const TeamContainer=styled.ScrollView`
     display:flex;
     background-color:white;
@@ -26,34 +22,19 @@ export default function TeamSection() {
     return (
         <TeamContainer>
             <Center >
-                <Flex maxW="100%" justifyContent="center" alignItems="center" mb={250} flexDirection={{
+                <Flex maxW="100%" justifyContent="center" alignItems="flex-start" mb={250} p="5" flexDirection={{
                     base: 'column',
                     md: 'row'
                 }}>
                     <TeamCard
-                        img={Image1}
-                        name="Rebecca Soodeen"
-                        position="OT Student"
+                        img={bex}
+                        name="Rebecca Cundiff"
+                        position="Rebecca is an Occupational Therapist with a huge heart for pediatric care, especially in the field of oncology. Rebecca came up with the idea for Steeply after seeing first hand how much work both children and adults have to go through in order to get all the resources and educational tools they need to combat cancer."
                     />
                     <TeamCard
-                        img={Image2}
-                        name="Romina Hadid"
-                        position="Marketing Specialist"
-                    />
-                    <TeamCard
-                        img={Image3}
-                        name="Galloway"
-                        position="OT"
-                    />
-                    <TeamCard
-                        img={Image4}
-                        name="Jenna Kardi"
-                        position="Founder and CEO"
-                    />
-                    <TeamCard
-                        img={Image4}
-                        name="Jenna Kardi"
-                        position="Founder and CEO"
+                        img={logan}
+                        name="Logan Cundiff"
+                        position="Logan is a software developer and is also Rebecca's husband! After finishing his masters in Computer Science, he decided to use his knoledge to lend a hand with assisting Rebecca with the development of Steeply!"
                     />
                 </Flex>
             </Center>

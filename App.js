@@ -1,38 +1,22 @@
 import React from "react";
-import { createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { NavigationContainer } from "@react-navigation/native";
-//import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-
 import {
   NativeBaseProvider,
-  Button,
   Box,
-  HamburgerIcon,
-  Pressable,
-  Heading,
-  VStack,
-  Text,
-  Center,
-  HStack,
-  Divider,
-  Icon,
-  Stack,
 } from "native-base";
 
 import { createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer";
 
 //Importing all screens
 import WelcomeScreen from "./src/screens/WelcomeScreen";
-//import Sidebar from "./src/components/sidebar";
+import Sidebar from "./src/components/Sidebar";
 import Footer from "./src/components/SimpleFooter";
 import SigninScreen from "./src/screens/SigninScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 import MenuScreen from "./src/screens/MenuScreen";
-import HomeScreen from "./src/screens/HomeScreen";
 import TaskListScreen from "./src/screens/TaskListScreen";
 import TaskDetailScreen from "./src/screens/TaskDetailScreen";
 import ExploreScreen from "./src/screens/ExploreScreen";
@@ -57,10 +41,10 @@ import { navigate, setNavigator } from "./src/helpers/navigation";
 import { useFonts } from "@use-expo/font";
 //Importing AppLoading component if something doesn't load correctly
 import AppLoading from "expo-app-loading";
-//importing API keys which we are going to use to initialize out firebase 
 import apiKeys from "./src/config/keys";
 //importing firebase
 //import * as firebase from "firebase";
+
 //importing icons library's
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -83,7 +67,7 @@ const loginFlow = createStackNavigator({
 
 //flow that is controling the home screens
 const homeFlow = createStackNavigator({
-  Home: HomeScreen,
+  Home: WelcomeScreen,
   TaskList: TaskListScreen,
   TaskDetail: TaskDetailScreen
 });
@@ -141,19 +125,6 @@ const bottomTabFlow = createBottomTabNavigator({
 });*/
 
 
-
-
-//navigator component which will have all navigators nested
-const navigator = createSwitchNavigator({
-  //ResolveAuth: ResolveAuthScreen,
-
-  loginFlow: loginFlow,
-  OnBoard: OnBoardScreen,
-  Menu: MenuScreen,
-  //bottomTabFlow: bottomTabFlow
-});
-
-
 //object containing all fonts 
 const customFonts = {
   TrendaExtraLight: require("./assets/fonts/TrendaFonts/Trenda-ExtraLight.otf"),
@@ -165,82 +136,16 @@ const customFonts = {
   MoonBold: require("./assets/fonts/MoonFonts/Moon-Bold.otf"),
   MoonLight: require("./assets/fonts/MoonFonts/Moon-Light.otf")
 }
-const getIcon = (screenName) => {
-  switch (screenName) {
-    case "Inbox":
-      return "email";
-    case "Outbox":
-      return "send";
-    case "Favorites":
-      return "heart";
-    case "Archive":
-      return "archive";
-    case "Trash":
-      return "trash-can";
-    case "Spam":
-      return "alert-circle";
-    default:
-      return undefined;
-  }
-};
-
-const sidebarRoutes = ["Home","About","References","Exercises"];
-function CustomDrawerContent(props) {
-  return (
-    <DrawerContentScrollView {...props} safeArea>
-      <VStack space="6" my="2" mx="1">
-        <Box px="4">
-          <Text bold color="gray.700">
-            Steeply
-          </Text>
-          <Text fontSize="14" mt="1" color="gray.500" fontWeight="500">
-           Pages
-          </Text>
-        </Box>
-        <VStack divider={<Divider />} space="4">
-          <VStack space="3">
-            {sidebarRoutes.map((name, index) => ( //props.state.routeNames
-              <Pressable key={index}
-                px="5"
-                py="3"
-                rounded="md"
-                bg={
-                  index === props.state.index
-                    ? "rgba(6, 182, 212, 0.1)"
-                    : "transparent"
-                }
-                onPress={(event) => {
-                  props.navigation.navigate(name);
-                }}
-              >
-                <HStack space="7" alignItems="center">
-                  <Text
-                    fontWeight="500"
-                    color={
-                      index === props.state.index ? "primary.500" : "gray.700"
-                    }
-                  >
-                    {name}
-                  </Text>
-                </HStack>
-              </Pressable>
-            ))}
-          </VStack>
-        </VStack>
-      </VStack>
-    </DrawerContentScrollView>
-  );
-}
 
 const Drawer = createDrawerNavigator();
 
 function AppFlow(props) {
   return (
     <Box safeArea flex={1}>
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props}/>}
+    <Drawer.Navigator drawerContent={(props) => <Sidebar {...props}/>}
     > 
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
-        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Home" component={WelcomeScreen} />
         <Drawer.Screen name="Menu" key="menu" component={MenuScreen} />
         <Drawer.Screen name="TaskList" component={TaskListScreen} />
         <Drawer.Screen name="About" component={AboutScreen} />
@@ -274,7 +179,7 @@ function App() {
             headerShown: false,
             tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name="account" size={24} color={tintColor}/>
         }}/>
-        <Tab.Screen name="Home" component={HomeScreen} options={{
+        <Tab.Screen name="Home" component={WelcomeScreen} options={{
           headerShown: false,
           tabBarIcon: ({ tintColor }) => <AntDesign name="home" size={30} color={tintColor} />
         }}/>
@@ -298,12 +203,6 @@ export default () => {
     console.log("Connected with firebase!");
     firebase.initializeApp(apiKeys.firebaseConfig);
   }*/
-  /*const App = createAppContainer(navigator);
-  return (
-    <NativeBaseProvider>
-      <App ref={(navigator) => { setNavigator(navigator) }} />
-    </NativeBaseProvider>
-  );*/
   return (
     <NavigationContainer>
     <NativeBaseProvider>

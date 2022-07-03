@@ -2,15 +2,9 @@ import React, { useState, useEffect } from "react";
 //import styledTypes from '@types/styled-components'
 import styled from 'styled-components/native'
 import { StyleSheet, View, TouchableOpacity, TextInput, useWindowDimensions, Alert, FlatList } from "react-native";
-import { NativeBaseProvider, Button, Flex, Link, Box, Container, Circle,
-    Pressable,
-    Heading,
+import { Circle,
     Text,
     Center,
-    VStack,
-    Divider,
-    Icon,
-    Stack,
   } from "native-base";
 //import * as Story from "zuck.js"
 import InstaStory from 'react-native-insta-story';
@@ -83,7 +77,7 @@ function Lesson(props) {
                     data={lessons}
                     keyExtractor={(item) => `${item.user_id}`}
                     renderItem={({item}) => {
-                        return <>
+                        return (<>
                             <InstaStory data={[item]}
                                 duration={10}
                                 unPressedBorderColor={"red"}
@@ -99,7 +93,8 @@ function Lesson(props) {
                                 }
                                 style={{marginTop: 100, bottom:0, height:110,color:"white !important"}}
                             />
-                        </>}}
+                        </>)
+                    }}
             />                               
     </>);
 }

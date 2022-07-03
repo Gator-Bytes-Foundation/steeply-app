@@ -5,12 +5,10 @@ import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
 import styled from 'styled-components/native'
 import storyImgs, { sections, slides } from "./stories/symtom.stories";
+import { navy, cyan } from "../../helpers/colors";
 
-const teal = "#045580"
-
-const RedishView=styled(VStack)`
-    background-color: #fb6d4d;
-    color: ${teal}; 
+const NavyStack=styled(VStack)`
+    background-color: ${cyan}
     height:100%;
     display:flex;
 `
@@ -23,11 +21,11 @@ const SymptomScreen = (props) => {
 
 
     return (
-        <RedishView w="100%" h="100%">
-          <Banner banners={slides} header="Side Effect Management" headerIcon={require("../../images/symptom.png")} fontColor={teal} circleBg="#f1f0f0" titleOffset="20"/>
+        <NavyStack w="100%" h="100%">
+          <Banner banners={slides} header="Side Effect Management" headerIcon={require("../../images/symptom.png")} fontColor={navy} circleBg="#f1f0f0" titleOffset={28}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
-        </RedishView>
+        </NavyStack>
     );
 
 };

@@ -3,29 +3,15 @@ import {
     StyleSheet,
     Text,
     View,
-    Dimensions,
-    Animated,
-    TouchableOpacity,
-    Image,
+    Dimensions
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { navigate } from "../helpers/navigation";
-import { Ionicons } from '@expo/vector-icons';
 import TeamSection from "../components/TeamSection";
-import { Box, Center, Container, Flex, HStack, Column, ScrollView } from "native-base";
-//import brain from "../images/brain.png"; 
+import { ScrollView } from "native-base";
 
 const { width, height } = Dimensions.get("screen");
 
 const AboutScreen = (props) => {
-
-    //animation managing
-    const scrollY = useRef(new Animated.Value(0)).current;
-
-    //calls once on first component render
-    useEffect(() => {
-
-    }, []);
 
 
     return (
@@ -46,11 +32,11 @@ const AboutScreen = (props) => {
 };
 
 
-
-
-
 const styles = StyleSheet.create({
 
+    description: {
+        fontFamily: "TrendaLight"
+    },
     /*Containers */
     container1: {
         backgroundColor: "white",
@@ -60,12 +46,11 @@ const styles = StyleSheet.create({
     },
     headerContainer: {
         width: width,
-        height: height * 0.25,
+        height: height * 0.20,
         padding: 20,
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-
     },
     container2: {
         backgroundColor: "white",
@@ -95,7 +80,6 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
 
-    /*MENU CARDS STYLES */
     gradient: {
         width: "100%",
         height: "100%",
@@ -103,40 +87,6 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         position:"relative",
         backgroundColor:"white"
-    },
-    title: {
-        alignSelf: "flex-start",
-        marginTop: 35,
-        fontSize: 30,
-        fontFamily: "TrendaSemibold",
-        color: "#0E0E0E"
-    },
-    description: {
-        fontSize: 20,
-        fontFamily: "TrendaRegular",
-        color: "#0E0E0E"
-    },
-    button: {
-        width: 100,
-        height: 40,
-        backgroundColor: "#14284D",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "absolute",
-        bottom: 0,
-        borderTopRightRadius: 25,
-        borderBottomLeftRadius: 25
-    },
-    buttonText: {
-        fontFamily: "MoonBold",
-        fontSize: 13,
-        color: "#FFFF"
-    },
-    icon: {
-        fontSize: 17,
-        color: "#FFFF",
-        marginLeft: 3
     }
 });
 

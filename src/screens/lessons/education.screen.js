@@ -3,14 +3,13 @@ import { useWindowDimensions, StyleSheet,Text,View,Animated,TouchableOpacity,Ima
 import { Box, Center, Container, Flex, HStack, Column, VStack } from "native-base";
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
 import storyImgs, { sections, slides } from "./stories/education.stories";
+import {purple, lilac, gray} from '../../helpers/colors';
 
-const lilac = "#9cb4ff"
-const darkBlue = "#24578f"
 const PurpleView=styled(VStack)`
     background-color: ${lilac};
-    color: ${darkBlue}; 
+    color: ${purple}; 
     height:100%;
 `
 
@@ -32,7 +31,7 @@ const EducationScreen = (props) => {
 
     return (
         <PurpleView w="100%" h="100%">
-          <Banner banners={slides} header="Navigating School" headerIcon={require("../../images/education.png")} fontColor={darkBlue} circleBg="#f1f0f0" titleOffset="50" {...props}/>
+          <Banner banners={slides} header="Navigating School" headerIcon={require("../../images/education.png")} fontColor={purple} circleBg={gray} titleOffset={60} {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </PurpleView>

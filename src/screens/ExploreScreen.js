@@ -6,15 +6,8 @@ import SubscriptionPackages from "../components/SubscriptionPackages";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from '@expo/vector-icons';
 
-
-
 const { width, height } = Dimensions.get("screen");
 const ITEM_SIZE = height * .4 + 80;
-
-
-
-
-
 
 const ExploreScreen = ({ navigation }) => {
 
@@ -95,7 +88,6 @@ const ExploreScreen = ({ navigation }) => {
                         );
                     }}
                 />
-
             </View>
         </LinearGradient>
     );
@@ -156,7 +148,7 @@ const styles = StyleSheet.create({
 
 
     type: {
-        fontSize: 35,
+        fontSize: 30,
         fontFamily: "TrendaSemibold",
         color: "#14284D",
         marginTop: 20

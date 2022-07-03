@@ -5,10 +5,10 @@ import storyImgs, { sections, slides } from "./stories/exercise.stories";
 import styled from 'styled-components/native'
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
-import { blue } from '../../helpers/colors'
+import { blue,gray,agua } from '../../helpers/colors'
 
 const BlueView=styled(VStack)`
-    background-color: ${blue};
+    background-color: ${agua};
     color: #050511; 
     height:100%;
 `
@@ -20,11 +20,10 @@ const ExerciseScreen = (props) => {
 
     return (
         <BlueView w="100%" h="100%">
-          <Banner header="Exercise" banners={slides} headerIcon={require("../../images/exercise.png")} fontColor="white" circleBg="white" titleOffset="140" {...props}/>
+          <Banner header="Exercise" banners={slides} headerIcon={require("../../images/exercise.png")} fontColor={blue} circleBg={gray} titleOffset={125} {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}/>
         </BlueView>
     );
-
 };
 
 const exerciseStyles = (width, height) => StyleSheet.create({

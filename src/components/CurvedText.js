@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
-//import styledTypes from '@types/styled-components'
-import styled from 'styled-components/native'
-import { StyleSheet, View, TouchableOpacity, Image, useWindowDimensions, Alert, FlatList } from "react-native";
-import {
-    Heading,
-    Center,
-    VStack,
-    Divider,
-    Icon,
-    Stack,
-  } from "native-base";
+import styled from 'styled-components/native';
+import { StyleSheet, useWindowDimensions } from "react-native";
 import Svg, { G, Text, TextPath, TSpan, Circle, Path,Defs } from 'react-native-svg';
 
 
@@ -21,25 +12,25 @@ const BigText=styled(Text)`
 function CurvedText(props) {
     let dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
     let dimenHeight = useWindowDimensions().height; 
-    const circleHeight = dimenHeight * 0.4;
-    const circleWidth = dimenWidth * 0.7; 
+    let FONT_SIZE = 32;
+    let offset = props.offset
+    if(dimenWidth < 500) {
+      FONT_SIZE = 26
+      offset += 35
+    }
+
 
     return (<>
-<Svg position="absolute" height="220" width="600">
+<Svg position="absolute" height="200" width="500">
   <Defs>
-    <Path id="path" d={"M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"} />
+    <Path id="path" d={"M70.2,148.6c4-6.1,65.5-96.8,177.6-95.6c121.3,1.2,170.8,85.3,177.1,93"} />
   </Defs>
-  <G x="60" y="50">
-    <Text fill={props.color} style={{fontSize:30}}>
-      <TextPath href="#path"  startOffset={props.offset} >
+  <G x="0" y="50">
+    <Text fill={props.color} style={{fontSize:FONT_SIZE,fontFamily:"TrendaSemibold", fontWeight:900}}>
+      <TextPath href="#path"  startOffset={offset} >
         {props.title}
       </TextPath>
     </Text>
-    <Path d={"M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"} fill="none" stroke="none" strokeWidth="4">
-    <Text fill={props.color}>
-    {props.title}
-    </Text>
-    </Path>
   </G>
 </Svg>      
     </>);

@@ -5,12 +5,11 @@ import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
 import styled from 'styled-components/native'
 import storyImgs, { sections, slides } from "./stories/social.stories";
-
-const purple = "#6241a4;"
+import { green, teal } from "../../helpers/colors";
 const orange = "#fe900c;"
-const OrangeView=styled(VStack)`
-    background-color: ${orange}
-    color: ${purple} 
+const GreenStack=styled(VStack)`
+    background-color: ${green}
+    color: ${teal} 
     height:100%;
 `
 
@@ -25,17 +24,13 @@ const DietScreen = (props) => {
         header:"Social",
         headerIcon:null
     }
-    //calls once on first component render
-    useEffect(() => {
-
-    }, []);
 
     return (
-        <OrangeView w="100%" h="100%">
-          <Banner banners={slides} header="Nutrition & Diet" headerIcon={require("../../images/diet.png")} fontColor={purple} circleBg="#fff" titleOffset="80"/>
+        <GreenStack w="100%" h="100%">
+          <Banner banners={slides} header="Nutrition & Diet" headerIcon={require("../../images/diet.png")} fontColor={teal} circleBg="#f0fff0" titleOffset={80}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
-        </OrangeView>
+        </GreenStack>
     );
 
 };
@@ -43,7 +38,7 @@ const DietScreen = (props) => {
 
 const dietStyles = (width, height) => StyleSheet.create({
 
-    /*Containers */
+    /* Containers */
     container1: {
         backgroundColor: "white",
         width: width,

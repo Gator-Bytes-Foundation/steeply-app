@@ -1,16 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useWindowDimensions, StyleSheet,Text,View,Animated,TouchableOpacity,Image } from "react-native";
 import { VStack } from "native-base";
+import { orange, blue, gray } from "../../helpers/colors";
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
 import storyImgs, { sections, slides } from "./stories/med.stories";
 
-const darkBlue = "#1f628e"
-
-const YellowView=styled(VStack)`
-    background-color: #ffde59;
-    color: ${darkBlue}; 
+const OrangeStack=styled(VStack)`
+    background-color: ${orange};
+    color: ${blue}; 
     height:100%;
 `
 
@@ -21,11 +20,11 @@ const MedScreen = (props) => {
     let styles = medStyles(dimenWidth,dimenHeight);
 
     return (
-        <YellowView w="100%" h="100%">
-          <Banner banners={slides} header="Exercise" headerIcon={require("../../images/med.png")} fontColor={darkBlue} circleBg="white" titleOffset="20"/>
+        <OrangeStack w="100%" h="100%">
+          <Banner banners={slides} header="Med Management" headerIcon={require("../../images/med.png")} fontColor={blue} circleBg={gray} titleOffset={67}/>
           <Lesson title="Medication Mangement" lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
-        </YellowView>
+        </OrangeStack>
     );
 
 };
@@ -33,13 +32,6 @@ const MedScreen = (props) => {
 
 const medStyles = (width, height) => StyleSheet.create({
 
-    /*Containers */
-    container1: {
-        backgroundColor: "white",
-        width: width,
-        height: height,
-        alignItems: "flex-end"
-    }
 });
 
 export default MedScreen;

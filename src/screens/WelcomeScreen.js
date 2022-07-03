@@ -8,13 +8,11 @@ const ButtonText=styled.Text`
     text-align:center;
     color:${props=>props.white?"white":"black"};
     fontFamily: "MoonLight";
-    fontSize: 20;
+    fontSize: 20px;
 `
 
 
 const WelcomeScreen = ({ navigation }) => {
-
-    //LogBox.ignoreAllLogs(); // reactive-native
 
     return (
         <View style={styles.container}>

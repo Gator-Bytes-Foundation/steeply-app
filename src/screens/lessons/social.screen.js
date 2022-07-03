@@ -5,11 +5,10 @@ import styled from 'styled-components/native'
 import storyImgs, { sections, slides } from "./stories/social.stories";
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
+import { coral, blue, pink } from "../../helpers/colors";
 
-const coral = "#ff7f6f"
-
-const WhiteView=styled(VStack)`
-    background-color: #fff;
+const OrangeStack=styled(VStack)`
+    background-color: ${pink};
     color: ${coral}; 
     height:100%;
 `
@@ -20,30 +19,18 @@ const SocialScreen = (props) => {
     let dimenHeight = useWindowDimensions().height; 
     let styles = socialStyles(dimenWidth,dimenHeight);
 
-    //calls once on first component render
-    useEffect(() => {
-
-    }, []);
-
     return (    
-        <WhiteView w="100%" h="100%">
-          <Banner banners={slides} header="Stay Connected" headerIcon={require("../../images/social.png")} fontColor={coral} circleBg="#f1f0f0" titleOffset="20" {...props}/>
+        <OrangeStack w="100%" h="100%">
+          <Banner banners={slides} header="Stay Connected" headerIcon={require("../../images/social.png")} fontColor={blue} circleBg="#f1f0f0" titleOffset={75} {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
-        </WhiteView>
+        </OrangeStack>
     );
 };
 
 
 const socialStyles = (width, height) => StyleSheet.create({
 
-    /*Containers */
-    container1: {
-        backgroundColor: "white",
-        width: width,
-        height: height,
-        alignItems: "flex-end"
-    }
 });
 
 export default SocialScreen;

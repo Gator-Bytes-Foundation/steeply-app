@@ -7,6 +7,9 @@ import { Box, Center, Container, ScrollView, Flex, HStack, Column, Text } from "
 const ReferenceView=styled.View`
     display:flex;
     background-color:white;
+    width: 80%; 
+    justify-content:center;
+    max-width:600px;
     padding-top:20px; 
     padding-bottom:20px; 
     text-align:center;
@@ -15,7 +18,7 @@ const ReferenceView=styled.View`
 export default function References() {
     return (
         <ReferenceView>
-            <Text>References</Text>
+            <Text>References go here</Text>
         </ReferenceView>
     );
 }
