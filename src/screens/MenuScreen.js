@@ -12,8 +12,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from '@expo/vector-icons';
 import { Column } from "native-base";
 import { blue, navy, agua, teal, yellow, purple, lilac, pink, darkOrange, coral, cyan, green } from "../helpers/colors"
-//import "firebase/firestore";
-//import * as firebase from "firebase";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -82,21 +80,6 @@ const MenuScreen = (props) => {
     const [lessons, setLessons] = useState(initLessons);
 
     useEffect(() => {
-        var newArray = [];
-        //setLessons([]);
-        /*var db = firebase.firestore();
-        var storage = firebase.storage();
-        db.collection("lessons").get().then((querySnapshot) => {
-            querySnapshot.forEach((document) => {
-
-                //helper
-                // storage.ref('FearSpaces.png').getDownloadURL()
-                //     .then((url) => {
-                //         console.log(url);
-                //     })
-                newArray.push({ id: document.id, data: document.data() });
-            });
-            });*/
 
         async function getUserInfo() {
             //setUser({ id: "testId", userData: "testData" });
@@ -112,9 +95,6 @@ const MenuScreen = (props) => {
 
     const getLesson = (lesson) => {
         props.navigation.navigate(lesson.name,lesson);
-        /*firebase.firestore().collection("lessons").doc(phobiaID).get().then((doc) => {
-            navigate("Home", { phobia: doc.data(), user: user });
-        });*/
     }
 
     return (
@@ -302,7 +282,5 @@ MenuScreen.navigationOptions = {
     headerShown: false,
     cardStyle: { backgroundColor: "white" }
 }
-
-
 
 export default MenuScreen;

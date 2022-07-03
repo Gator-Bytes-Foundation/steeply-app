@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import {
@@ -8,7 +9,6 @@ import {
   Box,
 } from "native-base";
 
-import { createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer";
 
 //Importing all screens
 import WelcomeScreen from "./src/screens/WelcomeScreen";
@@ -142,7 +142,7 @@ const Drawer = createDrawerNavigator();
 function AppFlow(props) {
   return (
     <Box safeArea flex={1}>
-    <Drawer.Navigator drawerContent={(props) => <Sidebar {...props}/>}
+    <Drawer.Navigator initialRouteName="Welcome" useLegacyImplementation={true} drawerContent={(props) => <Sidebar {...props}/>}
     > 
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="Home" component={WelcomeScreen} />

@@ -61,7 +61,7 @@ const SigninScreen = ({ navigation }) => {
             <TouchableOpacity style={styles.touchableIcon} onPress={() => navigation.goBack()} >
                 <Ionicons name="arrow-back-sharp" style={styles.icon} />
             </TouchableOpacity>
-            <Text style={styles.headerText}>Sign in to Auxilium</Text>
+            <Text style={styles.headerText}>Sign in to Steeply</Text>
 
 
             {/*form container */}

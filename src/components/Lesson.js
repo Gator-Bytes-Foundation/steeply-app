@@ -9,8 +9,6 @@ import { Circle,
 //import * as Story from "zuck.js"
 import InstaStory from 'react-native-insta-story';
 //import SmallTaskCard from "../components/SmallTaskCard";
-import { StoryContainer } from 'react-native-stories-view';
-import Story from 'react-native-story';
 import { useNavigation } from "@react-navigation/native";
 
 
