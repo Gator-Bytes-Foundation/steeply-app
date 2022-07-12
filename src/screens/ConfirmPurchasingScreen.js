@@ -18,9 +18,6 @@ const ConfirmPurchaseScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.imageContainer}>
-                <Image style={{ width: width, height: 330, resizeMode: "contain" }} source={require("../images/payment.png")} />
-            </View>
             <View style={styles.info}>
                 <Text style={styles.infoH1}>Payment successful</Text>
                 <Text style={styles.infoP}>You have successfully purchased the "{packageName}" package. Tap bellow to unlock it.</Text>
@@ -43,11 +40,6 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-    },
-
-    imageContainer: {
-        width: width,
-        height: height * .5,
     },
 
     info: {

@@ -1,9 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
 import {
   NativeBaseProvider,
   Box,
@@ -29,7 +28,6 @@ import ReviewScreen from "./src/screens/ReviewScreen";
 import ChangePasswordScreen from "./src/screens/ChangePasswordScreen";
 import OnBoardScreen from "./src/screens/OnBoardScreen";
 import ConfirmPurchaseScreen from "./src/screens/ConfirmPurchasingScreen";
-import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import ReferencesScreen from "./src/screens/ReferencesScreen";
 import StretchTutorialsScreen from "./src/screens/lessons/StretchTutorial.screen";
@@ -42,8 +40,6 @@ import { useFonts } from "@use-expo/font";
 //Importing AppLoading component if something doesn't load correctly
 import AppLoading from "expo-app-loading";
 import apiKeys from "./src/config/keys";
-//importing firebase
-//import * as firebase from "firebase";
 
 //importing icons library's
 import { AntDesign } from '@expo/vector-icons';

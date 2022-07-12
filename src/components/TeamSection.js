@@ -1,8 +1,7 @@
-//import Title from './Title';
 import TeamCard from './TeamCard';
 import bex from '../images/bex.jpg';
-import logan from '../images/logan.png';
-import React, { useState, useEffect } from "react";
+import logan from '../images/log.jpg';
+import React from "react";
 import styled from 'styled-components/native'
 import { Box, Center, Container, ScrollView, Flex, HStack, Column, Text } from "native-base";
 
@@ -17,7 +16,6 @@ const FlexWrap=styled.View`
     display:flex;
     flex-wrap 
 `
-//  className="max-w-7xl mx-auto px-4"
 export default function TeamSection() {
     return (
         <TeamContainer>
