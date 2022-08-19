@@ -13,13 +13,10 @@ import {
 import WelcomeScreen from "./src/screens/WelcomeScreen";
 import Sidebar from "./src/components/Sidebar";
 import Footer from "./src/components/SimpleFooter";
-import SigninScreen from "./src/screens/SigninScreen";
-import SignupScreen from "./src/screens/SignupScreen";
 import MenuScreen from "./src/screens/MenuScreen";
 import TaskListScreen from "./src/screens/TaskListScreen";
 import TaskDetailScreen from "./src/screens/TaskDetailScreen";
 import ExploreScreen from "./src/screens/ExploreScreen";
-import PurchaseScreen from "./src/screens/PurchaseScreen";
 import AccountScreen from "./src/screens/AccountScreen";
 import ExpertScreen from "./src/screens/ExpertScreen";
 import ExerciseScreen from "./src/screens/lessons/exercise.screen";
@@ -27,19 +24,17 @@ import SocialScreen from "./src/screens/lessons/social.screen";
 import ReviewScreen from "./src/screens/ReviewScreen";
 import ChangePasswordScreen from "./src/screens/ChangePasswordScreen";
 import OnBoardScreen from "./src/screens/OnBoardScreen";
-import ConfirmPurchaseScreen from "./src/screens/ConfirmPurchasingScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import ReferencesScreen from "./src/screens/ReferencesScreen";
 import StretchTutorialsScreen from "./src/screens/lessons/StretchTutorial.screen";
 
 
 //Importing navigator helper which will allow us to navigate between different flows
-import { navigate, setNavigator } from "./src/helpers/navigation";
+//import { navigate, setNavigator } from "./src/helpers/navigation";
 //Importing fonts hook
 import { useFonts } from "@use-expo/font";
 //Importing AppLoading component if something doesn't load correctly
 import AppLoading from "expo-app-loading";
-import apiKeys from "./src/config/keys";
 
 //importing icons library's
 import { AntDesign } from '@expo/vector-icons';
@@ -54,11 +49,11 @@ import SymptomScreen from "./src/screens/lessons/symptom.screen";
 
 
 //flow that is controling the login screens
-const loginFlow = createStackNavigator({
-  Welome: WelcomeScreen,
-  Signin: SigninScreen,
-  Signup: SignupScreen
-});
+// const loginFlow = createStackNavigator({
+//   Welome: WelcomeScreen,
+//   Signin: SigninScreen,
+//   Signup: SignupScreen
+// });
 
 
 //flow that is controling the home screens

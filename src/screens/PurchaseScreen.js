@@ -3,8 +3,6 @@ import { StyleSheet, Text, Dimensions, View, TouchableOpacity, FlatList, Image }
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import PaymentMethod from "../components/PaymentMethod";
-import CreditCards from "../components/CreditCards";
 
 
 
@@ -48,7 +46,6 @@ const PurchaseScreen = ({ navigation }) => {
                         scrollEventThrottle={20}
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
-                        data={CreditCards}
                         keyExtractor={(item) => item.id}
                         renderItem={({ item }) => {
                             return (
@@ -73,9 +70,6 @@ const PurchaseScreen = ({ navigation }) => {
             {/*Middle container holding all payment methods */}
             <View style={styles.middleContainer}>
                 <Text style={{ fontFamily: "TrendaLight", fontSize: 18, color: "black", opacity: .8, marginRight: width * .2 }}>Other payment methods</Text>
-                <PaymentMethod image="card" />
-                <PaymentMethod image="amazonPay" />
-                <PaymentMethod image="paypal" />
             </View>
 
 
