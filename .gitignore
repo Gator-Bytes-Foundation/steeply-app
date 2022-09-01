@@ -110,11 +110,8 @@ ios/Auxilium/Images.xcassets/AppIcon.appiconset/App-Icon-20x20@2x.png
 ios/Auxilium/Images.xcassets/AppIcon.appiconset/App-Icon-20x20@1x.png
 *.jar
 *.xml
-*.properties
-*.gradle
 *.keystore
 *.bzl
-*.pro
 *.java
 *.java
 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
