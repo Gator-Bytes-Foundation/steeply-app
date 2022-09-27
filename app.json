@@ -1,22 +1,20 @@
 {
   "expo": {
     "name": "Steeply",
-    "slug": "steeply-app",
-    "sdkVersion": "44.0.0",
-    "version": "1.0.1",
-    "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "version": "1.0.5",
+    "slug": "steeply-app",
+    "orientation": "portrait",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "splash": {
       "image": "./src/images/welcome.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "versionCode": 3,
+      "versionCode": 5,
       "package": "com.lcundiff.steeply"
     },
     "web": {

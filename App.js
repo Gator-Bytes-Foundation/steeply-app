@@ -1,28 +1,23 @@
 import React from "react";
-import { createStackNavigator } from "react-navigation-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {
-  NativeBaseProvider,
-  Box,
-} from "native-base";
-
+import { NativeBaseProvider, Box } from "native-base";
 
 //Importing all screens
 import WelcomeScreen from "./src/screens/WelcomeScreen";
 import Sidebar from "./src/components/Sidebar";
-import Footer from "./src/components/SimpleFooter";
+//import Footer from "./src/components/SimpleFooter";
 import MenuScreen from "./src/screens/MenuScreen";
 import TaskListScreen from "./src/screens/TaskListScreen";
-import TaskDetailScreen from "./src/screens/TaskDetailScreen";
-import ExploreScreen from "./src/screens/ExploreScreen";
-import AccountScreen from "./src/screens/AccountScreen";
-import ExpertScreen from "./src/screens/ExpertScreen";
+//import TaskDetailScreen from "./src/screens/TaskDetailScreen";
+//import ExploreScreen from "./src/screens/ExploreScreen";
+//import AccountScreen from "./src/screens/AccountScreen";
+//import ExpertScreen from "./src/screens/ExpertScreen";
 import ExerciseScreen from "./src/screens/lessons/exercise.screen";
 import SocialScreen from "./src/screens/lessons/social.screen";
-import ReviewScreen from "./src/screens/ReviewScreen";
-import ChangePasswordScreen from "./src/screens/ChangePasswordScreen";
+//import ReviewScreen from "./src/screens/ReviewScreen";
+//import ChangePasswordScreen from "./src/screens/ChangePasswordScreen";
 import OnBoardScreen from "./src/screens/OnBoardScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import ReferencesScreen from "./src/screens/ReferencesScreen";
@@ -44,77 +39,6 @@ import EducationScreen from "./src/screens/lessons/education.screen";
 import MedScreen from "./src/screens/lessons/med.screen";
 import DietScreen from "./src/screens/lessons/diet.screen";
 import SymptomScreen from "./src/screens/lessons/symptom.screen";
-
-
-
-
-//flow that is controling the login screens
-// const loginFlow = createStackNavigator({
-//   Welome: WelcomeScreen,
-//   Signin: SigninScreen,
-//   Signup: SignupScreen
-// });
-
-
-//flow that is controling the home screens
-const homeFlow = createStackNavigator({
-  Home: WelcomeScreen,
-  TaskList: TaskListScreen,
-  TaskDetail: TaskDetailScreen
-});
-homeFlow.navigationOptions = {
-  title: "Home",
-  tabBarIcon: ({ tintColor }) => <AntDesign name="home" size={30} color={tintColor} />
-}
-
-
-//flow that is controling the explore screens
-const exploreFlow = createStackNavigator({
-  Explore: ExploreScreen,
-  Purchase: PurchaseScreen,
-  Confirm: ConfirmPurchaseScreen
-}, {
-  initialRouteName: "Explore"
-});
-
-exploreFlow.navigationOptions = {
-  title: "Subscription",
-  tabBarIcon: ({ tintColor }) => <Feather name="shopping-cart" size={28} color={tintColor} />
-}
-
-
-
-
-
-//flow that is controling the account screens
-const accountFlow = createStackNavigator({
-  Account: AccountScreen,
-  Review: ReviewScreen,
-  Expert: ExpertScreen,
-  ChangePassword: ChangePasswordScreen
-});
-accountFlow.navigationOptions = {
-  title: "Me",
-  tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name="account" size={24} color={tintColor} />
-}
-
-
-
-
-//three flows put together in one bottomTabFlow
-/*
-const bottomTabFlow = createBottomTabNavigator({
-  exploreFlow: exploreFlow,
-  homeFlow: homeFlow,
-  accountFlow: accountFlow
-}, {
-  initialRouteName: "homeFlow",
-  tabBarOptions: {
-    activeTintColor: "#EC216A",
-    inactiveTintColor: "#14284D"
-  }
-});*/
-
 
 //object containing all fonts 
 const customFonts = {

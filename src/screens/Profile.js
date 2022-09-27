@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Image, FlatList, Dimensions, Alert } from "react-native";
-//import "firebase/firestore";
-//import * as firebase from "firebase";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet, Text, View, Image, FlatList, Dimensions, Alert, TouchableOpacity } from "react-native";
+//import { TouchableOpacity } from "react-native-gesture-handler";
 import TaskCard from "../components/TaskCard";
 import DailyTasks from "../components/DailyTasks";
-import WeeklyTasks from "../components/WeeklyTasks";
-import TeamSection from "../components/TeamSection";
-
 
 const { width, height } = Dimensions.get("screen");
 
