@@ -27,7 +27,7 @@ const getIcon = (screenName) => {
 const sidebarRoutes = ["Home","About","References"];
 function Sidebar(props) {
   return (
-    <DrawerContentScrollView {...props} safeArea>
+    <DrawerContentScrollView {...props}>
       <VStack space="6" my="2" mx="1">
         <Box px="4">
           <Text bold color="gray.700">

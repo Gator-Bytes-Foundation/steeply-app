@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from 'styled-components/native';
 import { StyleSheet, useWindowDimensions } from "react-native";
 import Svg, { G, Text, TextPath, TSpan, Circle, Path,Defs } from 'react-native-svg';
-
+import { View } from "native-base"
 
 const BigText=styled(Text)`
     font-size: 30px;
@@ -19,20 +19,21 @@ function CurvedText(props) {
       offset += 35
     }
 
-
     return (<>
-<Svg position="absolute" height="200" width="500">
-  <Defs>
-    <Path id="path" d={"M70.2,148.6c4-6.1,65.5-96.8,177.6-95.6c121.3,1.2,170.8,85.3,177.1,93"} />
-  </Defs>
-  <G x="0" y="50">
-    <Text fill={props.color} style={{fontSize:FONT_SIZE,fontFamily:"TrendaSemibold", fontWeight:900}}>
-      <TextPath href="#path"  startOffset={offset} >
-        {props.title}
-      </TextPath>
-    </Text>
-  </G>
-</Svg>      
+        <View h="200" w="500">
+            <Svg position="absolute" height="200" width="500">
+              <Defs>
+                <Path id="path" d={"M70.2,148.6c4-6.1,65.5-96.8,177.6-95.6c121.3,1.2,170.8,85.3,177.1,93"} />
+              </Defs>
+              <G x="0" y="50">
+                <Text fill={props.color} style={{fontSize:FONT_SIZE,fontFamily:"TrendaSemibold", fontWeight:900}}>
+                  <TextPath href="#path"  startOffset={offset} >
+                    {props.title}
+                  </TextPath>
+                </Text>
+              </G>
+            </Svg>     
+        </View> 
     </>);
 }
 export default CurvedText

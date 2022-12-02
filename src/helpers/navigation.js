@@ -1,5 +1,4 @@
-import { NavigationActions } from "react-navigation";
-
+import { CommonActions } from '@react-navigation/native';
 
 let navigator;
 
@@ -14,6 +13,6 @@ export const setNavigator = (nav) => {
 //we can now import this function anywhere we want to navigate, just need to send it screenName and params for that screen
 export const navigate = (routeName, params) => {
     navigator.dispatch(
-        NavigationActions.navigate({ routeName: routeName, params: params })
+        CommonActions.navigate({ name: routeName, params: params })
     );
 };

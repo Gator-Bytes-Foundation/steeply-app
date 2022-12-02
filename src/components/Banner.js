@@ -74,13 +74,20 @@ function Banner(props) {
             <HeadTitle>
                 <CurvedText title={props.header} color={'white'} offset={props.titleOffset}/>
             </HeadTitle>
-    <FlatList
+            <Flex>
+              <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleBg} >
+                <CircleText color={"black"}>{props.banners[0].info}</CircleText>
+                {props.headerIcon ? <BannerIcon style={{marginBottom:-100 }} source={props.headerIcon}/> : ''}
+              </BigOleCircle>
+            </Flex>
+    {/*<FlatList
         data={DATA}
         renderItem={({item}) => (
-            <div></div>
+            <></>
         )}
         keyExtractor={item => item.id}
       />
+      */}
 
         </Center>                          
     </>);

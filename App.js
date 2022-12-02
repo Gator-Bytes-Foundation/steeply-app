@@ -1,8 +1,11 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import 'react-native-gesture-handler';
+import React, { useCallback } from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NativeBaseProvider, Box } from "native-base";
+import { useFonts } from "@use-expo/font";
+import * as SplashScreen from 'expo-splash-screen';
+
 
 //Importing all screens
 import WelcomeScreen from "./src/screens/WelcomeScreen";
@@ -22,25 +25,14 @@ import OnBoardScreen from "./src/screens/OnBoardScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import ReferencesScreen from "./src/screens/ReferencesScreen";
 import StretchTutorialsScreen from "./src/screens/lessons/StretchTutorial.screen";
-
-
-//Importing navigator helper which will allow us to navigate between different flows
-//import { navigate, setNavigator } from "./src/helpers/navigation";
-//Importing fonts hook
-import { useFonts } from "@use-expo/font";
-//Importing AppLoading component if something doesn't load correctly
-import AppLoading from "expo-app-loading";
-
-//importing icons library's
-import { AntDesign } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
 import EducationScreen from "./src/screens/lessons/education.screen";
 import MedScreen from "./src/screens/lessons/med.screen";
 import DietScreen from "./src/screens/lessons/diet.screen";
 import SymptomScreen from "./src/screens/lessons/symptom.screen";
 
-//object containing all fonts 
+SplashScreen.preventAutoHideAsync();
+const Drawer = createDrawerNavigator();
+
 const customFonts = {
   TrendaExtraLight: require("./assets/fonts/TrendaFonts/Trenda-ExtraLight.otf"),
   TrendaLightIt: require("./assets/fonts/TrendaFonts/Trenda-LightIt.otf"),
@@ -52,12 +44,9 @@ const customFonts = {
   MoonLight: require("./assets/fonts/MoonFonts/Moon-Light.otf")
 }
 
-const Drawer = createDrawerNavigator();
-
 function AppFlow(props) {
   return (
-    <Box safeArea flex={1}>
-    <Drawer.Navigator initialRouteName="Welcome" useLegacyImplementation={true} drawerContent={(props) => <Sidebar {...props}/>}
+    <Drawer.Navigator initialRouteName="Welcome" drawerContent={(props) => <Sidebar {...props}/>}
     > 
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="Home" component={WelcomeScreen} />
@@ -76,54 +65,32 @@ function AppFlow(props) {
         <Drawer.Screen name="Exercises" component={StretchTutorialsScreen}/>
         <Drawer.Screen name="Stretching" component={StretchTutorialsScreen}/>
     </Drawer.Navigator>
-  </Box>
   )
 } 
 
-const Tab = createBottomTabNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <NativeBaseProvider>
-      <Tab.Navigator screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
-        
-      }}>
-        <Tab.Screen name="App" component={AppFlow} options={{ 
-            headerShown: false,
-            tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name="account" size={24} color={tintColor}/>
-        }}/>
-        <Tab.Screen name="Home" component={WelcomeScreen} options={{
-          headerShown: false,
-          tabBarIcon: ({ tintColor }) => <AntDesign name="home" size={30} color={tintColor} />
-        }}/>
-      </Tab.Navigator>
-      </NativeBaseProvider>
-    </NavigationContainer>
-  );
-}
-
-export default () => {
-
-  const [isLoaded] = useFonts(customFonts);
-
+export default function App() {
+  const [fontsLoaded] = useFonts(customFonts);
   //if fonts are not loaded it will show loading icon
-  if (!isLoaded)
-    return <AppLoading />
 
-  /*checking if there are any apps running before initializing a new one, if not
-  we initialize the new firebase with keys we exported in keys.js
-  if (!firebase.apps.length) {
-    console.log("Connected with firebase!");
-    firebase.initializeApp(apiKeys.firebaseConfig);
-  }*/
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <NavigationContainer>
     <NativeBaseProvider>
-      <AppFlow/>
+      <NavigationContainer>
+      <Box safeArea flex={1} onLayout={onLayoutRootView}>
+
+        <AppFlow />
+      </Box>
+      </NavigationContainer>
     </NativeBaseProvider>
-    </NavigationContainer>
   );
 }
 
