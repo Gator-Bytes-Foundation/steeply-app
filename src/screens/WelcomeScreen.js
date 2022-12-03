@@ -7,7 +7,6 @@ const ButtonText=styled.Text`
     font-size:20px;
     text-align:center;
     color:${props=>props.white?"white":"black"};
-    fontFamily: "MoonLight";
     fontSize: 20px;
 `
 
@@ -24,7 +23,7 @@ const WelcomeScreen = ({ navigation }) => {
                 <Text style={styles.header2}>to the Steeply App</Text>
 
                 <TouchableOpacity style={styles.authButton1} onPress={() => navigation.navigate("Menu")}>
-                    <ButtonText>Steep In</ButtonText>
+                    <ButtonText style={{ fontFamily: 'MoonLight', fontSize: 20 }}>Steep In</ButtonText>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.authButton2} onPress={() => navigation.navigate("OnBoard")}>

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, SafeAreaView, Image, FlatList, Dimensio
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+//import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get("screen");
 
@@ -19,8 +19,8 @@ const TaskCard = ({ phobiaName, description, imageURL, type, navigation, infoTit
             return <Feather name="video" style={styles.icon} />
         else if (type == "auditory")
             return <AntDesign name="sound" style={styles.icon} />
-        else if (type == "v-reality")
-            return <MaterialCommunityIcons name="virtual-reality" style={styles.icon} />
+        //else if (type == "v-reality")
+            //return <MaterialCommunityIcons name="virtual-reality" style={styles.icon} />
     }
 
 

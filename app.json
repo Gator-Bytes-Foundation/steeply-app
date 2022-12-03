@@ -23,6 +23,11 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.lcundiff.steeply"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8ef92fc6-0ddc-4ff8-b21b-0eb33781fdb1"
+      }
     }
   }
 }
