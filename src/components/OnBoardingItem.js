@@ -1,13 +1,8 @@
 import React, { useState,useEffect } from "react";
-import { StyleSheet, Text, Image, TouchableOpacity, Dimensions, View, SafeAreaView,useWindowDimensions } from "react-native";
+import { StyleSheet, Text, Image, TouchableOpacity, View,useWindowDimensions } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { navigate } from "../helpers/navigation";
 
-//const { width, height } = Dimensions.get("window");
-
-//let styles = onBoardingStyles(initWidth,initHeight);
-//taking the dimensions of a window
- 
 function OnBoardingItem({ item }) {
 
     let  dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
@@ -19,7 +14,6 @@ function OnBoardingItem({ item }) {
 
     }, []);
 
-    //method that will render an object with its proper style
     const renderHelper = (object) => {
 
         if (object.id == "1")
