@@ -1,40 +1,7 @@
 import {Asset} from 'expo-asset';
+import { getStories } from '../story.helper';
 
-export const sections = [
-    {
-        index: 1,
-        title: "Cancer Quicksheets"
-    },
-    {
-        index: 11,
-        title: "Manage Side Effects"
-    },
-    {
-        index: 36,
-        title: "Paliative Vs Hospice Care"
-    },
-    {
-        index: 49,
-        title: "What Are Blood Counts?"
-    },
-    {
-        index: 70,
-        title: "Last story"
-    }
-];
-export const slides = [
-    {
-        info: "Being  active every day helps you stay strong throughout treatment and in the future!",
-        img:null,
-        link: null,
-    },
-    {
-        info: "Being active during treatment can...",
-        img:null,
-        link: null
-    }
-]   
-let imgs = [
+const imgs = [
     Asset.fromModule(require('../../../images/stories/symptom/1.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/symptom/2.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/symptom/3.jpg')).uri,
@@ -112,5 +79,52 @@ let imgs = [
     Asset.fromModule(require('../../../images/stories/symptom/69.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/symptom/70.jpg')).uri
 ]
+const symptomInteractions = {
+    24: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8219270/",
+    28: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
+    32: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
+    40: "https://www.cancer.gov/about-cancer/advanced-cancer/care-choices/palliative-care-fact-sheet",
+    41: "https://pubmed.ncbi.nlm.nih.gov/25057608/",
+    44: "https://www.cancer.net/navigating-cancer-care/advanced-cancer/hospice-care",
+    55: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/low-blood-counts/anemia.html",
+    58: "https://www.cancer.net/navigating-cancer-care/diagnosing-cancer/reports-and-results/understanding-your-complete-blood-count-cbc-tests"
+}
+
+const getSymptomStories = (start,end) => getStories(start,end,symptomInteractions,imgs);
+
+export const sections = [
+    {
+        index: 0,
+        title: "Cancer Quicksheets"
+    },
+    {
+        index: 11,
+        title: "Manage Side Effects"
+    },
+    {
+        index: 36,
+        title: "Paliative Vs Hospice Care"
+    },
+    {
+        index: 49,
+        title: "What Are Blood Counts?"
+    },
+    {
+        index: 70,
+        title: "Last story"
+    }
+];
+export const slides = [
+    {
+        info: "Being  active every day helps you stay strong throughout treatment and in the future!",
+        img:null,
+        link: null,
+    },
+    {
+        info: "Being active during treatment can...",
+        img:null,
+        link: null
+    }
+]   
 
 export default imgs;

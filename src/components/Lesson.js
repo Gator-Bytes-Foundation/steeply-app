@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components/native'
-import { View, TouchableOpacity, Button, StyleSheet, useWindowDimensions, Alert, FlatList } from "react-native";
+import { View, Linking, StyleSheet, useWindowDimensions, Alert, FlatList } from "react-native";
 import { Circle,
     Text,
     Center,
@@ -33,13 +33,24 @@ function Lesson(props) {
                 story_image: props.storyImgs[j],
                 //swipeText:'Custom swipe text for this story',
                 onPress: () => {
-                    //console.log("PRESS")
-                    //console.log(props.lessonSections[i].stories)
+                    console.log("PRESS")
+                    const interactAction = props.lessonSections[i].stories?.[j]?.interact
+                    console.log(props.lessonSections[i].stories)
+                    console.log(j)
                     if(props.lessonSections[i].swipe) {
+                        if(props.lessonSections[i].swipe.includes("http")) {
+                            Linking.openURL(props.lessonSections[i].swipe)
+                        }
                         navigation.navigate(props.lessonSections[i].swipe);
                     }
-                    else if(props.lessonSections[i].stories?.[0].interact) {
-                        navigation.navigate(props.lessonSections[i].stories[0].interact);
+                    else if(interactAction) {
+                        
+                        if(interactAction.includes("http")) {
+                            Linking.openURL(interactAction)
+                        }
+                        else {
+                            navigation.navigate(interactAction);
+                        }
                     }
                 },
             }
@@ -77,13 +88,16 @@ function Lesson(props) {
                         /* if this is clicked, will trigger onPress passed into the respective story
                             however the component is passed by section, so commenting out until source
                             code is updated or decide to pass in a common component for each section
+                        */
                         customSwipeUpComponent={
                         <View>
-                            <TouchableOpacity style={styles.btnPrimary}>
-                                <Text style={{ fontFamily: 'MoonLight', fontSize: 20 }}>Steep In</Text>
-                            </TouchableOpacity>
+                            {/*
+                                <TouchableOpacity style={styles.btnPrimary}>
+                                    <Text style={{ fontFamily: 'MoonLight', fontSize: 20 }}>Steep In</Text>
+                                </TouchableOpacity>                            
+                            */}
                         </View>
-                        }*/
+                        }
                         style={{marginTop: 100, bottom:0, height:110,color:"white !important"}}
                     />
                 </>)

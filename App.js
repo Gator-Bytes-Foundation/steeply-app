@@ -64,6 +64,7 @@ function AppFlow(props) {
         <Drawer.Screen name="Med Management" component={MedScreen} />
         <Drawer.Screen name="Exercises" component={StretchTutorialsScreen}/>
         <Drawer.Screen name="Stretching" component={StretchTutorialsScreen}/>
+        <Drawer.Screen name="OnlineDiagnosisGroups" component={StretchTutorialsScreen}/>
     </Drawer.Navigator>
   )
 } 

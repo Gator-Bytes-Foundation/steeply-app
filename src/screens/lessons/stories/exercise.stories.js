@@ -1,63 +1,7 @@
 import {Asset} from 'expo-asset';
+import { getStories } from '../story.helper';
 
-export const sections = [
-    {
-        index: 1,
-        title: "Exercise Importance",
-        swipe: "Exercises"
-    },
-    {
-        index: 22,
-        title: "Stretching",
-        swipe: "Stretching"
-    },
-    {
-        index: 27,
-        title: "Strength Exercises",
-        swipe: "Exercises"
-    },
-    {
-        index: 39,
-        title: "Making Exercise Fun"
-    },
-    {
-        index: 51,
-        title: "Handling Hard Feelings"
-    },
-    {
-        index: 61,
-        title: "Room Activities"
-    },
-    {
-        index: 69,
-        title: "Exercise Apps"
-    },
-    {
-        index: 75,
-        title: "Too much Exercise?"
-    },
-    {
-        index: 78,
-        title: "Milestone Guideline"
-    },
-    {
-        index: 84,
-        title: "Last story"
-    }
-];
-export const slides = [
-    {
-        info: "Being  active every day helps you stay strong throughout treatment and in the future!",
-        img:null,
-        link: null,
-    },
-    {
-        info: "Being active during treatment can...",
-        img:null,
-        link: null
-    }
-]   
-let exerciseImgs = [
+const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/1.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/2.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/3.jpg')).uri,
@@ -146,8 +90,80 @@ let exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/80.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/81.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/82.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/83.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/84.jpg')).uri
+    Asset.fromModule(require('../../../images/stories/exercises/83.jpg')).uri
 ]
+const sectionInteractions = {
+    0: "Exercises",
+    1: "Exercises",
+}
+
+const getExerciseStories = (start,end) => getStories(start,end,sectionInteractions,exerciseImgs)
+
+
+// indices should be 1 less than the page number except first/last
+export const sections = [
+    {
+        index: 0,
+        title: "Importance",
+        swipe: "Exercises",
+        stories: getExerciseStories(0,21)
+    },
+    {
+        index: 21,
+        title: "Stretching",
+        swipe: "Stretching"
+    },
+    {
+        index: 26,
+        title: "Strength Exercises",
+        swipe: "Exercises"
+    },
+    {
+        index: 31,
+        title: "Exercise Impact",
+        swipe: "Side Effect Management"// story 34 (index 33) swipes up to symptom management
+    },
+    {
+        index: 39,
+        title: "Making Exercise Fun"
+    },
+    {
+        index: 51,
+        title: "Handling Hard Feelings"
+    },
+    {
+        index: 61,
+        title: "Room Activities"
+    },
+    {
+        index: 69,
+        title: "Exercise Apps"
+    },
+    {
+        index: 75,
+        title: "Too much Exercise?"
+    },
+    {
+        index: 78,
+        title: "Milestone Guideline"
+    },
+    {
+        index: 84,
+        title: "Last story"
+    }
+];
+export const slides = [
+    {
+        info: "Being  active every day helps you stay strong throughout treatment and in the future!",
+        img:null,
+        link: null,
+    },
+    {
+        info: "Being active during treatment can...",
+        img:null,
+        link: null
+    }
+]   
+
 
 export default exerciseImgs;
