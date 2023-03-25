@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     /*Containers */
     container1: {
         width: width,
-        height: height - 64,
+        height: height - 90,
         alignItems: "flex-end"
     },
     lessonsContainer: {

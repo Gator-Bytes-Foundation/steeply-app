@@ -4,7 +4,7 @@ import { Box, Center, Container, Flex, HStack, Column, VStack } from "native-bas
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
 import styled from 'styled-components/native'
-import storyImgs, { sections, slides } from "./stories/social.stories";
+import storyImgs, { sections, slides } from "./stories/diet.stories";
 import { green, teal } from "../../helpers/colors";
 const orange = "#fe900c;"
 const GreenStack=styled(VStack)`
@@ -21,7 +21,7 @@ const DietScreen = (props) => {
 
     let circleInfo = {
         bg:"white",
-        header:"Social",
+        header:"Diet",
         headerIcon:null
     }
 

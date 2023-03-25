@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useCallback } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { NativeBaseProvider, Box } from "native-base";
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
