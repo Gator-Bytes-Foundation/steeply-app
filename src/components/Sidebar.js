@@ -15,16 +15,16 @@ const getIcon = (screenName) => {
   switch (screenName) {
     case "Home":
       return "heart";
-    case "References":
-      return "archive";
     case "About":
-      return "alert-circle";
+      return "archive";
+    case "Team":
+      return "account-group";
     default:
       return undefined;
   }
 };
 
-const sidebarRoutes = ["Home","About","References"];
+const sidebarRoutes = ["Home","Team","About"];
 function Sidebar(props) {
   return (
     <DrawerContentScrollView {...props}>

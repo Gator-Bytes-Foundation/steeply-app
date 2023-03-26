@@ -1,10 +1,7 @@
 import React from "react";
 import styled from 'styled-components/native'
-import { View, Linking, StyleSheet, useWindowDimensions, Alert, FlatList } from "react-native";
-import { Circle,
-    Text,
-    Center,
-  } from "native-base";
+import { View, Linking, StyleSheet, useWindowDimensions, TouchableOpacity, FlatList } from "react-native";
+import { Text} from "native-base";
 import InstaStory from 'react-native-insta-story';
 //import SmallTaskCard from "../components/SmallTaskCard";
 import { useNavigation } from "@react-navigation/native";
@@ -12,7 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 const StoryList=styled(FlatList)`
     position:absolute;
     bottom:0;
-    color:white !important;
+    paddingBottom: 10;
 `
 function Lesson(props) {
     const navigation = useNavigation(); 
@@ -35,8 +32,6 @@ function Lesson(props) {
                 onPress: () => {
                     console.log("PRESS")
                     const interactAction = props.lessonSections[i].stories?.[j]?.interact
-                    console.log(props.lessonSections[i].stories)
-                    console.log(j)
                     if(props.lessonSections[i].swipe) {
                         if(props.lessonSections[i].swipe.includes("http")) {
                             Linking.openURL(props.lessonSections[i].swipe)
@@ -61,7 +56,8 @@ function Lesson(props) {
             user_id: i,
             user_image: sectionImg || props.storyImgs[sectionIndex],
             user_name: sectionTitle,
-            stories: stories
+            stories: stories,
+            sectionBtn: props.lessonSections[i].sectionBtn
         }
         lessons.push(storySection);
     }
@@ -74,10 +70,13 @@ function Lesson(props) {
             showsHorizontalScrollIndicator={true}
             data={lessons}
             keyExtractor={(item) => `${item.user_id}`}
-            renderItem={({item}) => {
+            renderItem={({item,index}) => {
+                // must prevent index out of bound and buttons from carrying over by swiping to next lesson
+                const forceExitStories = (index < lessons.length-1) && (item.sectionBtn || lessons[index+1].sectionBtn)
+                const remainingLessons = forceExitStories ? [] : lessons.slice(index+1,lessons.length-1)
                 return (<>
                     <InstaStory 
-                        data={[item]}
+                        data={[item, ...remainingLessons]}
                         duration={7}
                         unPressedBorderColor={"red"}
                         pressedBorderColor={"grey"}
@@ -91,11 +90,14 @@ function Lesson(props) {
                         */
                         customSwipeUpComponent={
                         <View>
-                            {/*
-                                <TouchableOpacity style={styles.btnPrimary}>
-                                    <Text style={{ fontFamily: 'MoonLight', fontSize: 20 }}>Steep In</Text>
-                                </TouchableOpacity>                            
-                            */}
+                            {item.sectionBtn ? 
+                                <View style={styles.btnPrimary}>
+                                    <Text style={{ fontFamily: 'MoonLight', fontSize: 20, color: "#1B79D7", fontWeight: "bold" }}>
+                                        {item.sectionBtn}
+                                    </Text>
+                                </View> 
+                                : <></>                           
+                            }
                         </View>
                         }
                         style={{marginTop: 100, bottom:0, height:110,color:"white !important"}}
@@ -110,7 +112,9 @@ const styles = StyleSheet.create({
     btnPrimary: {
         width: 330,
         height: 60,
-        backgroundColor: "#1B79D7",
+        color: "#1B79D7",
+        fontWeight: "bold",
+        backgroundColor: "#fff",
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 18,

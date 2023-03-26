@@ -50,7 +50,7 @@ const imgs = [
 
 
 const interactions = {
-
+    1: "https://cancer.ca/en/living-with-cancer/your-child-has-cancer/managing-your-child-s-care/giving-medicines-at-home"
 }
 
 const getMedStories = (start,end) => getStories(start,end,interactions,imgs)
@@ -60,6 +60,8 @@ export const sections = [
     {
         index: 0,
         title: "Less Scary",
+        sectionImg: Asset.fromModule(require('../../../images/stories/med/section1.jpg')).uri,
+        stories: getMedStories(0,9)
     },
     {
         index: 9,

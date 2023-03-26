@@ -23,12 +23,10 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/19.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/20.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/21.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/21.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/22.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/23.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/24.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/25.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/26.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/26.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/27.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/28.jpg')).uri,
@@ -43,7 +41,6 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/37.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/38.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/39.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/39.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/40.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/41.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/42.jpg')).uri,
@@ -56,7 +53,6 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/49.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/50.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/51.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/51.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/52.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/53.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/54.jpg')).uri,
@@ -67,7 +63,6 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/59.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/60.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/61.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/61.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/62.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/63.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/64.jpg')).uri,
@@ -76,31 +71,23 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/67.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/68.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/69.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/69.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/70.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/71.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/72.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/73.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/74.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/75.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/76.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/77.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/78.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/79.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/80.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/81.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/82.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/83.jpg')).uri
+    Asset.fromModule(require('../../../images/stories/exercises/72.jpg')).uri
 ]
-const sectionInteractions = {
-    0: "Exercises",
-    1: "Exercises",
+const interactions = {
+    4: "Side Effect Management",
+    67: "https://sworkit.com/youth-initiative",
+    68: "https://apps.apple.com/us/app/7-minute-workouts-with-lazy-monster-pro-daily-fitness/id1006057473",
+    69: "https://pebowman.com",
+    70: "https://cosmickids.com/about",
+    71: "https://yogawithadriene.com/?utm_source=canva&utm_medium=iframely"
 }
 
-const getExerciseStories = (start,end) => getStories(start,end,sectionInteractions,exerciseImgs)
+const getExerciseStories = (start,end) => getStories(start,end,interactions,exerciseImgs)
 
 
-// indices should be 1 less than the page number except first/last
+// indices should be 1 less than the page number
 export const sections = [
     {
         index: 0,
@@ -115,7 +102,7 @@ export const sections = [
     },
     {
         index: 26,
-        title: "Strength Exercises",
+        title: "Strength",
         swipe: "Exercises"
     },
     {
@@ -125,31 +112,25 @@ export const sections = [
     },
     {
         index: 39,
-        title: "Making Exercise Fun"
+        title: "Exercise Fun"
     },
     {
-        index: 51,
-        title: "Handling Hard Feelings"
+        index: 48,
+        title: "Hard Feelings"
     },
     {
-        index: 61,
-        title: "Room Activities"
+        index: 58,
+        title: "Room Activities",
+        stories: getExerciseStories(0,66)
     },
     {
-        index: 69,
-        title: "Exercise Apps"
+        index: 66,
+        title: "Exercise Apps",
+        stories: getExerciseStories(0,72)
     },
     {
-        index: 75,
-        title: "Too much Exercise?"
-    },
-    {
-        index: 78,
-        title: "Milestone Guideline"
-    },
-    {
-        index: 84,
-        title: "Last story"
+        index: 72,
+        title: "Last story?"
     }
 ];
 export const slides = [

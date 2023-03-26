@@ -48,12 +48,13 @@ function AppFlow(props) {
   return (
     <Drawer.Navigator initialRouteName="Welcome" drawerContent={(props) => <Sidebar {...props}/>}
     > 
-        <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="Home" component={WelcomeScreen} />
+        <Drawer.Screen name="Team" component={AboutScreen} />
+        <Drawer.Screen name="About" component={OnBoardScreen} />
+        <Drawer.Screen name="References" component={ReferencesScreen} />
+        <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="Menu" key="menu" component={MenuScreen} />
         <Drawer.Screen name="TaskList" component={TaskListScreen} />
-        <Drawer.Screen name="About" component={AboutScreen} />
-        <Drawer.Screen name="References" component={ReferencesScreen} />
         <Drawer.Screen name="TaskDetail" component={TaskListScreen} />
         <Drawer.Screen name="OnBoard" component={OnBoardScreen} />
         <Drawer.Screen name="Exercise" component={ExerciseScreen} />

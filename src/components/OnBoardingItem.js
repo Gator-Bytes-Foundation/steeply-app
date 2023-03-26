@@ -1,10 +1,10 @@
 import React, { useState,useEffect } from "react";
 import { StyleSheet, Text, Image, TouchableOpacity, View,useWindowDimensions } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
-import { navigate } from "../helpers/navigation";
+import { useNavigation } from "@react-navigation/native";
 
 function OnBoardingItem({ item }) {
-
+    const navigation = useNavigation(); 
     let  dimenWidth = useWindowDimensions().width; // Unlike Dimensions, it updates as the window's dimensions update.
     let dimenHeight = useWindowDimensions().height; 
     let [width, setWidth] = useState(dimenWidth);
@@ -35,7 +35,7 @@ function OnBoardingItem({ item }) {
             return (
                 <View style={[styles.container]}>
                     <Text style={styles.description3}>{object.description}</Text>
-                    <Image source={object.image3} style={styles.image3} />
+                    <Image source={object.image3} style={styles.image1} />
                 </View>
             );
         else if (object.id == '4')
@@ -43,7 +43,7 @@ function OnBoardingItem({ item }) {
                 <View style={[styles.container]}>
                     <Image source={object.image4} style={styles.image4} />
                     <Text style={styles.description4}>{object.description}</Text>
-                    <TouchableOpacity style={styles.button} onPress={() => navigate("Menu")}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Menu")}>
                         <Text style={styles.buttonText}>Get Started</Text>
                         <AntDesign name="arrowright" size={24} color="white" style={{ marginLeft: 5 }} />
                     </TouchableOpacity>
@@ -86,7 +86,7 @@ const onBoardingStyles = (w,h) => StyleSheet.create({
     },
     description1: {
         position: "absolute",
-        marginTop: 15,
+        marginTop: 60,
         top: 0,
         marginHorizontal: 50,
         textAlign: "center",
@@ -94,10 +94,6 @@ const onBoardingStyles = (w,h) => StyleSheet.create({
         fontSize: 25,
         color: "#14284D"
     },
-
-
-
-
     //ITEM 2 STYLES
     image2: {
         width: w,

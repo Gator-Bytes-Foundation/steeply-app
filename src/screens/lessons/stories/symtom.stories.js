@@ -80,6 +80,12 @@ const imgs = [
     Asset.fromModule(require('../../../images/stories/symptom/70.jpg')).uri
 ]
 const symptomInteractions = {
+    3: "https://www.cancer.gov/types/leukemia/patient/child-all-treatment-pdq#_26",
+    4: "https://www.cancer.gov/types/leukemia/patient/child-aml-treatment-pdq#_1",
+    5: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
+    6: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
+    7: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
+    8: "https://www.cancer.gov/types/brain/patient/child-cns-embryonal-treatment-pdq#_1",
     24: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8219270/",
     28: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
     32: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
@@ -95,10 +101,16 @@ const getSymptomStories = (start,end) => getStories(start,end,symptomInteraction
 export const sections = [
     {
         index: 0,
-        title: "Cancer Quicksheets"
+        title: "Intro"
     },
     {
-        index: 11,
+        index: 3,
+        title: "Cancer Quicksheets",
+        sectionBtn: "CLICK HERE TO LEARN MORE",
+        stories: getSymptomStories(0,10)
+    },
+    {
+        index: 10,
         title: "Manage Side Effects"
     },
     {

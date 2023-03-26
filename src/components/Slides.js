@@ -2,7 +2,7 @@ export default [
 
     {
         id: "1",
-        description: "Welcome, I am Auxilia.I will guide you through the process of overcoming Your phobias.",
+        description: "Welcome to Steeply! We're here to help steep info in an engaging manner.",
         image1: require("../images/Aux_person.png"),
         image2: require("../images/Aux_cloud.png"),
         button: false
@@ -10,8 +10,7 @@ export default [
 
     {
         id: "2",
-        description:
-            "The most effective way to overcome a phobia is by gradually and repeatedly exposing yourself to what you fear in a safe and controlled way.",
+        description: "A new diagnosis can be very scary for everyone involved.",
         image2: require("../images/Aux_phobia.png"),
         button: false
 
@@ -19,11 +18,10 @@ export default [
 
     {
         id: "3",
-        description: ["The curriculum is consisted of various daily and weekly tasks that will, based on time and your feedback, become gradually more difficult.",
-            "The aim of the tasks are to slowly put you out of your comfort zone, thus increasing your resilience towards your phobia.",
-            "They will begin purely textual, then visual and auditory, and finally they will include Augmented Reality. And don't worry you don't need any special devices."
+        description: [
+            "Our guide consists of colorful stories you can read through at your own pace.",
         ],
-        image3: require("../images/Aux_cards.png"),
+        image3: require("../images/Aux_person.png"),
         button: false
 
     },
