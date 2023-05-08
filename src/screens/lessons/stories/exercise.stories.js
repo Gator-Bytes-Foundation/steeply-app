@@ -76,7 +76,9 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/72.jpg')).uri
 ]
 const interactions = {
+    0: "Exercises",
     4: "Side Effect Management",
+    21: "Stretching",
     67: "https://sworkit.com/youth-initiative",
     68: "https://apps.apple.com/us/app/7-minute-workouts-with-lazy-monster-pro-daily-fitness/id1006057473",
     69: "https://pebowman.com",
@@ -92,7 +94,6 @@ export const sections = [
     {
         index: 0,
         title: "Importance",
-        swipe: "Exercises",
         stories: getExerciseStories(0,21)
     },
     {

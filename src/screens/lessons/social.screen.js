@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useWindowDimensions, StyleSheet,Text,View,Animated,TouchableOpacity,Image } from "react-native";
-import { Box, Center, Container, Flex, HStack, Column, VStack } from "native-base";
+import { useWindowDimensions, StyleSheet } from "react-native";
+import { VStack } from "native-base";
 import styled from 'styled-components/native'
 import storyImgs, { sections, slides } from "./stories/social.stories";
 import Lesson from "../../components/Lesson";
@@ -22,8 +22,7 @@ const SocialScreen = (props) => {
     return (    
         <OrangeStack w="100%" h="100%">
           <Banner banners={slides} header="Stay Connected" headerIcon={require("../../images/social.png")} fontColor={blue} circleBg="#f1f0f0" titleOffset={75} {...props}/>
-          <Lesson lessonSections={sections} storyImgs={storyImgs}>
-          </Lesson>   
+          <Lesson lessonSections={sections} storyImgs={storyImgs} />
         </OrangeStack>
     );
 };

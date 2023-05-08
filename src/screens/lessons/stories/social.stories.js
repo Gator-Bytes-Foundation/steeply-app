@@ -76,7 +76,8 @@ export const sections = [
     },
     {
         index: 4,
-        title: "You Are Not Alone"
+        title: "You Are Not Alone",
+        stories: getSocialStories(4,9)
     },
     {
         index: 9,
@@ -87,19 +88,15 @@ export const sections = [
         title: "For Siblings"
     },
     {
-        index: 26,
+        index: 25,
         title: "Knowing The Team"
     },
     {
-        index: 51,
-        title: "Handling Hard Feelings"
-    },
-    {
-        index: 37,
+        index: 36,
         title: "Camps & Retreats"
     },
     {
-        index: 49,
+        index: 48,
         title: "Last story"
     }
 ];

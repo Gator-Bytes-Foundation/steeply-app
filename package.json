@@ -33,7 +33,7 @@
     "react-native": "0.68.2",
     "react-native-collapsible": "^1.6.0",
     "react-native-gesture-handler": "~2.2.1",
-    "react-native-insta-story": "^1.1.8",
+    "react-native-insta-story": "^1.1.9",
     "react-native-rapi-ui": "^0.2.1",
     "react-native-reanimated": "~2.8.0",
     "react-native-safe-area-context": "3.3.2",

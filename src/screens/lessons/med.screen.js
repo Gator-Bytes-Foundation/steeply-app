@@ -22,8 +22,7 @@ const MedScreen = (props) => {
     return (
         <OrangeStack w="100%" h="100%">
           <Banner banners={slides} header="Med Management" headerIcon={require("../../images/med.png")} fontColor={blue} circleBg={gray} titleOffset={67}/>
-          <Lesson title="Medication Mangement" lessonSections={sections} storyImgs={storyImgs}>
-          </Lesson>   
+          <Lesson lessonSections={sections} storyImgs={storyImgs} />
         </OrangeStack>
     );
 

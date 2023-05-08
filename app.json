@@ -21,7 +21,7 @@
       "favicon": "./assets/favicon.png"
     },
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.lcundiff.steeply"
     },
     "extra": {

@@ -106,7 +106,6 @@ export const sections = [
     {
         index: 3,
         title: "Cancer Quicksheets",
-        sectionBtn: "CLICK HERE TO LEARN MORE",
         stories: getSymptomStories(0,10)
     },
     {
