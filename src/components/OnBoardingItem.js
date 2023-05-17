@@ -34,8 +34,9 @@ function OnBoardingItem({ item }) {
         else if (object.id == '3')
             return (
                 <View style={[styles.container]}>
+                    <Image source={object.image2} style={styles.cloud}></Image>
                     <Text style={styles.description3}>{object.description}</Text>
-                    <Image source={object.image3} style={styles.image1} />
+                    <Image source={object.image1} style={styles.image1} />
                 </View>
             );
         else if (object.id == '4')
@@ -91,7 +92,7 @@ const onBoardingStyles = (w,h) => StyleSheet.create({
         marginHorizontal: 50,
         textAlign: "center",
         fontFamily: "TrendaRegular",
-        fontSize: 25,
+        fontSize: 20,
         color: "#14284D"
     },
     //ITEM 2 STYLES
@@ -118,12 +119,14 @@ const onBoardingStyles = (w,h) => StyleSheet.create({
     },
 
     description3: {
-        marginHorizontal: 10,
+        position: "absolute",
+        marginTop: 60,
+        top: 0,
+        marginHorizontal: 50,
         textAlign: "center",
         fontFamily: "TrendaRegular",
         fontSize: 20,
-        color: "#14284D",
-        marginTop: h * 0.05
+        color: "#14284D"
     },
 
 

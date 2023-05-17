@@ -55,7 +55,9 @@ const imgs = [
 ]
 
 const educationInteractions = {
-    24: "https://media.chop.edu/data/files/pdfs/oncology-oncology-parent-guide-school-reentry.pdf",
+    24: {
+        swipe:"https://media.chop.edu/data/files/pdfs/oncology-oncology-parent-guide-school-reentry.pdf",
+    }
 }
 
 const getEducationStories = (start,end) => getStories(start,end,educationInteractions,imgs);

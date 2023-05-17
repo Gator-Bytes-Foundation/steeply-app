@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components/native'
 import { View, Linking, StyleSheet, useWindowDimensions, TouchableOpacity, FlatList } from "react-native";
 import { Button, Text} from "native-base";
+import * as FileSystem from 'expo-file-system';
 import InstaStory from 'react-native-insta-story';
 //import SmallTaskCard from "../components/SmallTaskCard";
 import { useNavigation } from "@react-navigation/native";
@@ -18,6 +19,7 @@ function Lesson(props) {
     const circleHeight = dimenHeight * 0.4;
     const circleWidth = dimenWidth * 0.7; 
     let lessons = []
+    
     for (let i=0; i < props.lessonSections.length-1; i++) {
         let stories = []
         let sectionIndex = props.lessonSections[i].index
@@ -25,8 +27,8 @@ function Lesson(props) {
         let sectionImg = props.lessonSections[i].sectionImg
         const nextSectionIndex = props.lessonSections[i+1].index
         for (let j=props.lessonSections[i].index; j < nextSectionIndex; j++) {
-            const swipeAction = props.lessonSections[i].stories?.[j]?.swipe
-            const storyComponent = props.lessonSections[i].stories?.[j]?.component
+            const swipeAction = props.lessonSections[i].stories?.[j-props.lessonSections[i].index]?.swipe
+            const storyComponent = props.lessonSections[i].stories?.[j-props.lessonSections[i].index]?.component
             const story = {
                 story_id: j,
                 story_image: props.storyImgs[j],
@@ -34,11 +36,18 @@ function Lesson(props) {
                     component: storyComponent,
                     swipeUpComponent: null, // tmp
                 },
-                onPress: () => { // triggered on swipe up
-                    console.log("PRESS")
+                onPress: async () => { // triggered on swipe up
+                    console.log("PRESS", swipeAction)
                     if(swipeAction) {
-                        if(swipeAction.includes("http")) {
+                        if(swipeAction.includes("https")) {
                             Linking.openURL(swipeAction)
+                        }
+                        else if(swipeAction.includes(".pdf")) {
+                            const fileByPath = swipeAction.split("/")
+                            const fileName = fileByPath[fileByPath.length-1]
+                            console.log(fileName)
+                            const { uri: localUri } = await FileSystem.downloadAsync(swipeAction, FileSystem.documentDirectory + "download.pdf");
+                            console.log(localUri)
                         }
                         else {
                             navigation.navigate(swipeAction);

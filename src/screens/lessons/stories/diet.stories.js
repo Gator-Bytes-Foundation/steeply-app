@@ -57,9 +57,27 @@ const imgs = [
 ]
 
 const interactions = {
-    3: "https://www.hsph.harvard.edu/nutritionsource/kids-healthy-eating-plate/",
-    16: "https://tasty.co/article/hannahloewentheil/20-adorable-food-creations-thatll-get-kids-excited-for",
-    21: "https://www.cancer.net/coping-with-cancer/physical-emotional-and-social-effects-cancer/managing-physical-side-effects/weight-gain",
+    3: { // what do i eat
+        swipe: "https://www.hsph.harvard.edu/nutritionsource/kids-healthy-eating-plate/",
+    },
+    14: { // making eating fun
+        swipe: "https://www.amazon.com/Fred-DINNER-WINNER-Dinner-Outer/dp/B07PP49SZ8/ref=sr_1_3?crid=1F5I8GCH26R4H&keywords=space%2Bgame%2Bboard%2Bplate&qid=1683481515&sprefix=space%2Bgame%2Bboard%2Bplat%2Caps%2C96&sr=8-3&th=1"
+    },
+    16: { // master plating examples
+        swipe: "https://tasty.co/article/hannahloewentheil/20-adorable-food-creations-thatll-get-kids-excited-for",
+    },
+    26: { // unhealthy weight gain leads to
+        swipe: "https://www.cancer.net/coping-with-cancer/physical-emotional-and-social-effects-cancer/managing-physical-side-effects/weight-gain",
+    },
+    48: {
+        swipe: "https://www.mealtrain.com"
+    },
+    49: {
+        swipe: "https://www.mealime.com"
+    },
+    50: {
+        swipe: "https://lifesum.com"
+    }
 }
 
 const getDietStories = (start,end) => getStories(start,end,interactions,imgs)

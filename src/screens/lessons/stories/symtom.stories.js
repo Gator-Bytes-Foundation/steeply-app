@@ -80,20 +80,48 @@ const imgs = [
     Asset.fromModule(require('../../../images/stories/symptom/70.jpg')).uri
 ]
 const symptomInteractions = {
-    3: "https://www.cancer.gov/types/leukemia/patient/child-all-treatment-pdq#_26",
-    4: "https://www.cancer.gov/types/leukemia/patient/child-aml-treatment-pdq#_1",
-    5: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
-    6: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
-    7: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
-    8: "https://www.cancer.gov/types/brain/patient/child-cns-embryonal-treatment-pdq#_1",
-    24: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8219270/",
-    28: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
-    32: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
-    40: "https://www.cancer.gov/about-cancer/advanced-cancer/care-choices/palliative-care-fact-sheet",
-    41: "https://pubmed.ncbi.nlm.nih.gov/25057608/",
-    44: "https://www.cancer.net/navigating-cancer-care/advanced-cancer/hospice-care",
-    55: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/low-blood-counts/anemia.html",
-    58: "https://www.cancer.net/navigating-cancer-care/diagnosing-cancer/reports-and-results/understanding-your-complete-blood-count-cbc-tests"
+    3: { 
+        swipe: "https://www.cancer.gov/types/leukemia/patient/child-all-treatment-pdq#_26",
+    },
+    4: { 
+        swipe: "https://www.cancer.gov/types/leukemia/patient/child-aml-treatment-pdq#_1",
+    },
+    5: { 
+        swipe: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
+    },
+    6: { 
+        swipe: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
+    },
+    7: { 
+        swipe: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
+    },
+    8: {
+         swipe: "https://www.cancer.gov/types/brain/patient/child-cns-embryonal-treatment-pdq#_1",
+    },
+    24: { 
+        swipe: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8219270/",
+    },
+    28: { 
+        swipe: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
+    },
+    32: { 
+        swipe: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
+    },
+    40: { 
+        swipe: "https://www.cancer.gov/about-cancer/advanced-cancer/care-choices/palliative-care-fact-sheet",
+    },
+    41: { 
+        swipe: "https://pubmed.ncbi.nlm.nih.gov/25057608/",
+    },
+    44: { 
+        swipe: "https://www.cancer.net/navigating-cancer-care/advanced-cancer/hospice-care",
+    },
+    55: { 
+        swipe: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/low-blood-counts/anemia.html",
+    },
+    58: { 
+        swipe: "https://www.cancer.net/navigating-cancer-care/diagnosing-cancer/reports-and-results/understanding-your-complete-blood-count-cbc-tests"
+    }
 }
 
 const getSymptomStories = (start,end) => getStories(start,end,symptomInteractions,imgs);
@@ -101,10 +129,6 @@ const getSymptomStories = (start,end) => getStories(start,end,symptomInteraction
 export const sections = [
     {
         index: 0,
-        title: "Intro"
-    },
-    {
-        index: 3,
         title: "Cancer Quicksheets",
         stories: getSymptomStories(0,10)
     },

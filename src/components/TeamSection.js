@@ -26,13 +26,13 @@ export default function TeamSection() {
                 }}>
                     <TeamCard
                         img={bex}
-                        name="Rebecca Cundiff"
+                        name="Rebecca Cundiff, OTD, OTR/L"
                         position="Rebecca is an Occupational Therapist with a huge heart for pediatric care, especially in the field of oncology. Rebecca came up with the idea for Steeply after seeing first hand how much work both children and adults have to go through in order to get all the resources and educational tools they need to combat cancer."
                     />
                     <TeamCard
                         img={logan}
-                        name="Logan Cundiff"
-                        position="Logan is a software developer and is also Rebecca's husband! After finishing his masters in Computer Science, he decided to use his knoledge to lend a hand with assisting Rebecca with the development of Steeply!"
+                        name="Logan Cundiff B.S., M.S. Computer Science"
+                        position="Logan is a software developer and is also Rebecca's husband! After finishing his masters in Computer Science, he decided to use his knowledge to lend a hand with assisting Rebecca with the development of Steeply."
                     />
                 </Flex>
             </Center>

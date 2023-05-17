@@ -18,10 +18,9 @@ const WelcomeScreen = ({ navigation }) => {
             <View style={styles.imageContainer}>
                 <Image style={styles.image} source={require("../images/welcome.png")} />
             </View>
-            <View style={styles.form}>
-                <Text style={styles.header1}>WELCOME</Text>
-                <Text style={styles.header2}>to the Steeply App</Text>
-
+            <Text style={styles.header2}>A family guide</Text>
+            <Text style={[styles.header2,styles.mb1]}>for battling cancer</Text>
+            <View style={styles.buttonGroup}>
                 <TouchableOpacity style={styles.authButton1} onPress={() => navigation.navigate("Menu")}>
                     <ButtonText style={{ fontFamily: 'MoonLight', fontSize: 20 }}>Steep In</ButtonText>
                 </TouchableOpacity>
@@ -29,6 +28,9 @@ const WelcomeScreen = ({ navigation }) => {
                 <TouchableOpacity style={styles.authButton2} onPress={() => navigation.navigate("OnBoard")}>
                     <ButtonText white>About Steeply</ButtonText>
                 </TouchableOpacity>
+            </View>
+            <View>
+                <Text style={styles.subText}>for Jacquilne, Chris, Marlene, & Cameron, Thank you </Text>
             </View>
         </View>
     );
@@ -59,8 +61,10 @@ const styles = StyleSheet.create({
         marginTop: 25
     },
 
-
-    form: {
+    mb1: {
+        marginBottom: 10
+    },
+    buttonGroup: {
         width: "88%",
         height: "35%",
         alignItems: "center",
@@ -74,6 +78,10 @@ const styles = StyleSheet.create({
     header2: {
         fontFamily: "TrendaLight",
         fontSize: 25,
+    },
+    subText: {
+        fontFamily: "TrendaLight",
+        fontSize: 12,
     },
 
     authButton1: {

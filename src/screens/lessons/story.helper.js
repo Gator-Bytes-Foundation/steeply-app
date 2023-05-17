@@ -1,10 +1,10 @@
-export const getStories = (start,end,interactions,imgs,components={}) => {
+export const getStories = (start,end,interactions,imgs) => {
     const stories = []
     for (let i=start; i < end; i++) {
         const story = {
             img: imgs[i],
-            components: components[i], // will eventually replace all text
-            swipe: interactions[i]
+            component: interactions[i]?.component, // will eventually replace all text
+            swipe: interactions[i]?.swipe
         }
         stories.push(story)
     }

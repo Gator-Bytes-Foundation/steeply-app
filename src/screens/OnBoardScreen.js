@@ -137,9 +137,6 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
         marginHorizontal: 12
     },
-
-
-
     //footer styles
     textContainer: {
         flex: 0.12,
