@@ -92,14 +92,11 @@ const symptomInteractions = {
     6: { 
         swipe: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
     },
-    7: { 
-        swipe: "https://www.cancer.gov/types/neuroblastoma/patient/neuroblastoma-treatment-pdq",
-    },
     8: {
          swipe: "https://www.cancer.gov/types/brain/patient/child-cns-embryonal-treatment-pdq#_1",
     },
     24: { 
-        swipe: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8219270/",
+        swipe: "https://www.buffalo-chiropractic.com/documents/Upper-Nerve_Flossing.pdf",
     },
     28: { 
         swipe: "https://www.cancer.org/treatment/treatments-and-side-effects/physical-side-effects/swelling.html",
@@ -134,15 +131,15 @@ export const sections = [
     },
     {
         index: 10,
-        title: "Manage Side Effects"
+        title: "Tips"
     },
     {
         index: 36,
-        title: "Paliative Vs Hospice Care"
+        title: "Type of Care"
     },
     {
         index: 49,
-        title: "What Are Blood Counts?"
+        title: "Blood Count"
     },
     {
         index: 70,

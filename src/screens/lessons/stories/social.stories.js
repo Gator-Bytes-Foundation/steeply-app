@@ -1,14 +1,18 @@
 import {Asset} from 'expo-asset';
 import React from 'react';
+import { StyleSheet } from "react-native";
 import { getStories } from '../story.helper';
-import { Link } from "native-base";
+import { Link, View, Image, Box, Text, Button } from "native-base";
+import { darkBlue } from '../../../helpers/colors';
+import { Dimensions } from 'react-native'
+const windowWidth = Dimensions.get('window').width
 
 const imgs = [
     Asset.fromModule(require('../../../images/stories/social/1.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/2.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/3.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/4.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/5.png')).uri,
+    Asset.fromModule(require('../../../images/stories/social/5.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/social/6.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/7.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/8.png')).uri,
@@ -25,12 +29,10 @@ const imgs = [
     Asset.fromModule(require('../../../images/stories/social/19.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/20.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/21.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/21.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/22.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/23.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/24.png')).uri,
+    Asset.fromModule(require('../../../images/stories/social/24.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/social/25.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/26.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/26.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/27.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/28.png')).uri,
@@ -45,18 +47,54 @@ const imgs = [
     Asset.fromModule(require('../../../images/stories/social/37.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/38.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/39.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/39.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/40.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/41.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/42.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/43.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/44.png')).uri,
     Asset.fromModule(require('../../../images/stories/social/45.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/46.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/47.png')).uri,
-    Asset.fromModule(require('../../../images/stories/social/48.png')).uri
+    Asset.fromModule(require('../../../images/stories/social/46.jpg')).uri,
+    Asset.fromModule(require('../../../images/stories/social/47.jpg')).uri,
+    Asset.fromModule(require('../../../images/stories/social/48.jpg')).uri,
+    Asset.fromModule(require('../../../images/stories/social/49.jpg')).uri
 ]
 
+const styles = StyleSheet.create({
+
+    whiteRect: {
+        width: 330,
+        height: 45,
+        display: "flex",
+        backgroundColor: "#fff",
+        color: "#206891",
+        fontWeight: "bold",
+        fontFamily: 'MoonLight', 
+        fontSize: 20,
+        borderRadius: 8,
+        padding: 8,
+        textDecoration: "none",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexDirection: "row"
+    },
+    blueBold: {
+        fontFamily: 'MoonLight', 
+        fontSize: "xl",
+        width: 200,
+        paddingRight: 20,
+        borderRightWidth: 2,
+        borderRightColor: "orange"
+    },
+    blueBtn: {
+        fontFamily: 'MoonLight', 
+        fontSize: "xl",
+        padding: 5,
+        width: 100,
+        backgroundColor: darkBlue
+    }
+});
+
+// index is less than 1 of the story img name
 const socialInteractions = {
     2: { // In Person support groups
         swipe: "https://cancer.ufl.edu/patient-care/support-and-resources/", // todo: show other resources outside UF
@@ -65,7 +103,55 @@ const socialInteractions = {
         swipe: "https://cancer.ufl.edu/patient-care/support-and-resources/", // todo: add "OnlineSupportGroups" section and remove story 4,
     },
     4: { // online support groups
-        component: <Link>Click here</Link>
+        component: <View style={{position: "absolute", top: 150, left: -10, width: "100%", display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <Box style={styles.whiteRect}>
+                <Text styles={styles.blueBold} color={"cyan.800"} fontSize={"xl"} fontFamily={"MoonLight"} bold>AML</Text>
+                <Link href="https://www.facebook.com/groups/783809048323389" isUnderlined={false}>
+                    <Image source={require("../../../images/fb.png")} w={10} h={10} alt={"facebook"} />
+                </Link>
+            </Box>
+            <Box style={styles.whiteRect} mt={3}>
+                <Text styles={styles.blueBold} color={"cyan.800"} fontSize={"xl"} fontFamily={"MoonLight"} bold>ALL</Text>
+                <Link href="https://www.reddit.com/r/leukemia/" isUnderlined={false}>
+                    <Image source={require("../../../images/reddit.png")} w={10} h={10} alt={"facebook"} />
+                </Link>
+            </Box>
+            <Box style={styles.whiteRect} mt={3}>
+                <Text styles={styles.blueBold} color={"cyan.800"} fontSize={"xl"} fontFamily={"MoonLight"} bold>Neuroblastoma</Text>
+                <Link href="https://www.facebook.com/groups/neuroblastomasupport" isUnderlined={false}>
+                    <Image source={require("../../../images/reddit.png")} w={10} h={10} alt={"facebook"} />
+                </Link>
+            </Box>
+            <Box style={styles.whiteRect} mt={3}>
+                <Text styles={styles.blueBold} color={"cyan.800"} fontSize={"xl"} fontFamily={"MoonLight"} bold>Brain Cancers</Text>
+                <Box flexDirection={"row"}>
+                    <Link href="https://www.reddit.com/r/braincancer/" isUnderlined={false}>
+                        <Image source={require("../../../images/reddit.png")} w={10} h={10} alt={"facebook"} />
+                    </Link>
+                    <Link href="https://www.reddit.com/r/glioblastoma/" isUnderlined={false}>
+                        <Image source={require("../../../images/reddit.png")} w={10} h={10} zIndex={999} alt={"reddit"} />
+                    </Link>
+                </Box>
+            </Box>
+            <Box style={styles.whiteRect} mt={3}>
+                <Text styles={styles.blueBold} color={"cyan.800"} fontSize={"xl"} fontFamily={"MoonLight"} bold>Lymphoma</Text>
+                <Link href="https://www.facebook.com/groups/113903748651959" isUnderlined={false}>
+                    <Image source={require("../../../images/fb.png")} w={10} h={10} alt={"facebook"} />
+                </Link>
+            </Box>
+            <Box style={styles.whiteRect} mt={3}>
+                <Text styles={styles.blueBold} color={"cyan.800"} fontSize={"xl"} fontFamily={"MoonLight"} bold>Osteosarcoma</Text>
+                <Link href="https://www.facebook.com/groups/341734433060" isUnderlined={false}>
+                    <Image source={require("../../../images/fb.png")} w={10} h={10} alt={"facebook"} />
+                </Link>
+            </Box>
+            <Box style={styles.whiteRect} mt={3}>
+                <Text styles={styles.blueBold} color={"cyan.800"} fontSize={"xl"} fontFamily={"MoonLight"} bold>Ewings Sarcoma</Text>
+                <Link href="https://www.facebook.com/groups/341734433060" isUnderlined={false}>
+                    <Image source={require("../../../images/fb.png")} w={10} h={10} alt={"facebook"} />
+                </Link>
+            </Box>
+        </View>
     },
     7: { // reconnect with friends/fam
         swipe: Asset.fromModule(require("../../../images/social_participation.pdf")).uri, // need this pdf broken down
@@ -81,7 +167,13 @@ const socialInteractions = {
     },   
     23: { // making friends
        swipe: "https://chemoduck.org/for-kids/making-friends/",
-       component: <Link>Click here</Link>
+       component: <View style={{position: "absolute", top: 330, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <Link href="https://stupidcancer.org">
+                <Button style={styles.blueBtn}>
+                    Click Here
+                </Button>
+            </Link>    
+        </View>
     },
     38: {
         swipe: "https://chemoduck.org/for-kids/making-friends/", // todo: replace with retreats
@@ -91,14 +183,43 @@ const socialInteractions = {
     },
     45: {
         swipe: "https://stupidcancer.org/", // todo add vimeo link to story as well
-        component: <Link className='' href="https://stupidcancer.org">click here</Link>
+        component: <View style={{position: "absolute", top: 470, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <Link href="https://stupidcancer.org">
+                <Button style={styles.blueBtn}>
+                    Learn More
+                </Button>
+            </Link>    
+        </View>
     },
     46: {
         swipe: "https://belong.life/?utm_source=canva&utm_medium=iframely",
+        component: <View style={{position: "absolute", top: 470, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <Link href="https://belong.life/?utm_source=canva&utm_medium=iframely">
+                <Button style={styles.blueBtn}>
+                    Learn More
+                </Button>
+            </Link>    
+        </View>
     },
     47: {
         swipe: "https://www.caringbridge.org/?gclid=Cj0KCQjwt_qgBhDFARIsABcDjOdJq3jWvUTvlj43oiuupTFidOE-KPeplEm4Ug8TSQqtG3sCzb4VnxIaAp28EALw_wcB",
-        component: <Link>click here</Link>
+        component: <View style={{position: "absolute", top: 470, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <Link href="https://www.caringbridge.org/?gclid=Cj0KCQjwt_qgBhDFARIsABcDjOdJq3jWvUTvlj43oiuupTFidOE-KPeplEm4Ug8TSQqtG3sCzb4VnxIaAp28EALw_wcB">
+                <Button style={styles.blueBtn}>
+                    Learn More
+                </Button>
+            </Link>    
+        </View>
+    },
+    48: {
+        swipe: "https://www.caringbridge.org/?gclid=Cj0KCQjwt_qgBhDFARIsABcDjOdJq3jWvUTvlj43oiuupTFidOE-KPeplEm4Ug8TSQqtG3sCzb4VnxIaAp28EALw_wcB",
+        component: <View style={{position: "absolute", top: 580, left: 140, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <Link href="https://www.caringbridge.org/?gclid=Cj0KCQjwt_qgBhDFARIsABcDjOdJq3jWvUTvlj43oiuupTFidOE-KPeplEm4Ug8TSQqtG3sCzb4VnxIaAp28EALw_wcB">
+                <Button style={styles.blueBtn}>
+                    Learn More
+                </Button>
+            </Link>
+        </View>
     }
 }
 
@@ -118,22 +239,35 @@ export const sections = [
     {
         index: 8,
         title: "Tips For Parents",
-        stories: getSocialStories(8,14)
+        stories: getSocialStories(8,13)
     },
     {
-        index: 14,
-        title: "For Siblings"
+        index: 13,
+        title: "For Siblings",
+        stories: getSocialStories(13,26)
     },
     {
-        index: 24,
-        title: "Knowing The Team"
+        index: 25,
+        title: "Your Team",
+        stories: getSocialStories(25,36)
     },
     {
         index: 36,
-        title: "Camps & Retreats"
+        title: "Camps & Retreats",
+        stories: getSocialStories(36,39)
     },
     {
-        index: 48,
+        index: 39,
+        title: "Grants",
+        stories: getSocialStories(39,45)
+    },
+    {
+        index: 45,
+        title: "Apps",
+        stories: getSocialStories(45,49)
+    },
+    {
+        index: 49,
         title: "Last story"
     }
 ];

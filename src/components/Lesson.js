@@ -75,7 +75,7 @@ function Lesson(props) {
     return (<>
         <StoryList 
             data={lessons}
-            duration={5}
+            duration={500}
             unPressedBorderColor={"red"}
             pressedBorderColor={"grey"}
             avatarSize={80}
@@ -87,13 +87,9 @@ function Lesson(props) {
                 code is updated or decide to pass in a common component for each section
             */
             renderTextComponent={({item, onPress}) => 
-            <View>
+            <View elevation={9999999} zIndex={999999}>
                 {item.customProps?.component ? 
-                    <Button style={styles.btnPrimary} onPress={onPress}>
-                        <Text style={{ fontFamily: 'MoonLight', fontSize: 20, color: "#1B79D7", fontWeight: "bold" }}>
-                            {item.customProps.component}
-                        </Text>
-                    </Button> 
+                    <>{item.customProps.component}</>
                     : <></>                           
                 }
             </View>}

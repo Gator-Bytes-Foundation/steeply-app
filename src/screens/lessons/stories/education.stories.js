@@ -41,7 +41,6 @@ const imgs = [
     Asset.fromModule(require('../../../images/stories/education/37.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/education/38.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/education/39.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/education/39.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/education/40.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/education/41.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/education/42.jpg')).uri,
@@ -81,7 +80,7 @@ export const sections = [
         title: "Sharing Diagnosis with Classmates"
     },
     {
-        index: 41,
+        index: 40,
         title: "IEP vs 504 Plan"
     },
     {

@@ -49,7 +49,7 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/45.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/46.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/47.jpg')).uri,
-    Asset.fromModule(require('../../../images/stories/exercises/48.jpg')).uri,
+    Asset.fromModule(require('../../../images/stories/exercises/48.png')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/49.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/50.jpg')).uri,
     Asset.fromModule(require('../../../images/stories/exercises/51.jpg')).uri,
@@ -76,14 +76,33 @@ const exerciseImgs = [
     Asset.fromModule(require('../../../images/stories/exercises/72.jpg')).uri
 ]
 const interactions = {
-    0: "Exercises",
-    4: "Side Effect Management",
-    21: "Stretching",
-    67: "https://sworkit.com/youth-initiative",
-    68: "https://apps.apple.com/us/app/7-minute-workouts-with-lazy-monster-pro-daily-fitness/id1006057473",
-    69: "https://pebowman.com",
-    70: "https://cosmickids.com/about",
-    71: "https://yogawithadriene.com/?utm_source=canva&utm_medium=iframely"
+    0: {
+        swipe: "Exercises",
+    },
+    4: {
+        swipe: "Side Effect Management",
+    },
+    21: {
+        swipe: "Stretching",
+    },
+    30: {
+        swipe: "Exercises",
+    },
+    67: {
+        swipe: "https://sworkit.com/youth-initiative",
+    },
+    68: {
+        swipe: "https://apps.apple.com/us/app/7-minute-workouts-with-lazy-monster-pro-daily-fitness/id1006057473",
+    },
+    69: {
+        swipe: "https://pebowman.com",
+    },
+    70: {
+        swipe: "https://cosmickids.com/about",
+    },
+    71: {
+        swipe: "https://yogawithadriene.com/?utm_source=canva&utm_medium=iframely"
+    }
 }
 
 const getExerciseStories = (start,end) => getStories(start,end,interactions,exerciseImgs)
