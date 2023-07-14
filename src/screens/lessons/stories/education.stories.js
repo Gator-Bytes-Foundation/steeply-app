@@ -64,12 +64,13 @@ const getEducationStories = (start,end) => getStories(start,end,educationInterac
 export const sections = [
     {
         index: 0,
-        title: "What to Expect"
+        title: "What to Expect",
+        stories: getEducationStories(0,17)
     },
     {
         index: 17,
         title: "Accommodations",
-        stories: getEducationStories(0,25)
+        stories: getEducationStories(17,25)
     },
     {
         index: 25,

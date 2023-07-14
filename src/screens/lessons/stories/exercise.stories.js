@@ -115,15 +115,19 @@ export const sections = [
         title: "Importance",
         stories: getExerciseStories(0,21)
     },
+    /* rebecca needs to finish stretching
     {
         index: 21,
         title: "Stretching",
-        swipe: "Stretching"
+        swipe: "Stretching",
+        stories: getExerciseStories(21,26)
     },
+    */
     {
         index: 26,
         title: "Strength",
-        swipe: "Exercises"
+        swipe: "Exercises",
+        stories: getExerciseStories(26,31)
     },
     {
         index: 31,

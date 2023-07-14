@@ -20,9 +20,7 @@ const AboutScreen = (props) => {
             {/*HEADER CONTAINER*/}
             <View style={styles.headerContainer}>
                 <Text style={styles.header}>Meet The Team!</Text>
-                <Text style={styles.subHeader}>
-                    
-                </Text>
+                <Text style={styles.subHeader}></Text>
             </View>
             <TeamSection/>
           </ScrollView>   

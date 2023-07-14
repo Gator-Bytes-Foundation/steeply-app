@@ -117,11 +117,9 @@ const MenuScreen = (props) => {
                         }],
                         { useNativeDriver: true }
                     )}
-                    
                     showsVerticalScrollIndicator={true}
                     keyExtractor={(item) => item.name}
                     renderItem={({ item, index }) => {
-
                         /*  FlatList Animation Reference */
                         const inputRange = [
                             -1,
@@ -145,23 +143,25 @@ const MenuScreen = (props) => {
                         })
                         /*  FlatList Animation */
                         return (    
-                            <Animated.View style={{ width: '100%', paddingHorizontal: 20, flexDirection:'row', borderRadius: 25, transform: [{ scale }], opacity }}>
-                                <LinearGradient start={[0.2, 0.5]} end={[1.4, 0.5]} colors={[String(item.startGradient), String(item.endGradient)]} style={styles.lessonGradient} >
-                                    <Column w="75%" h="100%" justifyContent="flex-start">
-                                        <Text style={styles.title}>{item.name}</Text>
-                                        <Text style={styles.description}>{item.description}</Text>
-                                        <TouchableOpacity
-                                            style={styles.button}
-                                            onPress={() => getLesson(item)}
-                                        >
-                                            <Text style={styles.buttonText}>Start</Text>
-                                            <Ionicons name="ios-play" style={styles.icon} />
-                                        </TouchableOpacity>    
-                                    </Column>
-                                    <Column w="25%" h="100%">
-                                        <Image source={item.img} style={styles.lessonImg} />
-                                    </Column>
-                                </LinearGradient>
+                            <Animated.View  style={{ width: '100%', paddingHorizontal: 20, flexDirection:'row', borderRadius: 25, transform: [{ scale }], opacity }}>
+                                <TouchableOpacity onPress={() => getLesson(item)}>
+                                    <LinearGradient onPress={() => getLesson(item)} start={[0.2, 0.5]} end={[1.4, 0.5]} colors={[String(item.startGradient), String(item.endGradient)]} style={styles.lessonGradient} >
+                                        <Column w="75%" h="100%" justifyContent="flex-start">
+                                            <Text style={styles.title}>{item.name}</Text>
+                                            <Text style={styles.description}>{item.description}</Text>
+                                            <TouchableOpacity
+                                                style={styles.button}
+                                                onPress={() => getLesson(item)}
+                                            >
+                                                <Text style={styles.buttonText}>Start</Text>
+                                                <Ionicons name="ios-play" style={styles.icon} />
+                                            </TouchableOpacity>    
+                                        </Column>
+                                        <Column w="25%" h="100%">
+                                            <Image source={item.img} style={styles.lessonImg} />
+                                        </Column>
+                                    </LinearGradient>
+                                </TouchableOpacity>
                             </Animated.View>
                         );
                     }}
@@ -169,7 +169,6 @@ const MenuScreen = (props) => {
             </View>
         </LinearGradient>
     );
-
 };
 
 

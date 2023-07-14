@@ -1,8 +1,8 @@
 import React from 'react';
 import { Asset } from 'expo-asset';
-import { getStories } from '../story.helper';
+import { getStories, LinkBtn } from '../story.helper';
 import { StyleSheet, Dimensions } from "react-native";
-import { Link, View, Image, Box, Text, Button } from "native-base";
+import { View } from "native-base";
 import { darkBlue, darkOrange } from '../../../helpers/colors';
 const windowWidth = Dimensions.get('window').width
 
@@ -75,71 +75,43 @@ const interactions = {
     34: {
         swipe: "https://www.facebook.com/CareZoneTeam",
         component: <View style={{position: "absolute", top: 655, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
-            <Link href="https://www.facebook.com/CareZoneTeam">
-                <Button _text={{color: darkBlue}} style={styles.whiteBtn}>
-                    Learn More
-                </Button>
-            </Link>    
+            <LinkBtn link={"https://www.facebook.com/CareZoneTeam"} styles={styles.whiteBtn} textStyles={{color: darkBlue, fontWeight: "medium"}}/>   
         </View>
     },
     35: {
         swipe: "https://caringvillage.com/product/app",
         component: <View style={{position: "absolute", top: 630, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
-            <Link href="https://caringvillage.com/product/app">
-                <Button style={styles.orgBtn}>
-                    Learn More
-                </Button>
-            </Link>    
+            <LinkBtn link={"https://caringvillage.com/product/app"} styles={styles.orgBtn} />   
         </View>
     },
     36: {
         swipe: "https://www.goodrx.com",
         component: <View style={{position: "absolute", top: 650, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
-            <Link href="https://www.goodrx.com">
-                <Button _text={{color: darkBlue}} style={styles.whiteBtn}>
-                    Learn More
-                </Button>
-            </Link>    
+            <LinkBtn link={"https://www.goodrx.com"} styles={styles.whiteBtn} textStyles={{color: darkBlue, fontWeight: "medium"}}/>     
         </View>
     },
     37: {
         swipe: "https://medisafeapp.com",
         component: <View style={{position: "absolute", top: 630, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
-            <Link href="https://medisafeapp.com">
-                <Button style={styles.orgBtn}>
-                    Learn More
-                </Button>
-            </Link>    
+            <LinkBtn link={"https://medisafeapp.com"} styles={styles.orgBtn} />   
         </View>
     },
     38: {
         swipe: "https://play.google.com/store/apps/details?id=com.esborders.cacmembers&hl=en_US&gl=US", // todo check if they have ios/android and link off that
         component: <View style={{position: "absolute", top: 610, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
-            <Link href="https://play.google.com/store/apps/details?id=com.esborders.cacmembers&hl=en_US&gl=US">
-                <Button _text={{color: darkBlue}} style={styles.whiteBtn}>
-                    Learn More
-                </Button>
-            </Link>    
+            <LinkBtn link={"https://play.google.com/store/apps/details?id=com.esborders.cacmembers&hl=en_US&gl=US"} styles={styles.whiteBtn} textStyles={{color:darkBlue,fontWeight:"medium"}}/>     
         </View>
     },
     39: {
         swipe: "https://cancer.net/navigating-cancer-care/managing-your-care/cancernet-mobile",
         component: <View style={{position: "absolute", top: 650, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
-            <Link href="https://cancer.net/navigating-cancer-care/managing-your-care/cancernet-mobile">
-                <Button style={styles.orgBtn}>
-                    Learn More
-                </Button>
-            </Link>    
+            <LinkBtn link={"https://cancer.net/navigating-cancer-care/managing-your-care/cancernet-mobile"} styles={styles.orgBtn} />   
         </View>
     },
     40: {
         swipe: "https://dokiedhuzhqa9.cloudfront.net/",
         component: <View style={{position: "absolute", top: 645, left: 100, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
-            <Link href="https://dokiedhuzhqa9.cloudfront.net">
-                <Button _text={{color: darkBlue}} style={styles.whiteBtn}>
-                    Learn More
-                </Button>
-            </Link>    
+            <LinkBtn link={"https://dokiedhuzhqa9.cloudfront.net/"} styles={styles.whiteBtn} textStyles={{color: darkBlue, fontWeight: "medium"}}/>   
         </View>
     },
 }

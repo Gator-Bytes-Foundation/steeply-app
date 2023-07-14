@@ -6,6 +6,7 @@ import * as FileSystem from 'expo-file-system';
 import InstaStory from 'react-native-insta-story';
 //import SmallTaskCard from "../components/SmallTaskCard";
 import { useNavigation } from "@react-navigation/native";
+import { StorageAccessFramework } from 'expo-file-system';
 
 const StoryList=styled(InstaStory)`
     position:absolute;
@@ -19,6 +20,53 @@ function Lesson(props) {
     const circleHeight = dimenHeight * 0.4;
     const circleWidth = dimenWidth * 0.7; 
     let lessons = []
+    const downloadPath = FileSystem.documentDirectory + (Platform.OS == 'android' ? '' : '');
+
+    const saveFile = async (fileUri, fileName = 'File') => {
+        try {
+          const fileString = await FileSystem.readAsStringAsync(fileUri, { encoding: FileSystem.EncodingType.Base64 });
+          
+          const permissions = await StorageAccessFramework.requestDirectoryPermissionsAsync();
+          if (!permissions.granted) {
+            return;
+          }
+    
+          try {
+            await StorageAccessFramework.createFileAsync(permissions.directoryUri, fileName, 'application/pdf')
+              .then(async (uri) => {
+                await FileSystem.writeAsStringAsync(uri, fileString, { encoding: FileSystem.EncodingType.Base64 });
+                alert('Report Downloaded Successfully')
+              })
+              .catch((e) => {
+              });
+          } catch (e) {
+            throw new Error(e);
+          }
+    
+        } catch (err) {
+        }
+    }
+
+    const downloadFile = async (fileUrl) => {
+    
+        const downloadResumable = FileSystem.createDownloadResumable(
+          fileUrl,
+          downloadPath + fileName,
+          {},
+          downloadCallback
+        );
+    
+        try {
+          const { uri } = await downloadResumable.downloadAsync();
+          saveFile(uri, fileName)
+        } catch (e) {
+          console.error('download error:', e);
+        }
+    }
+
+    const downloadCallback = downloadProgress => { // todo add loading bar
+        const progress = downloadProgress.totalBytesWritten / downloadProgress.totalBytesExpectedToWrite;
+    };
     
     for (let i=0; i < props.lessonSections.length-1; i++) {
         let stories = []
@@ -37,17 +85,17 @@ function Lesson(props) {
                     swipeUpComponent: null, // tmp
                 },
                 onPress: async () => { // triggered on swipe up
-                    console.log("PRESS", swipeAction)
                     if(swipeAction) {
-                        if(swipeAction.includes("https")) {
-                            Linking.openURL(swipeAction)
-                        }
-                        else if(swipeAction.includes(".pdf")) {
+                        console.log(swipeAction)
+                        if(swipeAction.includes(".pdf")) {
                             const fileByPath = swipeAction.split("/")
                             const fileName = fileByPath[fileByPath.length-1]
-                            console.log(fileName)
-                            const { uri: localUri } = await FileSystem.downloadAsync(swipeAction, FileSystem.documentDirectory + "download.pdf");
-                            console.log(localUri)
+                            downloadFile(swipeAction)
+                            //const { uri: localUri } = await FileSystem.downloadAsync(swipeAction, FileSystem.documentDirectory + "download.pdf");
+                            //console.log(localUri)
+                        }
+                        else if(swipeAction.includes("https")) {
+                            Linking.openURL(swipeAction)
                         }
                         else {
                             navigation.navigate(swipeAction);
@@ -75,7 +123,7 @@ function Lesson(props) {
     return (<>
         <StoryList 
             data={lessons}
-            duration={500}
+            duration={5}
             unPressedBorderColor={"red"}
             pressedBorderColor={"grey"}
             avatarSize={80}

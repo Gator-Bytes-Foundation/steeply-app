@@ -1,5 +1,11 @@
+import React from 'react';
 import {Asset} from 'expo-asset';
-import { getStories } from '../story.helper';
+import { getStories, LinkBtn } from '../story.helper';
+import { StyleSheet } from "react-native";
+import { Link, View, Image, Box, Text, Button } from "native-base";
+import { lilac, cyan, darkBlue } from '../../../helpers/colors';
+import { Dimensions } from 'react-native'
+const windowWidth = Dimensions.get('window').width
 
 const imgs = [
     Asset.fromModule(require('../../../images/stories/diet/1.gif')).uri,
@@ -56,12 +62,37 @@ const imgs = [
     Asset.fromModule(require('../../../images/stories/diet/51.jpg')).uri,
 ]
 
+const styles = StyleSheet.create({
+    purpBtn: {
+        padding: 2,
+        width: 120,
+        color: lilac,
+        backgroundColor: "rgba(0,0,0,0)",
+        borderRadius: 5,
+        borderWidth: 5,
+        borderColor: lilac
+    },
+    blueBtn: {
+        padding: 5,
+        width: 200,
+        backgroundColor: darkBlue
+    },
+    cyanBtn: {
+        padding: 5,
+        width: 200,
+        backgroundColor: cyan
+    }
+});
+
 const interactions = {
     3: { // what do i eat
         swipe: "https://www.hsph.harvard.edu/nutritionsource/kids-healthy-eating-plate/",
     },
     14: { // making eating fun
-        swipe: "https://www.amazon.com/Fred-DINNER-WINNER-Dinner-Outer/dp/B07PP49SZ8/ref=sr_1_3?crid=1F5I8GCH26R4H&keywords=space%2Bgame%2Bboard%2Bplate&qid=1683481515&sprefix=space%2Bgame%2Bboard%2Bplat%2Caps%2C96&sr=8-3&th=1"
+        swipe: "https://www.amazon.com/Fred-DINNER-WINNER-Dinner-Outer/dp/B07PP49SZ8/ref=sr_1_3?crid=1F5I8GCH26R4H&keywords=space%2Bgame%2Bboard%2Bplate&qid=1683481515&sprefix=space%2Bgame%2Bboard%2Bplat%2Caps%2C96&sr=8-3&th=1",
+        component: <View style={{position: "absolute", top: 625, left: 0, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <LinkBtn link={"https://www.amazon.com/Fred-DINNER-WINNER-Dinner-Outer/dp/B07PP49SZ8/ref=sr_1_3?crid=1F5I8GCH26R4H&keywords=space%2Bgame%2Bboard%2Bplate&qid=1683481515&sprefix=space%2Bgame%2Bboard%2Bplat%2Caps%2C96&sr=8-3&th=1"} styles={styles.purpBtn} />   
+        </View>        
     },
     16: { // master plating examples
         swipe: "https://tasty.co/article/hannahloewentheil/20-adorable-food-creations-thatll-get-kids-excited-for",
@@ -70,13 +101,22 @@ const interactions = {
         swipe: "https://www.cancer.net/coping-with-cancer/physical-emotional-and-social-effects-cancer/managing-physical-side-effects/weight-gain",
     },
     48: {
-        swipe: "https://www.mealtrain.com"
+        swipe: "https://www.mealtrain.com",
+        component: <View style={{position: "absolute", top: 550, left: 50, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <LinkBtn link={"https://www.mealtrain.com"} styles={styles.blueBtn} />    
+        </View>  
     },
     49: {
-        swipe: "https://www.mealime.com"
+        swipe: "https://www.mealime.com",
+        component: <View style={{position: "absolute", top: 550, left: 50, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <LinkBtn link={"https://www.mealtrain.com"} styles={styles.cyanBtn} /> 
+        </View>  
     },
     50: {
-        swipe: "https://lifesum.com"
+        swipe: "https://lifesum.com",
+        component: <View style={{position: "absolute", top: 525, left: 50, width: windowWidth, display: "flex", justifyContent: "center"}} zIndex={999} elevation={999}>
+            <LinkBtn link={"https://lifesum.com"} styles={styles.blueBtn} />    
+        </View>  
     }
 }
 
@@ -112,11 +152,13 @@ export const sections = [
     },
     {
         index: 35,
-        title: "Appetite"
+        title: "Appetite",
+        stories: getDietStories(35,47)
     },
     {
         index: 47,
-        title: "Meal Apps"
+        title: "Meal Apps",
+        stories: getDietStories(47,51)
     },
     {
         index: 51,
