@@ -1,5 +1,6 @@
 //import Title from './Title';
 import React, { useState, useEffect } from "react";
+import { Link } from "native-base";
 import styled from 'styled-components/native'
 import { Box, Center, Container, ScrollView, Flex, HStack, Column, Text } from "native-base";
 
@@ -17,7 +18,7 @@ const ReferenceView=styled.View`
 export default function References() {
     return (
         <ReferenceView>
-            <Text>References go here</Text>
+            <Link href="https://steeply.org/references.html">References</Link>
         </ReferenceView>
     );
 }

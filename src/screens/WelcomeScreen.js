@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { Link, Center } from "native-base";
 import styled from 'styled-components/native'
 
 
@@ -24,13 +25,15 @@ const WelcomeScreen = ({ navigation }) => {
                 <TouchableOpacity style={styles.authButton1} onPress={() => navigation.navigate("Menu")}>
                     <ButtonText style={{ fontFamily: 'MoonLight', fontSize: 20 }}>Steep In</ButtonText>
                 </TouchableOpacity>
-
                 <TouchableOpacity style={styles.authButton2} onPress={() => navigation.navigate("OnBoard")}>
                     <ButtonText white>About Steeply</ButtonText>
                 </TouchableOpacity>
-            </View>
-            <View>
-                <Text style={styles.subText}>for Jacquilne, Chris, Marlene, & Cameron, Thank you </Text>
+                <Center>
+                    <Text marginTop={30} style={styles.subText}>
+                        for Jacquilne, Chris, Marlene, & Cameron, Thank you 
+                    </Text>
+                    <Link href="https://steeply.org/references.html">References</Link>
+                </Center>
             </View>
         </View>
     );
@@ -49,10 +52,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         maxWidth: "100%",
-        height: "60%",
+        height: "50%",
         paddingTop: 40
     },
-
     image: {
         resizeMode:'contain',
         maxWidth:"90%",
@@ -66,22 +68,21 @@ const styles = StyleSheet.create({
     },
     buttonGroup: {
         width: "88%",
-        height: "35%",
         alignItems: "center",
     },
-
     header1: {
         fontFamily: "TrendaLight",
         fontSize: 50
     },
-
     header2: {
         fontFamily: "TrendaLight",
         fontSize: 25,
     },
     subText: {
+        margin: 30,
         fontFamily: "TrendaLight",
         fontSize: 12,
+        textAlign: "center",
     },
 
     authButton1: {

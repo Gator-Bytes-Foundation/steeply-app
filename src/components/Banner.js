@@ -88,7 +88,7 @@ function Banner(props) {
         keyExtractor={item => item.id}
       />
       */}
-        <Link href="steeply.org/references.html">content references</Link>
+        <Link href="steeply.org/references.html" mt={20} isExternal>Content References</Link>
         </Center>                          
     </>);
 }
