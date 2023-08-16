@@ -22,7 +22,7 @@ const SymptomScreen = (props) => {
 
     return (
         <NavyStack w="100%" h="100%">
-          <Banner banners={slides} header="Side Effects & Cancer" headerIcon={require("../../images/symptom.png")} fontColor={navy} circleBg="#f1f0f0" titleOffset={28}/>
+          <Banner banners={slides} header="Side Effects & Cancer" headerIcon={require("../../images/symptom.png")} fontColor={navy} circleBg="#f1f0f0" titleOffset={38}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}>
           </Lesson>   
         </NavyStack>

@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
-//import styledTypes from '@types/styled-components'
+import React from "react";
 import styled from 'styled-components/native'
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, View, Image, useWindowDimensions, FlatList } from "react-native";
-import { Button, Flex, Link, Box, Container, Circle,
-    Text,
-    Center
-  } from "native-base";
+import { Button, Flex, Link, Circle, Text, Center } from "native-base";
 import CurvedText from "./CurvedText";
 
-const BackButton=styled(Button)`
-  position:absolute;
-  left:15px; 
-  top:15px; 
-  z-index:999;
-`
 const CircleText=styled(Text)`
     font-size: 20px;
     margin-top:10px;
@@ -29,6 +19,28 @@ function Banner(props) {
     const circleHeight = dimenHeight * 0.4;
     const circleWidth = dimenWidth * 0.8; 
     
+    const BackButton=styled(Button)`
+      position:absolute;
+      left:15px; 
+      top:16px; 
+      backgroundColor: white;
+      paddingRight: 15px;
+      paddingLeft: 15px;
+      border: solid 2px ${props.fontColor};
+      z-index:1;
+    `
+
+    const ReferenceLink=styled(Link)`
+      position:absolute;
+      top:16px; 
+      right:15px; 
+      backgroundColor: white;
+      padding: 10px;
+      borderRadius: 5px;
+      border: solid 2px ${props.fontColor};
+      z-index:1;
+    `
+
     const BigOleCircle=styled(Circle)`
         margin:0px; 
         display:flex;
@@ -40,10 +52,10 @@ function Banner(props) {
     ` 
     const HeadTitle=styled(Center)`
         position:relative;
+        color: ${props.fontColor} !important;
         margin-bottom:0px;
         font-size:80px !important;
-        color: ${props.fontColor} !important;
-        padding-top:0px; 
+        padding-top:12px; 
         width:100%;
     `
     const BannerIcon=styled(Image)`
@@ -69,26 +81,28 @@ function Banner(props) {
       ];
        
     return (<>
-        <Center>
-            <BackButton onPress={() => navigation.navigate("Menu")}>Back</BackButton>
-            <HeadTitle>
-                <CurvedText title={props.header} color={'white'} offset={props.titleOffset}/>
-            </HeadTitle>
-            <Flex>
-              <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleBg} >
-                <CircleText color={"black"}>{props.banners[0].info}</CircleText>
-                {props.headerIcon ? <BannerIcon style={{marginBottom:-100 }} source={props.headerIcon}/> : ''}
-              </BigOleCircle>
-            </Flex>
-    {/*<FlatList
-        data={DATA}
-        renderItem={({item}) => (
-            <></>
-        )}
-        keyExtractor={item => item.id}
-      />
-      */}
-        <Link href="steeply.org/references.html" mt={20} isExternal>Content References</Link>
+        <Center style={{position:"relative"}}>
+            <BackButton onPress={() => navigation.navigate("Menu")} _text={{color: props.fontColor, fontWeight: "bold"}}>Back</BackButton>
+            <ReferenceLink href="steeply.org/references.html" _text={{textDecoration:"none", fontWeight: "bold", color: props.fontColor}} isExternal>
+              Content References
+            </ReferenceLink>
+          <HeadTitle>
+              <CurvedText title={props.header} color={'white'} offset={props.titleOffset}/>
+          </HeadTitle>
+          <Flex>
+            <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleBg} >
+              <CircleText color={"black"}>{props.banners[0].info}</CircleText>
+              {props.headerIcon ? <BannerIcon style={{marginBottom:-100 }} source={props.headerIcon}/> : ''}
+            </BigOleCircle>
+          </Flex>
+          {/*<FlatList
+              data={DATA}
+              renderItem={({item}) => (
+                  <></>
+              )}
+              keyExtractor={item => item.id}
+            />
+            */}
         </Center>                          
     </>);
 }
