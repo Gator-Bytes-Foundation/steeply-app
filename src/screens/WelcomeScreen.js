@@ -1,14 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
-import { Link, Center } from "native-base";
+import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
+import { Link, Center, Text } from "native-base";
 import styled from 'styled-components/native'
 
 
 const ButtonText=styled.Text`
-    font-size:20px;
-    text-align:center;
-    color:${props=>props.white?"white":"black"};
-    fontSize: 20px;
+    color: ${props=>props.white?"white":"#095997"};
+    font-size: 21px;
+    fontFamily: 'MoonBold';
+    text-align: center;
 `
 
 
@@ -16,20 +16,24 @@ const WelcomeScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.imageContainer}>
+            <Center style={styles.imageContainer} mb={4}>
                 <Image style={styles.image} source={require("../images/welcome.png")} />
-            </View>
-            <Text style={styles.header2}>A family guide</Text>
-            <Text style={[styles.header2,styles.mb1]}>for battling cancer</Text>
-            <View style={styles.buttonGroup}>
-                <TouchableOpacity style={styles.authButton1} onPress={() => navigation.navigate("Menu")}>
-                    <ButtonText style={{ fontFamily: 'MoonLight', fontSize: 20 }}>Steep In</ButtonText>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.authButton2} onPress={() => navigation.navigate("OnBoard")}>
-                    <ButtonText white>About Steeply</ButtonText>
-                </TouchableOpacity>
+            </Center>
+            <View style={styles.contentContainer}>
+                <Center >
+                    <Text style={styles.header} my={2}>A family guide</Text>
+                    <Text style={styles.header} my={2}>for battling cancer</Text>
+                </Center>
+                <View style={styles.buttonGroup}>
+                    <TouchableOpacity style={styles.authButton1} onPress={() => navigation.navigate("Menu")}>
+                        <ButtonText >Steep In</ButtonText>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.authButton2} onPress={() => navigation.navigate("OnBoard")}>
+                        <ButtonText white>About Steeply</ButtonText>
+                    </TouchableOpacity>
+                </View>
                 <Center>
-                    <Text marginTop={30} style={styles.subText}>
+                    <Text mt={10} style={styles.subText}>
                         for Jacquilne, Chris, Marlene, & Cameron, Thank you 
                     </Text>
                     <Link href="https://steeply.org/references.html">References</Link>
@@ -45,43 +49,39 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        alignItems: "center",
     },
 
     imageContainer: {
-        justifyContent: "center",
-        alignItems: "center",
         maxWidth: "100%",
-        height: "50%",
+        flexBasis: 300,
+        flexGrow: 0,
+        flexShrink: 1,
         paddingTop: 40
     },
     image: {
         resizeMode:'contain',
-        maxWidth:"90%",
-        minWidth: 300,
-        minHeight: 400,
-        marginTop: 25
+        maxWidth: "80%",
+        marginTop: 15
     },
 
-    mb1: {
-        marginBottom: 10
-    },
-    buttonGroup: {
-        width: "88%",
+    contentContainer: {
+        flexBasis: "auto",
+        flexGrow: 1,
+        flexShrink: 0,
         alignItems: "center",
     },
-    header1: {
-        fontFamily: "TrendaLight",
-        fontSize: 50
+
+    buttonGroup: {
     },
-    header2: {
+    header: {
         fontFamily: "TrendaLight",
         fontSize: 25,
+        lineHeight: 25,
     },
     subText: {
         margin: 30,
         fontFamily: "TrendaLight",
-        fontSize: 12,
+        fontSize: 14,
         textAlign: "center",
     },
 

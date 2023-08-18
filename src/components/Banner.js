@@ -82,10 +82,10 @@ function Banner(props) {
        
     return (<>
         <Center style={{position:"relative"}}>
-            <BackButton onPress={() => navigation.navigate("Menu")} _text={{color: props.fontColor, fontWeight: "bold"}}>Back</BackButton>
-            <ReferenceLink href="steeply.org/references.html" _text={{textDecoration:"none", fontWeight: "bold", color: props.fontColor}} isExternal>
-              Content References
-            </ReferenceLink>
+          <BackButton onPress={() => navigation.navigate("Menu")} _text={{color: props.fontColor, fontWeight: "bold"}}>Back</BackButton>
+          <ReferenceLink href="https://steeply.org/references.html" _text={{textDecoration:"none", fontWeight: "bold", color: props.fontColor}}>
+            Content References
+          </ReferenceLink>
           <HeadTitle>
               <CurvedText title={props.header} color={'white'} offset={props.titleOffset}/>
           </HeadTitle>
