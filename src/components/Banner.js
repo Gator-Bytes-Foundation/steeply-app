@@ -79,11 +79,11 @@ function Banner(props) {
           title: 'Third Item',
         },
       ];
-       
+    console.log(props.type)
     return (<>
         <Center style={{position:"relative"}}>
           <BackButton onPress={() => navigation.navigate("Menu")} _text={{color: props.fontColor, fontWeight: "bold"}}>Back</BackButton>
-          <ReferenceLink href="https://steeply.org/references.html" _text={{textDecoration:"none", fontWeight: "bold", color: props.fontColor}}>
+          <ReferenceLink href={`https://steeply.org/${props.type}_references.html`} _text={{textDecoration:"none", fontWeight: "bold", color: props.fontColor}}>
             Content References
           </ReferenceLink>
           <HeadTitle>

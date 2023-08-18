@@ -20,7 +20,7 @@ const ExerciseScreen = (props) => {
 
     return (
         <BlueView w="100%" h="100%">
-          <Banner header="Exercise" banners={slides} headerIcon={require("../../images/exercise.png")} fontColor={blue} circleBg={gray} titleOffset={125} {...props}/>
+          <Banner header="Exercise" banners={slides} headerIcon={require("../../images/exercise.png")} fontColor={blue} circleBg={gray} titleOffset={125} type="exercise" {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs}/>
         </BlueView>
     );

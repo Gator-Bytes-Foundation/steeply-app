@@ -135,7 +135,7 @@ function Lesson(props) {
                 code is updated or decide to pass in a common component for each section
             */
             renderTextComponent={({item, onPress}) => 
-            <View elevation={9999999} zIndex={999999}>
+            <View elevation={99999} zIndex={99999}>
                 {item.customProps?.component ? 
                     <>{item.customProps.component}</>
                     : <></>                           

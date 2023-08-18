@@ -21,7 +21,7 @@ const SocialScreen = (props) => {
 
     return (    
         <OrangeStack w="100%" h="100%">
-          <Banner banners={slides} header="Stay Connected" headerIcon={require("../../images/social.png")} fontColor={blue} circleBg="#f1f0f0" titleOffset={75} {...props}/>
+          <Banner banners={slides} header="Stay Connected" headerIcon={require("../../images/social.png")} fontColor={blue} circleBg="#f1f0f0" titleOffset={75} type="social" {...props}/>
           <Lesson lessonSections={sections} storyImgs={storyImgs} />
         </OrangeStack>
     );
