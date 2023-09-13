@@ -1,12 +1,12 @@
-import React, { useRef, useState, useEffect } from "react";
-import { useWindowDimensions, StyleSheet,Text,View,Animated,TouchableOpacity,Image } from "react-native";
-import { Box, Center, Container, Flex, HStack, Column, VStack } from "native-base";
+import React from "react";
+import { useWindowDimensions, StyleSheet } from "react-native";
+import { VStack } from "native-base";
 import Lesson from "../../components/Lesson";
 import Banner from "../../components/Banner";
 import styled from 'styled-components/native'
 import storyImgs, { sections, slides } from "./stories/diet.stories";
 import { green, teal } from "../../helpers/colors";
-const orange = "#fe900c;"
+
 const GreenStack=styled(VStack)`
     background-color: ${green}
     color: ${teal} 
@@ -28,8 +28,7 @@ const DietScreen = (props) => {
     return (
         <GreenStack w="100%" h="100%">
           <Banner banners={slides} header="Nutrition & Diet" headerIcon={require("../../images/diet.png")} fontColor={teal} circleBg="#f0fff0" titleOffset={80} type="diet"/>
-          <Lesson lessonSections={sections} storyImgs={storyImgs}>
-          </Lesson>   
+          <Lesson lessonSections={sections} storyImgs={storyImgs} />
         </GreenStack>
     );
 

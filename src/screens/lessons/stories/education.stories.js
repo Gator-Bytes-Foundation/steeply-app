@@ -91,13 +91,13 @@ export const sections = [
 ];
 export const slides = [
     {
-        info: "Being active every day helps you stay strong throughout treatment and in the future!",
-        img:null,
+        info: "School communities are the main part of a child's daily life.",
+        img: null,
         link: null,
     },
     {
-        info: "Being active during treatment can...",
-        img:null,
+        info: "Participation in school during treatment creates a sense of normalcy and routine!",
+        img: null,
         link: null
     }
 ]   

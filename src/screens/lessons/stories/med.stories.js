@@ -160,17 +160,17 @@ export const sections = [
 export const slides = [
     {
         info: "Medications can quickly get overwhelming throughout treatments.",
-        img:null,
+        img: null,
         link: null,
     },
     {
-        info: "Managing symptoms, organizing bottles, and taking pills on time can be challenging. ",
-        img:null,
+        info: "Managing symptoms, organizing bottles, and taking pills on time can be challenging.",
+        img: null,
         link: null
     },
     {
-        info: "However, understanding and managing your meds well.",
-        img:null,
+        info: "Understanding your meds lowers stress & keeps you safe from missing doses.",
+        img: null,
         link: null
     }
 ]   

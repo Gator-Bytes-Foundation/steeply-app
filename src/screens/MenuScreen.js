@@ -248,11 +248,12 @@ const styles = StyleSheet.create({
     lessonImg: {
         alignSelf: "flex-end",
         width:"100%",
-        marginTop:0,
         minHeight: LESSON_HEIGHT,
         height:"100%",
         resizeMode: "contain",
-        margin:20,
+        marginTop:25,
+        marginLeft:20,
+        marginRight:10,
     },
     button: {
         width: 100,

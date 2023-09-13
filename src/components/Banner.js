@@ -62,7 +62,7 @@ function Banner(props) {
         position:absolute;
         bottom:0px; 
         minHeight:75px;
-        width:75px;
+        width:115px;
         resizeMode:contain;
     `
     const DATA = [
@@ -92,7 +92,7 @@ function Banner(props) {
           <Flex>
             <BigOleCircle w={circleWidth} h={circleWidth} bg={props.circleBg} >
               <CircleText color={"black"}>{props.banners[0].info}</CircleText>
-              {props.headerIcon ? <BannerIcon style={{marginBottom:-100 }} source={props.headerIcon}/> : ''}
+              {props.headerIcon ? <BannerIcon style={{marginBottom:-220 }} source={props.headerIcon}/> : ''}
             </BigOleCircle>
           </Flex>
           {/*<FlatList

@@ -3,14 +3,12 @@ import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { Link, Center, Text } from "native-base";
 import styled from 'styled-components/native'
 
-
 const ButtonText=styled.Text`
     color: ${props=>props.white?"white":"#095997"};
     font-size: 21px;
     fontFamily: 'MoonBold';
     text-align: center;
 `
-
 
 const WelcomeScreen = ({ navigation }) => {
 
@@ -53,15 +51,15 @@ const styles = StyleSheet.create({
 
     imageContainer: {
         maxWidth: "100%",
-        flexBasis: 300,
+        flexBasis: 310,
         flexGrow: 0,
         flexShrink: 1,
         paddingTop: 40
     },
     image: {
         resizeMode:'contain',
-        maxWidth: "80%",
-        marginTop: 15
+        maxWidth: "75%",
+        margin: 10
     },
 
     contentContainer: {

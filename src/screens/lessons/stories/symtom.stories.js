@@ -148,7 +148,7 @@ export const sections = [
 ];
 export const slides = [
     {
-        info: "Being  active every day helps you stay strong throughout treatment and in the future!",
+        info: "The more you learn about the side effects, the more you can minimize symptoms and maximize quality of life!",
         img:null,
         link: null,
     },

@@ -167,7 +167,7 @@ export const sections = [
 ];
 export const slides = [
     {
-        info: "Being  active every day helps you stay strong throughout treatment and in the future!",
+        info: "Eating a balanced diet can make great impacts on how you feel as you go through treatments!",
         img:null,
         link: null,
     },
