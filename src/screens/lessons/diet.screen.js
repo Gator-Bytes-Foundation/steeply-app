@@ -27,7 +27,7 @@ const DietScreen = (props) => {
 
     return (
         <GreenStack w="100%" h="100%">
-          <Banner banners={slides} header="Nutrition & Diet" headerIcon={require("../../images/diet.png")} fontColor={teal} circleBg="#f0fff0" titleOffset={80} type="diet"/>
+          <Banner banners={slides} header="Nutrition & Diet" headerIcon={require("../../images/diet.png")} fontColor={green} circleBg="#e1e8ed" titleOffset={80} type="diet"/>
           <Lesson lessonSections={sections} storyImgs={storyImgs} />
         </GreenStack>
     );

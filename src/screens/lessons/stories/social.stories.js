@@ -252,7 +252,7 @@ export const sections = [
 ];
 export const slides = [
     {
-        info: "Being  active every day helps you stay strong throughout treatment and in the future!",
+        info: "Making intentional steps to connect with others, keeps you from feeling alone throughout this journey",
         img:null,
         link: null,
     },

@@ -11,6 +11,6 @@ export const purple = "#4241a4";
 export const lilac = "#9cb4ff";
 export const coral = "#FE6F40";
 export const darkOrange = "#f69031";
-export const green = "#20a360";
+export const green = "#35643a";
 export const gray = "#eeeeef";
 export const pink = "#F88379";
