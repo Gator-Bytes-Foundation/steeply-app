@@ -2,7 +2,7 @@
   "expo": {
     "name": "steeply-app",
     "icon": "./assets/icon.png",
-    "version": "1.0.2",
+    "version": "1.0.21",
     "slug": "steeply-app",
     "orientation": "portrait",
     "updates": {
@@ -14,7 +14,7 @@
       "backgroundColor": "#ffffff"
     },
     "android": {
-      "versionCode": 20,
+      "versionCode": 21,
       "package": "com.lcundiff.steeply"
     },
     "web": {
